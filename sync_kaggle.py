@@ -6,19 +6,38 @@ Usage:
     python sync_kaggle.py download hemanthreganti/winner-trajectory-reward-grpo-training
     python sync_kaggle.py push .
 """
-import subprocess
 import sys
 import os
+
+try:
+    from kaggle import api
+    from kaggle.api_client import ApiClient
+except ImportError:
+    print("❌ Error: Kaggle package not installed")
+    print("Install with: python -m pip install kaggle")
+    sys.exit(1)
 
 def download_notebook(notebook_name):
     """Download notebook from Kaggle"""
     print(f"📥 Downloading notebook: {notebook_name}")
-    cmd = f"kaggle kernels pull {notebook_name}"
     try:
-        subprocess.run(cmd, shell=True, check=True)
+        # Authenticate
+        api.authenticate()
+        
+        # Parse username/kernel-slug
+        parts = notebook_name.split('/')
+        if len(parts) != 2:
+            print("❌ Error: Notebook name should be in format: username/notebook-name")
+            sys.exit(1)
+        
+        username, kernel_slug = parts
+        api.kernels_pull(username, kernel_slug)
         print(f"✅ Downloaded: {notebook_name}")
-    except subprocess.CalledProcessError as e:
+    except Exception as e:
         print(f"❌ Error downloading notebook: {e}")
+        print("\n💡 Make sure you have configured your Kaggle credentials:")
+        print("   1. Download kaggle.json from https://www.kaggle.com/settings")
+        print(f"   2. Place it in: {os.path.expanduser('~/.kaggle/kaggle.json')}")
         sys.exit(1)
 
 def push_notebook(notebook_path):
@@ -31,14 +50,23 @@ def push_notebook(notebook_path):
         print(f"⚠️  Warning: kernel-metadata.json not found in {notebook_path}")
         print("Creating a template kernel-metadata.json file...")
         create_metadata_template(notebook_path)
+        print("⚠️  Please edit kernel-metadata.json with your notebook details before pushing!")
+        return
     
-    cmd = f"kaggle kernels push -p {notebook_path}"
     try:
-        subprocess.run(cmd, shell=True, check=True)
+        # Authenticate
+        api.authenticate()
+        
+        # Push kernel
+        api.kernels_push(notebook_path)
         print(f"✅ Pushed: {notebook_path}")
-    except subprocess.CalledProcessError as e:
+    except Exception as e:
         print(f"❌ Error pushing notebook: {e}")
+        print("\n💡 Make sure:")
+        print("   1. kernel-metadata.json is properly configured")
+        print("   2. You have Kaggle credentials set up")
         sys.exit(1)
+
 
 def create_metadata_template(notebook_path):
     """Create a template kernel-metadata.json file"""
@@ -65,12 +93,29 @@ def create_metadata_template(notebook_path):
 def list_notebooks():
     """List user's Kaggle notebooks"""
     print("📋 Listing your Kaggle notebooks...")
-    cmd = "kaggle kernels list --mine"
     try:
-        subprocess.run(cmd, shell=True, check=True)
-    except subprocess.CalledProcessError as e:
+        # Authenticate
+        api.authenticate()
+        
+        # List kernels
+        kernels = api.kernels_list(mine=True)
+        
+        if not kernels:
+            print("No notebooks found.")
+            return
+        
+        print("\n{:<50} {:<15} {:<10}".format("TITLE", "AUTHOR", "LANGUAGE"))
+        print("-" * 75)
+        for kernel in kernels:
+            title = kernel.title[:47] + "..." if len(kernel.title) > 50 else kernel.title
+            print("{:<50} {:<15} {:<10}".format(title, kernel.author, kernel.language))
+        
+        print(f"\nTotal: {len(kernels)} notebooks")
+    except Exception as e:
         print(f"❌ Error listing notebooks: {e}")
+        print("\n💡 Make sure you have configured your Kaggle credentials")
         sys.exit(1)
+
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
