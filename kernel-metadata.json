@@ -1,0 +1,15 @@
+{
+    "id": "hemanthreganti/winner-trajectory-reward-grpo-training",
+    "title": "🏆 WINNER - Trajectory Reward GRPO Training",
+    "code_file": "winner_fixed.ipynb",
+    "language": "python",
+    "kernel_type": "notebook",
+    "is_private": false,
+    "enable_gpu": true,
+    "enable_internet": true,
+    "dataset_sources": [],
+    "competition_sources": [
+        "gemma-language"
+    ],
+    "kernel_sources": []
+}
