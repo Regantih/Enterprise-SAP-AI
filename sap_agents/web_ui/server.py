@@ -117,6 +117,20 @@ class AgentHandler(http.server.SimpleHTTPRequestHandler):
             except Exception as e:
                 self._set_headers(500)
                 self.wfile.write(json.dumps({"error": str(e)}).encode())
+        
+        elif self.path == '/api/feedback':
+            content_length = int(self.headers['Content-Length'])
+            post_data = self.rfile.read(content_length)
+            feedback_data = json.loads(post_data.decode('utf-8'))
+            
+            score = feedback_data.get('score')
+            msg_id = feedback_data.get('messageId')
+            
+            print(f"   [Feedback] 🗣️ User Feedback Received: {'👍' if score > 0 else '👎'} (ID: {msg_id})")
+            
+            self._set_headers(200)
+            self.wfile.write(json.dumps({"status": "success"}).encode())
+            
         else:
             self.send_response(404)
             self.end_headers()

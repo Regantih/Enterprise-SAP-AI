@@ -698,5 +698,33 @@
         "step": "OUTCOME",
         "detail": "Response generated",
         "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764542694.558216,
+        "transaction_id": "2af9ec2b-5753-4c2e-a80a-02c0ec0ddbb8",
+        "step": "TRANSACTION",
+        "detail": "New Request: Check demand forecast for product IBP-4001",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764542694.5589614,
+        "transaction_id": "2af9ec2b-5753-4c2e-a80a-02c0ec0ddbb8",
+        "step": "DECISION",
+        "detail": "Routed to SupplyChainAgent",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764542694.5594494,
+        "transaction_id": "2af9ec2b-5753-4c2e-a80a-02c0ec0ddbb8",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764542694.5599527,
+        "transaction_id": "2af9ec2b-5753-4c2e-a80a-02c0ec0ddbb8",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
     }
 ]

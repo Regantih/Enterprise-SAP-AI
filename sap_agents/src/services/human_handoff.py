@@ -71,12 +71,25 @@ class ConfidenceEngine:
         """
         icon = "✅" if not audit["requires_human_review"] else "⚠️"
         
+        # Generate a unique ID for this feedback block
+        import uuid
+        msg_id = str(uuid.uuid4())
+        
         footer = f"""
----
-**Audit Trail**:
-- **Confidence**: {audit['probability_of_accuracy']} {icon}
-- **Review Status**: {'Auto-Approved' if not audit['requires_human_review'] else 'Flagged for Review'}
-*(Was this helpful? 👍 / 👎)*
+<hr class="my-3 border-gray-600">
+<div class="text-xs text-gray-400" id="feedback-{msg_id}">
+    <div class="flex justify-between items-center">
+        <div>
+            <span class="font-bold text-gray-300">Confidence:</span> {audit['probability_of_accuracy']} {icon}
+            <span class="mx-2">|</span>
+            <span class="font-bold text-gray-300">Status:</span> {'Auto-Approved' if not audit['requires_human_review'] else 'Flagged'}
+        </div>
+        <div class="flex space-x-2">
+            <button onclick="sendFeedback(1, '{msg_id}')" class="hover:text-green-400 transition" title="Helpful">👍</button>
+            <button onclick="sendFeedback(-1, '{msg_id}')" class="hover:text-red-400 transition" title="Not Helpful">👎</button>
+        </div>
+    </div>
+</div>
 """
         return response + footer
 
