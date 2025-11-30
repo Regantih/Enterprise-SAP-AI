@@ -1,0 +1,325 @@
+<title>SAP Joule Agent Manager</title>
+<style>
+    :root {
+        --sap-blue: #0a6ed1;
+        --sap-dark: #1d2d3e;
+        --sap-bg: #f5f7fa;
+        --sap-text: #32363a;
+        --agent-sales: #d04343;
+        /* Red */
+        --agent-finance: #2b7d2b;
+        /* Green */
+        --agent-hr: #e09600;
+        /* Orange */
+        --agent-procure: #8f5fbd;
+        /* Purple */
+    }
+
+    body {
+        font-family: '72', 'Segoe UI', sans-serif;
+        margin: 0;
+        display: flex;
+        height: 100vh;
+        background-color: var(--sap-bg);
+        color: var(--sap-text);
+        flex-direction: column;
+    }
+
+    .header {
+        background-color: var(--sap-dark);
+        color: white;
+        padding: 15px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .header h1 {
+        margin: 0;
+        font-size: 1.4rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .status-indicators {
+        display: flex;
+        gap: 15px;
+        font-size: 0.85rem;
+    }
+
+    .status-item {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        opacity: 0.8;
+    }
+
+    .status-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: #0f0;
+        box-shadow: 0 0 5px #0f0;
+    }
+
+    .main-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        max-width: 1000px;
+        margin: 0 auto;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .chat-container {
+        flex: 1;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        padding: 20px;
+        overflow-y: auto;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .message {
+        max-width: 80%;
+        padding: 12px 16px;
+        border-radius: 12px;
+        line-height: 1.5;
+        position: relative;
+    }
+
+    .user-msg {
+        align-self: flex-end;
+        background-color: #e8f3ff;
+        color: var(--sap-dark);
+        border-bottom-right-radius: 2px;
+    }
+
+    .agent-msg {
+        align-self: flex-start;
+        background-color: #f0f0f0;
+        color: var(--sap-text);
+        border-bottom-left-radius: 2px;
+        white-space: pre-wrap;
+        border-left: 4px solid var(--sap-blue);
+        /* Default */
+    }
+
+    /* Agent Specific Styles */
+    .agent-msg.sales {
+        border-left-color: var(--agent-sales);
+        background-color: #fff0f0;
+    }
+
+    .agent-msg.finance {
+        border-left-color: var(--agent-finance);
+        background-color: #f0fff0;
+    }
+
+    .agent-msg.hr {
+        border-left-color: var(--agent-hr);
+        background-color: #fff8e0;
+    }
+
+    .agent-msg.procure {
+        border-left-color: var(--agent-procure);
+        background-color: #f8f0ff;
+    }
+
+    .agent-label {
+        font-size: 0.75rem;
+        font-weight: bold;
+        margin-bottom: 4px;
+        display: block;
+        text-transform: uppercase;
+        color: #666;
+    }
+
+    .input-area {
+        display: flex;
+        gap: 10px;
+    }
+
+    input[type="text"] {
+        flex: 1;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 1rem;
+    }
+
+    button.send-btn {
+        padding: 12px 24px;
+        background-color: var(--sap-blue);
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .trace-btn {
+        background: none;
+        border: 1px solid #ccc;
+        padding: 4px 8px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 0.8rem;
+        margin-top: 5px;
+        color: #666;
+    }
+
+    .trace-panel {
+        display: none;
+        background: #333;
+        color: #0f0;
+        padding: 10px;
+        border-radius: 4px;
+        font-family: monospace;
+        font-size: 0.8rem;
+        margin-top: 10px;
+        white-space: pre-wrap;
+    }
+</style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4M12 8h.01"></path>
+            </svg>
+            SAP Joule Agent Manager
+        </h1>
+        <div class="status-indicators">
+            <div class="status-item">
+                <div class="status-dot" style="background-color: var(--agent-sales)"></div> Sales
+            </div>
+            <div class="status-item">
+                <div class="status-dot" style="background-color: var(--agent-finance)"></div> Finance
+            </div>
+            <div class="status-item">
+                <div class="status-dot" style="background-color: var(--agent-hr)"></div> HR
+            </div>
+            <div class="status-item">
+                <div class="status-dot" style="background-color: var(--agent-procure)"></div> Procurement
+            </div>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="chat-container" id="chat">
+            <div class="message agent-msg">
+                <span class="agent-label">System</span>
+                Hello. I am the Agent Manager. I orchestrate specialized agents for your enterprise.
+                <br><br>
+                <b>Available Agents:</b>
+                <ul>
+                    <li>🛒 <b>Sales:</b> Order status, creation, credit checks</li>
+                    <li>💰 <b>Finance:</b> Invoices, expenses, GL balances</li>
+                    <li>👥 <b>HR:</b> Employee info, leave requests</li>
+                    <li>📦 <b>Procurement:</b> Supplier negotiation, inventory</li>
+                </ul>
+            </div>
+        </div>
+        <div class="input-area">
+            <input type="text" id="userInput"
+                placeholder="e.g., 'Check status of SO-5001', 'Approve invoice INV-9001', 'Check leave for EMP-101'..."
+                onkeypress="handleKey(event)">
+            <button class="send-btn" onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function appendMessage(text, sender, trace = null) {
+            const chat = document.getElementById('chat');
+            const div = document.createElement('div');
+
+            // Determine Agent Type for Styling
+            let agentType = '';
+            let agentName = 'Agent Manager';
+            let cleanText = text;
+
+            if (sender === 'agent') {
+                if (text.includes('[Sales')) { agentType = 'sales'; agentName = 'Sales Agent'; }
+                else if (text.includes('[Finance')) { agentType = 'finance'; agentName = 'Finance Agent'; }
+                else if (text.includes('[HR')) { agentType = 'hr'; agentName = 'HR Agent'; }
+                else if (text.includes('[Procure')) { agentType = 'procure'; agentName = 'Procurement Agent'; }
+
+                // Optional: Strip the [AgentName]: prefix for cleaner display
+                // cleanText = text.replace(/^\[.*?\]:\s*/, ''); 
+            }
+
+            div.className = `message ${sender}-msg ${agentType}`;
+
+            if (sender === 'agent') {
+                const label = document.createElement('span');
+                label.className = 'agent-label';
+                label.textContent = agentName;
+                div.appendChild(label);
+            }
+
+            const contentSpan = document.createElement('span');
+            contentSpan.innerHTML = cleanText.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>').replace(/\n/g, '<br>'); // Simple Markdown bold & newline
+            div.appendChild(contentSpan);
+
+            if (trace) {
+                const btn = document.createElement('button');
+                btn.className = 'trace-btn';
+                btn.textContent = '🔍 Show Reasoning Trace';
+                btn.onclick = function () {
+                    const panel = this.nextElementSibling;
+                    panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+                };
+                div.appendChild(document.createElement('br'));
+                div.appendChild(btn);
+
+                const tracePanel = document.createElement('div');
+                tracePanel.className = 'trace-panel';
+                tracePanel.textContent = JSON.stringify(trace, null, 2);
+                div.appendChild(tracePanel);
+            }
+
+            chat.appendChild(div);
+            chat.scrollTop = chat.scrollHeight;
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('userInput');
+            const text = input.value.trim();
+            if (!text) return;
+
+            appendMessage(text, 'user');
+            input.value = '';
+
+            // Call Backend
+            fetch('/api/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    prompt: text
+                })
+            }).then(res => res.json())
+                .then(data => {
+                    appendMessage(data.response, 'agent', data.trace);
+                }).catch(err => {
+                    appendMessage("Error communicating with Agent Manager.", 'agent');
+                    console.error(err);
+                });
+        }
+
+        function handleKey(e) {
+            if (e.key === 'Enter') sendMessage();
+        }
+    </script>
+</body>
+
+</html>

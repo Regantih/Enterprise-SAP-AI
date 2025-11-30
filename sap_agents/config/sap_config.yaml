@@ -1,0 +1,11 @@
+default_connection:
+  type: basic_auth # or oauth
+  base_url: ${SAP_ODATA_URL}
+  verify_ssl: true
+
+agents:
+  sales_agent:
+    name: "Sales Specialist"
+    model: "gpt-4"
+    tools: ["search_sales_orders", "check_inventory"]
+    system_prompt: "You are an expert in SAP Sales and Distribution. You help users query sales orders and check stock."

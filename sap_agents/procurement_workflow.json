@@ -1,0 +1,49 @@
+{
+    "name": "Procurement Agent Workflow",
+    "nodes": [
+        {
+            "parameters": {
+                "path": "procurement-agent",
+                "responseMode": "lastNode",
+                "options": {}
+            },
+            "type": "n8n-nodes-base.webhook",
+            "typeVersion": 1,
+            "position": [
+                0,
+                0
+            ],
+            "id": "webhook-trigger",
+            "name": "Webhook"
+        },
+        {
+            "parameters": {
+                "command": "source /home/neuralspark/Documents/Antigravity/spark-lab/bin/activate && python /home/neuralspark/Documents/Antigravity/sap_agents/src/agents/procurement_agent.py --prompt \"{{$json.query}}\""
+            },
+            "type": "n8n-nodes-base.executeCommand",
+            "typeVersion": 1,
+            "position": [
+                200,
+                0
+            ],
+            "id": "execute-agent",
+            "name": "Run Agent"
+        }
+    ],
+    "connections": {
+        "Webhook": {
+            "main": [
+                [
+                    {
+                        "node": "Run Agent",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        }
+    },
+    "active": true,
+    "settings": {},
+    "versionId": "1"
+}

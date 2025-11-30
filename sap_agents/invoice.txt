@@ -1,0 +1,18 @@
+INVOICE #INV-2025-001
+Date: 2025-11-30
+Vendor: ACME Corp
+Vendor Address: 123 Coyote Lane, Desert Valley
+
+Bill To:
+Antigravity Inc.
+456 Future Way
+
+Items:
+1. Antigravity Propulsion Unit (AG-2025) - Qty: 5 - Unit Price: $5000.00 - Total: $25,000.00
+2. Flux Capacitor (FLUX-88) - Qty: 1 - Unit Price: $1500.00 - Total: $1,500.00
+
+Subtotal: $26,500.00
+Tax (10%): $2,650.00
+Total Amount: $29,150.00
+
+Payment Terms: Net 30

@@ -1,0 +1,702 @@
+[
+    {
+        "timestamp": 1764534750.4102168,
+        "transaction_id": "c3d38fa7-298d-4fc9-8f6f-6cb397d994c6",
+        "step": "TRANSACTION",
+        "detail": "New Request: Check status of SO-1001",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764534750.41033,
+        "transaction_id": "c3d38fa7-298d-4fc9-8f6f-6cb397d994c6",
+        "step": "DECISION",
+        "detail": "Routed to SalesOrderAssistant",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764534750.4103768,
+        "transaction_id": "c3d38fa7-298d-4fc9-8f6f-6cb397d994c6",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764534752.5630882,
+        "transaction_id": "c3d38fa7-298d-4fc9-8f6f-6cb397d994c6",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764534752.5632682,
+        "transaction_id": "c3d38fa7-298d-4fc9-8f6f-6cb397d994c6",
+        "step": "FEEDBACK",
+        "detail": "Rating: 1/5, Comment: Response too short and vague.",
+        "status": "REVIEW_REQUIRED"
+    },
+    {
+        "timestamp": 1764534752.5633276,
+        "transaction_id": "c3d38fa7-298d-4fc9-8f6f-6cb397d994c6",
+        "step": "EVOLUTION",
+        "detail": "System updated behavior based on feedback: 'Response too short and vague.'. New Rule: Increase response verbosity.",
+        "status": "APPLIED"
+    },
+    {
+        "timestamp": 1764535151.3969557,
+        "transaction_id": "50e290d9-332f-4fed-9131-74b902f55e5f",
+        "step": "TRANSACTION",
+        "detail": "New Request: Show me the travel policy document",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764535151.3971317,
+        "transaction_id": "50e290d9-332f-4fed-9131-74b902f55e5f",
+        "step": "DECISION",
+        "detail": "Routed to KnowledgeAgent",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764535151.3972034,
+        "transaction_id": "50e290d9-332f-4fed-9131-74b902f55e5f",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764535151.3974235,
+        "transaction_id": "50e290d9-332f-4fed-9131-74b902f55e5f",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764535151.3975155,
+        "transaction_id": "7c4377a4-dc97-4117-ad09-fefa188b9863",
+        "step": "TRANSACTION",
+        "detail": "New Request: Can I work from home?",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764535151.397629,
+        "transaction_id": "7c4377a4-dc97-4117-ad09-fefa188b9863",
+        "step": "DECISION",
+        "detail": "Routed to KnowledgeAgent",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764535151.397705,
+        "transaction_id": "7c4377a4-dc97-4117-ad09-fefa188b9863",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764535151.397835,
+        "transaction_id": "7c4377a4-dc97-4117-ad09-fefa188b9863",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764535151.397928,
+        "transaction_id": "af2cc8b2-9dc9-461b-8cd6-4c442d1a8e7c",
+        "step": "TRANSACTION",
+        "detail": "New Request: What is the password policy?",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764535151.3980508,
+        "transaction_id": "af2cc8b2-9dc9-461b-8cd6-4c442d1a8e7c",
+        "step": "DECISION",
+        "detail": "Routed to KnowledgeAgent",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764535151.3981395,
+        "transaction_id": "af2cc8b2-9dc9-461b-8cd6-4c442d1a8e7c",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764535151.3982575,
+        "transaction_id": "af2cc8b2-9dc9-461b-8cd6-4c442d1a8e7c",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764535152.357206,
+        "transaction_id": "770c9348-1585-4189-a611-cef4444647e0",
+        "step": "TRANSACTION",
+        "detail": "New Request: Analyze competitor R&D spend",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764535152.3574266,
+        "transaction_id": "770c9348-1585-4189-a611-cef4444647e0",
+        "step": "DECISION",
+        "detail": "Routed to MarketIntelligenceAgent",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764535152.3575504,
+        "transaction_id": "770c9348-1585-4189-a611-cef4444647e0",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764535152.3577938,
+        "transaction_id": "770c9348-1585-4189-a611-cef4444647e0",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764535152.3579314,
+        "transaction_id": "0233a886-ee26-43ec-9d01-da8e40b67a49",
+        "step": "TRANSACTION",
+        "detail": "New Request: What are the EV battery trends?",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764535152.3580947,
+        "transaction_id": "0233a886-ee26-43ec-9d01-da8e40b67a49",
+        "step": "DECISION",
+        "detail": "Routed to MarketIntelligenceAgent",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764535152.3582225,
+        "transaction_id": "0233a886-ee26-43ec-9d01-da8e40b67a49",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764535152.3584056,
+        "transaction_id": "0233a886-ee26-43ec-9d01-da8e40b67a49",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764535152.3585489,
+        "transaction_id": "11b038c5-fa0e-442a-8862-9b9f189c9c78",
+        "step": "TRANSACTION",
+        "detail": "New Request: How will new tariffs impact us?",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764535152.3587217,
+        "transaction_id": "11b038c5-fa0e-442a-8862-9b9f189c9c78",
+        "step": "DECISION",
+        "detail": "Routed to MarketIntelligenceAgent",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764535152.358861,
+        "transaction_id": "11b038c5-fa0e-442a-8862-9b9f189c9c78",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764535152.359033,
+        "transaction_id": "11b038c5-fa0e-442a-8862-9b9f189c9c78",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764535153.3314204,
+        "transaction_id": "819b66c3-d6b8-4448-95f5-44c28309618b",
+        "step": "TRANSACTION",
+        "detail": "New Request: Check status of SO-1001",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764535153.3316984,
+        "transaction_id": "819b66c3-d6b8-4448-95f5-44c28309618b",
+        "step": "DECISION",
+        "detail": "Routed to SalesOrderAssistant",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764535153.3318677,
+        "transaction_id": "819b66c3-d6b8-4448-95f5-44c28309618b",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764535155.368232,
+        "transaction_id": "819b66c3-d6b8-4448-95f5-44c28309618b",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764535155.368923,
+        "transaction_id": "819b66c3-d6b8-4448-95f5-44c28309618b",
+        "step": "FEEDBACK",
+        "detail": "Rating: 1/5, Comment: Response too short and vague.",
+        "status": "REVIEW_REQUIRED"
+    },
+    {
+        "timestamp": 1764535155.3693228,
+        "transaction_id": "819b66c3-d6b8-4448-95f5-44c28309618b",
+        "step": "EVOLUTION",
+        "detail": "System updated behavior based on feedback: 'Response too short and vague.'. New Rule: Increase response verbosity.",
+        "status": "APPLIED"
+    },
+    {
+        "timestamp": 1764539846.92777,
+        "transaction_id": "445f4fd2-d657-43b7-875c-14eb9e62380b",
+        "step": "TRANSACTION",
+        "detail": "New Request: hpw is my company performing ?",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764539846.9282124,
+        "transaction_id": "445f4fd2-d657-43b7-875c-14eb9e62380b",
+        "step": "DECISION",
+        "detail": "Fallback to Heuristics",
+        "status": "WARNING"
+    },
+    {
+        "timestamp": 1764539846.928436,
+        "transaction_id": "445f4fd2-d657-43b7-875c-14eb9e62380b",
+        "step": "ACTION",
+        "detail": "Executing clarify",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764539846.9286478,
+        "transaction_id": "445f4fd2-d657-43b7-875c-14eb9e62380b",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764539873.1054132,
+        "transaction_id": "ac0dcf3f-0274-4c85-9ec1-73e1c9fe48f6",
+        "step": "TRANSACTION",
+        "detail": "New Request: hpw is my company performing",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764539873.1061637,
+        "transaction_id": "ac0dcf3f-0274-4c85-9ec1-73e1c9fe48f6",
+        "step": "DECISION",
+        "detail": "Fallback to Heuristics",
+        "status": "WARNING"
+    },
+    {
+        "timestamp": 1764539873.10664,
+        "transaction_id": "ac0dcf3f-0274-4c85-9ec1-73e1c9fe48f6",
+        "step": "ACTION",
+        "detail": "Executing clarify",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764539873.1071105,
+        "transaction_id": "ac0dcf3f-0274-4c85-9ec1-73e1c9fe48f6",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764540177.6821887,
+        "transaction_id": "15be3d43-5bfe-4e8e-b1a8-25e527d66fd7",
+        "step": "TRANSACTION",
+        "detail": "New Request: how is my company working ?",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764540177.682618,
+        "transaction_id": "15be3d43-5bfe-4e8e-b1a8-25e527d66fd7",
+        "step": "DECISION",
+        "detail": "Fallback to Heuristics",
+        "status": "WARNING"
+    },
+    {
+        "timestamp": 1764540177.6828475,
+        "transaction_id": "15be3d43-5bfe-4e8e-b1a8-25e527d66fd7",
+        "step": "ACTION",
+        "detail": "Executing clarify",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764540177.6830838,
+        "transaction_id": "15be3d43-5bfe-4e8e-b1a8-25e527d66fd7",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764540218.2755737,
+        "transaction_id": "4324a5a3-a896-4433-b7cc-bbf6c6e7d1eb",
+        "step": "TRANSACTION",
+        "detail": "New Request: Hello",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764540218.2762854,
+        "transaction_id": "4324a5a3-a896-4433-b7cc-bbf6c6e7d1eb",
+        "step": "BLOCKED",
+        "detail": "Query is too short. Please provide more details.",
+        "status": "FAIL"
+    },
+    {
+        "timestamp": 1764540218.2768824,
+        "transaction_id": "4324a5a3-a896-4433-b7cc-bbf6c6e7d1eb",
+        "step": "ACTION",
+        "detail": "Executing block",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764540218.2775064,
+        "transaction_id": "4324a5a3-a896-4433-b7cc-bbf6c6e7d1eb",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764540341.0159202,
+        "transaction_id": "2fd74bd6-e4db-4766-9b5f-3deaef14cf2e",
+        "step": "TRANSACTION",
+        "detail": "New Request: how is my company performing ?",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764540341.0167475,
+        "transaction_id": "2fd74bd6-e4db-4766-9b5f-3deaef14cf2e",
+        "step": "DECISION",
+        "detail": "Fallback to Heuristics",
+        "status": "WARNING"
+    },
+    {
+        "timestamp": 1764540341.0173383,
+        "transaction_id": "2fd74bd6-e4db-4766-9b5f-3deaef14cf2e",
+        "step": "ACTION",
+        "detail": "Executing clarify",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764540341.017969,
+        "transaction_id": "2fd74bd6-e4db-4766-9b5f-3deaef14cf2e",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764540432.1504624,
+        "transaction_id": "83545e38-f685-4f04-a6ae-a2252e7b8741",
+        "step": "TRANSACTION",
+        "detail": "New Request: how is the company performing ?",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764540432.1509635,
+        "transaction_id": "83545e38-f685-4f04-a6ae-a2252e7b8741",
+        "step": "DECISION",
+        "detail": "Routed to SalesOrderAssistant",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764540432.151254,
+        "transaction_id": "83545e38-f685-4f04-a6ae-a2252e7b8741",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764540433.4999506,
+        "transaction_id": "83545e38-f685-4f04-a6ae-a2252e7b8741",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764540528.4715705,
+        "transaction_id": "82c5c269-0154-4250-8ada-557e56bccc6c",
+        "step": "TRANSACTION",
+        "detail": "New Request: how is the company performing ?",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764540528.4725175,
+        "transaction_id": "82c5c269-0154-4250-8ada-557e56bccc6c",
+        "step": "DECISION",
+        "detail": "Routed to SalesOrderAssistant",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764540528.4731746,
+        "transaction_id": "82c5c269-0154-4250-8ada-557e56bccc6c",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764540529.6898983,
+        "transaction_id": "82c5c269-0154-4250-8ada-557e56bccc6c",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764540661.03274,
+        "transaction_id": "ef39b106-bef1-4bd0-971d-31fa129d542f",
+        "step": "TRANSACTION",
+        "detail": "New Request: how is the company performing ?",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764540661.0336955,
+        "transaction_id": "ef39b106-bef1-4bd0-971d-31fa129d542f",
+        "step": "DECISION",
+        "detail": "Routed to SalesOrderAssistant",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764540661.0343988,
+        "transaction_id": "ef39b106-bef1-4bd0-971d-31fa129d542f",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764540662.3682623,
+        "transaction_id": "ef39b106-bef1-4bd0-971d-31fa129d542f",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764540775.9663913,
+        "transaction_id": "432e266c-8826-4b94-bdbb-671ead5f78e6",
+        "step": "TRANSACTION",
+        "detail": "New Request: Check inventory",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764540775.9670408,
+        "transaction_id": "432e266c-8826-4b94-bdbb-671ead5f78e6",
+        "step": "DECISION",
+        "detail": "Routed to SupplyChainAgent",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764540775.9673896,
+        "transaction_id": "432e266c-8826-4b94-bdbb-671ead5f78e6",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764540775.9677534,
+        "transaction_id": "432e266c-8826-4b94-bdbb-671ead5f78e6",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764540841.291324,
+        "transaction_id": "052a6e65-0855-4975-8408-3f2c73f53884",
+        "step": "TRANSACTION",
+        "detail": "New Request: Check inventory status for material M-9001",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764540841.2918148,
+        "transaction_id": "052a6e65-0855-4975-8408-3f2c73f53884",
+        "step": "DECISION",
+        "detail": "Routed to FinanceReconciliationAgent",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764540841.29217,
+        "transaction_id": "052a6e65-0855-4975-8408-3f2c73f53884",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764540842.2367268,
+        "transaction_id": "052a6e65-0855-4975-8408-3f2c73f53884",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764540913.4631734,
+        "transaction_id": "f0702533-e8dd-4dd8-b37c-c785075fba16",
+        "step": "TRANSACTION",
+        "detail": "New Request: Check inventory status for material M-9001",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764540913.4636893,
+        "transaction_id": "f0702533-e8dd-4dd8-b37c-c785075fba16",
+        "step": "DECISION",
+        "detail": "Routed to FinanceReconciliationAgent",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764540913.4640636,
+        "transaction_id": "f0702533-e8dd-4dd8-b37c-c785075fba16",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764540914.4223294,
+        "transaction_id": "f0702533-e8dd-4dd8-b37c-c785075fba16",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764541004.5886128,
+        "transaction_id": "b2222323-0004-48f9-b324-942be360e43a",
+        "step": "TRANSACTION",
+        "detail": "New Request: Hello from the public internet",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764541004.589181,
+        "transaction_id": "b2222323-0004-48f9-b324-942be360e43a",
+        "step": "DECISION",
+        "detail": "Routed to SalesOrderAssistant",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764541004.5895722,
+        "transaction_id": "b2222323-0004-48f9-b324-942be360e43a",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764541005.5341287,
+        "transaction_id": "b2222323-0004-48f9-b324-942be360e43a",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764541022.913949,
+        "transaction_id": "ab457567-ddce-4f16-ae3d-a115edf5a071",
+        "step": "TRANSACTION",
+        "detail": "New Request: Hello Public World",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764541022.9145982,
+        "transaction_id": "ab457567-ddce-4f16-ae3d-a115edf5a071",
+        "step": "DECISION",
+        "detail": "Fallback to Heuristics",
+        "status": "WARNING"
+    },
+    {
+        "timestamp": 1764541022.9150124,
+        "transaction_id": "ab457567-ddce-4f16-ae3d-a115edf5a071",
+        "step": "ACTION",
+        "detail": "Executing clarify",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764541022.9154282,
+        "transaction_id": "ab457567-ddce-4f16-ae3d-a115edf5a071",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764541128.3685663,
+        "transaction_id": "ffe87afc-da7b-477a-af55-967c194cc951",
+        "step": "TRANSACTION",
+        "detail": "New Request: how is the company doing ?",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764541128.3697374,
+        "transaction_id": "ffe87afc-da7b-477a-af55-967c194cc951",
+        "step": "DECISION",
+        "detail": "Routed to AnalyticsAgent",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764541128.370636,
+        "transaction_id": "ffe87afc-da7b-477a-af55-967c194cc951",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764541128.371575,
+        "transaction_id": "ffe87afc-da7b-477a-af55-967c194cc951",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764541516.1175575,
+        "transaction_id": "12ab22bc-51b5-4430-80dc-a4ecf64eff5c",
+        "step": "TRANSACTION",
+        "detail": "New Request: Check demand forecast for product IBP-4001",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764541516.118222,
+        "transaction_id": "12ab22bc-51b5-4430-80dc-a4ecf64eff5c",
+        "step": "DECISION",
+        "detail": "Routed to SupplyChainAgent",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764541516.1186771,
+        "transaction_id": "12ab22bc-51b5-4430-80dc-a4ecf64eff5c",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764541516.1191306,
+        "transaction_id": "12ab22bc-51b5-4430-80dc-a4ecf64eff5c",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764541531.6368983,
+        "transaction_id": "b1069543-5dd5-4777-bf97-b1a6a69f7d78",
+        "step": "TRANSACTION",
+        "detail": "New Request: Check demand forecast for product IBP-4001",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764541531.63756,
+        "transaction_id": "b1069543-5dd5-4777-bf97-b1a6a69f7d78",
+        "step": "DECISION",
+        "detail": "Routed to SupplyChainAgent",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764541531.638013,
+        "transaction_id": "b1069543-5dd5-4777-bf97-b1a6a69f7d78",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764541531.6384888,
+        "transaction_id": "b1069543-5dd5-4777-bf97-b1a6a69f7d78",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    }
+]

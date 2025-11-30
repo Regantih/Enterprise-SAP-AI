@@ -1,0 +1,3348 @@
+{
+  "agents": [
+    {
+      "id": "procurementnegotiationassistant",
+      "name": "ProcurementNegotiationAssistant",
+      "description": "Helps procurement managers negotiate better pricing and terms",
+      "category": "Core",
+      "status": "active",
+      "type": "template"
+    },
+    {
+      "id": "supplierinformationassistant",
+      "name": "SupplierInformationAssistant",
+      "description": "Quick supplier information retrieval",
+      "category": "Core",
+      "status": "active",
+      "type": "template"
+    },
+    {
+      "id": "financereconciliationagent",
+      "name": "FinanceReconciliationAgent",
+      "description": "Automates financial reconciliation processes",
+      "category": "Finance",
+      "status": "active",
+      "type": "template"
+    },
+    {
+      "id": "hremployeeassistant",
+      "name": "HREmployeeAssistant",
+      "description": "Manages employee information, leave requests, and benefits",
+      "category": "HR",
+      "status": "active",
+      "type": "template"
+    },
+    {
+      "id": "analytics_strategy",
+      "name": "AnalyticsAgent",
+      "category": "Analytics",
+      "description": "Provides strategic business insights, financial metrics, and simulations.",
+      "status": "active",
+      "type": "template"
+    },
+    {
+      "id": "scm_ibp",
+      "name": "SupplyChainAgent",
+      "category": "Supply Chain",
+      "description": "Manages demand planning, inventory, and logistics via SAP IBP.",
+      "status": "active",
+      "type": "template"
+    },
+    {
+      "id": "ppm_projects",
+      "name": "ProjectSystemAgent",
+      "category": "Project Management",
+      "description": "Tracks project budgets, WBS elements, and milestones via SAP PPM.",
+      "status": "active",
+      "type": "template"
+    },
+    {
+      "id": "pp_manufacturing",
+      "name": "ManufacturingAgent",
+      "category": "Manufacturing",
+      "description": "Manages production orders, BOMs, and shop floor status.",
+      "status": "active",
+      "type": "template"
+    },
+    {
+      "id": "eam_assets",
+      "name": "AssetManagementAgent",
+      "category": "Asset Management",
+      "description": "Tracks equipment status, maintenance schedules, and work orders.",
+      "status": "active",
+      "type": "template"
+    },
+    {
+      "id": "cs_service",
+      "name": "CustomerServiceAgent",
+      "category": "Customer Service",
+      "description": "Handles service tickets, warranties, and returns.",
+      "status": "active",
+      "type": "template"
+    },
+    {
+      "id": "trm_treasury",
+      "name": "TreasuryAgent",
+      "category": "Treasury",
+      "description": "Handles cash management, liquidity forecasting, and banking.",
+      "status": "active",
+      "type": "template"
+    },
+    {
+      "id": "ext_integration",
+      "name": "IntegrationAgent",
+      "category": "Integration",
+      "description": "Handles external integrations with ServiceNow, Salesforce, and n8n.",
+      "status": "active",
+      "type": "template"
+    },
+    {
+      "id": "xm_experience",
+      "name": "ExperienceAgent",
+      "category": "Experience Management",
+      "description": "Handles employee and customer sentiment (Qualtrics).",
+      "status": "active",
+      "type": "template"
+    },
+    {
+      "id": "bn_network",
+      "name": "NetworkAgent",
+      "category": "Business Network",
+      "description": "Handles Ariba supplier collaboration and RFQs.",
+      "status": "active",
+      "type": "template"
+    },
+    {
+      "id": "tv_travel",
+      "name": "TravelAgent",
+      "category": "Travel",
+      "description": "Handles travel bookings and expenses (Concur).",
+      "status": "active",
+      "type": "template"
+    },
+    {
+      "id": "pl_planning",
+      "name": "PlanningAgent",
+      "category": "Planning",
+      "description": "Handles predictive planning and simulations (SAC).",
+      "status": "active",
+      "type": "template"
+    },
+    {
+      "id": "bpm_process",
+      "name": "ProcessAgent",
+      "category": "Process Management",
+      "description": "Handles process mining and optimization (Signavio).",
+      "status": "active",
+      "type": "template"
+    },
+    {
+      "id": "sus_sustainability",
+      "name": "SustainabilityAgent",
+      "category": "Sustainability",
+      "description": "Handles Carbon Footprint and ESG metrics (Green Ledger).",
+      "status": "active",
+      "type": "template"
+    },
+    {
+      "id": "strat_market",
+      "name": "MarketIntelligenceAgent",
+      "category": "Market Intelligence",
+      "description": "Handles Competitor Analysis, Trends, and Macro Insights.",
+      "status": "active",
+      "type": "template"
+    },
+    {
+      "id": "rag_knowledge",
+      "name": "KnowledgeAgent",
+      "category": "Knowledge Base",
+      "description": "Handles document queries using RAG (Policies, Manuals).",
+      "status": "active",
+      "type": "template"
+    },
+    {
+      "id": "hronboardingassistant",
+      "name": "HROnboardingAssistant",
+      "description": "Streamlines employee onboarding process",
+      "category": "Core",
+      "status": "active",
+      "type": "template"
+    },
+    {
+      "id": "salesorderassistant",
+      "name": "SalesOrderAssistant",
+      "description": "Manages sales orders, customer credit, and order tracking",
+      "category": "Sales",
+      "status": "active",
+      "type": "template"
+    },
+    {
+      "id": "agent_5",
+      "name": "Finance Assistant 5",
+      "description": "AI agent specialized in Finance processes to assist as a Assistant.",
+      "category": "Finance",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_6",
+      "name": "Manufacturing Advisor 6",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Advisor.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_7",
+      "name": "IT Advisor 7",
+      "description": "AI agent specialized in IT processes to assist as a Advisor.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_8",
+      "name": "Manufacturing Analyst 8",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Analyst.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_9",
+      "name": "Supply Chain Optimizer 9",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Optimizer.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_10",
+      "name": "IT Advisor 10",
+      "description": "AI agent specialized in IT processes to assist as a Advisor.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_11",
+      "name": "HR Automator 11",
+      "description": "AI agent specialized in HR processes to assist as a Automator.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_12",
+      "name": "Legal Optimizer 12",
+      "description": "AI agent specialized in Legal processes to assist as a Optimizer.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_13",
+      "name": "HR Automator 13",
+      "description": "AI agent specialized in HR processes to assist as a Automator.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_14",
+      "name": "Sales Optimizer 14",
+      "description": "AI agent specialized in Sales processes to assist as a Optimizer.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_15",
+      "name": "Supply Chain Analyst 15",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Analyst.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_16",
+      "name": "IT Forecaster 16",
+      "description": "AI agent specialized in IT processes to assist as a Forecaster.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_17",
+      "name": "R&D Forecaster 17",
+      "description": "AI agent specialized in R&D processes to assist as a Forecaster.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_18",
+      "name": "Finance Advisor 18",
+      "description": "AI agent specialized in Finance processes to assist as a Advisor.",
+      "category": "Finance",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_19",
+      "name": "Manufacturing Optimizer 19",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Optimizer.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_20",
+      "name": "HR Advisor 20",
+      "description": "AI agent specialized in HR processes to assist as a Advisor.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_21",
+      "name": "Legal Optimizer 21",
+      "description": "AI agent specialized in Legal processes to assist as a Optimizer.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_22",
+      "name": "R&D Analyst 22",
+      "description": "AI agent specialized in R&D processes to assist as a Analyst.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_23",
+      "name": "Legal Assistant 23",
+      "description": "AI agent specialized in Legal processes to assist as a Assistant.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_24",
+      "name": "R&D Analyst 24",
+      "description": "AI agent specialized in R&D processes to assist as a Analyst.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_25",
+      "name": "IT Advisor 25",
+      "description": "AI agent specialized in IT processes to assist as a Advisor.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_26",
+      "name": "Finance Optimizer 26",
+      "description": "AI agent specialized in Finance processes to assist as a Optimizer.",
+      "category": "Finance",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_27",
+      "name": "Legal Advisor 27",
+      "description": "AI agent specialized in Legal processes to assist as a Advisor.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_28",
+      "name": "R&D Advisor 28",
+      "description": "AI agent specialized in R&D processes to assist as a Advisor.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_29",
+      "name": "Manufacturing Forecaster 29",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Forecaster.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_30",
+      "name": "R&D Forecaster 30",
+      "description": "AI agent specialized in R&D processes to assist as a Forecaster.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_31",
+      "name": "HR Assistant 31",
+      "description": "AI agent specialized in HR processes to assist as a Assistant.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_32",
+      "name": "R&D Assistant 32",
+      "description": "AI agent specialized in R&D processes to assist as a Assistant.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_33",
+      "name": "IT Assistant 33",
+      "description": "AI agent specialized in IT processes to assist as a Assistant.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_34",
+      "name": "HR Advisor 34",
+      "description": "AI agent specialized in HR processes to assist as a Advisor.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_35",
+      "name": "Sales Forecaster 35",
+      "description": "AI agent specialized in Sales processes to assist as a Forecaster.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_36",
+      "name": "Legal Optimizer 36",
+      "description": "AI agent specialized in Legal processes to assist as a Optimizer.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_37",
+      "name": "Legal Analyst 37",
+      "description": "AI agent specialized in Legal processes to assist as a Analyst.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_38",
+      "name": "Manufacturing Assistant 38",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Assistant.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_39",
+      "name": "R&D Analyst 39",
+      "description": "AI agent specialized in R&D processes to assist as a Analyst.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_40",
+      "name": "Legal Automator 40",
+      "description": "AI agent specialized in Legal processes to assist as a Automator.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_41",
+      "name": "Sales Advisor 41",
+      "description": "AI agent specialized in Sales processes to assist as a Advisor.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_42",
+      "name": "IT Analyst 42",
+      "description": "AI agent specialized in IT processes to assist as a Analyst.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_43",
+      "name": "Manufacturing Forecaster 43",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Forecaster.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_44",
+      "name": "Supply Chain Optimizer 44",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Optimizer.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_45",
+      "name": "Sales Advisor 45",
+      "description": "AI agent specialized in Sales processes to assist as a Advisor.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_46",
+      "name": "IT Analyst 46",
+      "description": "AI agent specialized in IT processes to assist as a Analyst.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_47",
+      "name": "IT Optimizer 47",
+      "description": "AI agent specialized in IT processes to assist as a Optimizer.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_48",
+      "name": "HR Forecaster 48",
+      "description": "AI agent specialized in HR processes to assist as a Forecaster.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_49",
+      "name": "Supply Chain Assistant 49",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Assistant.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_50",
+      "name": "IT Analyst 50",
+      "description": "AI agent specialized in IT processes to assist as a Analyst.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_51",
+      "name": "Finance Analyst 51",
+      "description": "AI agent specialized in Finance processes to assist as a Analyst.",
+      "category": "Finance",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_52",
+      "name": "HR Analyst 52",
+      "description": "AI agent specialized in HR processes to assist as a Analyst.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_53",
+      "name": "Sales Automator 53",
+      "description": "AI agent specialized in Sales processes to assist as a Automator.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_54",
+      "name": "Legal Assistant 54",
+      "description": "AI agent specialized in Legal processes to assist as a Assistant.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_55",
+      "name": "Finance Forecaster 55",
+      "description": "AI agent specialized in Finance processes to assist as a Forecaster.",
+      "category": "Finance",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_56",
+      "name": "Finance Automator 56",
+      "description": "AI agent specialized in Finance processes to assist as a Automator.",
+      "category": "Finance",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_57",
+      "name": "Sales Analyst 57",
+      "description": "AI agent specialized in Sales processes to assist as a Analyst.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_58",
+      "name": "R&D Advisor 58",
+      "description": "AI agent specialized in R&D processes to assist as a Advisor.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_59",
+      "name": "HR Optimizer 59",
+      "description": "AI agent specialized in HR processes to assist as a Optimizer.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_60",
+      "name": "Sales Assistant 60",
+      "description": "AI agent specialized in Sales processes to assist as a Assistant.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_61",
+      "name": "Manufacturing Forecaster 61",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Forecaster.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_62",
+      "name": "IT Forecaster 62",
+      "description": "AI agent specialized in IT processes to assist as a Forecaster.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_63",
+      "name": "R&D Analyst 63",
+      "description": "AI agent specialized in R&D processes to assist as a Analyst.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_64",
+      "name": "R&D Forecaster 64",
+      "description": "AI agent specialized in R&D processes to assist as a Forecaster.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_65",
+      "name": "Legal Analyst 65",
+      "description": "AI agent specialized in Legal processes to assist as a Analyst.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_66",
+      "name": "IT Forecaster 66",
+      "description": "AI agent specialized in IT processes to assist as a Forecaster.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_67",
+      "name": "IT Forecaster 67",
+      "description": "AI agent specialized in IT processes to assist as a Forecaster.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_68",
+      "name": "Manufacturing Optimizer 68",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Optimizer.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_69",
+      "name": "Sales Assistant 69",
+      "description": "AI agent specialized in Sales processes to assist as a Assistant.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_70",
+      "name": "Supply Chain Advisor 70",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Advisor.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_71",
+      "name": "Finance Analyst 71",
+      "description": "AI agent specialized in Finance processes to assist as a Analyst.",
+      "category": "Finance",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_72",
+      "name": "Sales Automator 72",
+      "description": "AI agent specialized in Sales processes to assist as a Automator.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_73",
+      "name": "Manufacturing Analyst 73",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Analyst.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_74",
+      "name": "Manufacturing Assistant 74",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Assistant.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_75",
+      "name": "Legal Forecaster 75",
+      "description": "AI agent specialized in Legal processes to assist as a Forecaster.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_76",
+      "name": "Legal Automator 76",
+      "description": "AI agent specialized in Legal processes to assist as a Automator.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_77",
+      "name": "Finance Optimizer 77",
+      "description": "AI agent specialized in Finance processes to assist as a Optimizer.",
+      "category": "Finance",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_78",
+      "name": "Legal Assistant 78",
+      "description": "AI agent specialized in Legal processes to assist as a Assistant.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_79",
+      "name": "Sales Forecaster 79",
+      "description": "AI agent specialized in Sales processes to assist as a Forecaster.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_80",
+      "name": "R&D Analyst 80",
+      "description": "AI agent specialized in R&D processes to assist as a Analyst.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_81",
+      "name": "Manufacturing Analyst 81",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Analyst.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_82",
+      "name": "Manufacturing Analyst 82",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Analyst.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_83",
+      "name": "IT Forecaster 83",
+      "description": "AI agent specialized in IT processes to assist as a Forecaster.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_84",
+      "name": "Supply Chain Assistant 84",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Assistant.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_85",
+      "name": "Finance Automator 85",
+      "description": "AI agent specialized in Finance processes to assist as a Automator.",
+      "category": "Finance",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_86",
+      "name": "R&D Assistant 86",
+      "description": "AI agent specialized in R&D processes to assist as a Assistant.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_87",
+      "name": "Manufacturing Advisor 87",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Advisor.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_88",
+      "name": "Finance Forecaster 88",
+      "description": "AI agent specialized in Finance processes to assist as a Forecaster.",
+      "category": "Finance",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_89",
+      "name": "Sales Analyst 89",
+      "description": "AI agent specialized in Sales processes to assist as a Analyst.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_90",
+      "name": "Manufacturing Assistant 90",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Assistant.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_91",
+      "name": "Finance Automator 91",
+      "description": "AI agent specialized in Finance processes to assist as a Automator.",
+      "category": "Finance",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_92",
+      "name": "Legal Advisor 92",
+      "description": "AI agent specialized in Legal processes to assist as a Advisor.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_93",
+      "name": "R&D Analyst 93",
+      "description": "AI agent specialized in R&D processes to assist as a Analyst.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_94",
+      "name": "R&D Forecaster 94",
+      "description": "AI agent specialized in R&D processes to assist as a Forecaster.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_95",
+      "name": "Supply Chain Assistant 95",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Assistant.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_96",
+      "name": "HR Assistant 96",
+      "description": "AI agent specialized in HR processes to assist as a Assistant.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_97",
+      "name": "Legal Automator 97",
+      "description": "AI agent specialized in Legal processes to assist as a Automator.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_98",
+      "name": "IT Optimizer 98",
+      "description": "AI agent specialized in IT processes to assist as a Optimizer.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_99",
+      "name": "Finance Assistant 99",
+      "description": "AI agent specialized in Finance processes to assist as a Assistant.",
+      "category": "Finance",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_100",
+      "name": "Finance Assistant 100",
+      "description": "AI agent specialized in Finance processes to assist as a Assistant.",
+      "category": "Finance",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_101",
+      "name": "IT Optimizer 101",
+      "description": "AI agent specialized in IT processes to assist as a Optimizer.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_102",
+      "name": "R&D Optimizer 102",
+      "description": "AI agent specialized in R&D processes to assist as a Optimizer.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_103",
+      "name": "Manufacturing Assistant 103",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Assistant.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_104",
+      "name": "Sales Optimizer 104",
+      "description": "AI agent specialized in Sales processes to assist as a Optimizer.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_105",
+      "name": "R&D Forecaster 105",
+      "description": "AI agent specialized in R&D processes to assist as a Forecaster.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_106",
+      "name": "Supply Chain Advisor 106",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Advisor.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_107",
+      "name": "Manufacturing Analyst 107",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Analyst.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_108",
+      "name": "IT Analyst 108",
+      "description": "AI agent specialized in IT processes to assist as a Analyst.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_109",
+      "name": "Manufacturing Automator 109",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Automator.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_110",
+      "name": "IT Optimizer 110",
+      "description": "AI agent specialized in IT processes to assist as a Optimizer.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_111",
+      "name": "Finance Advisor 111",
+      "description": "AI agent specialized in Finance processes to assist as a Advisor.",
+      "category": "Finance",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_112",
+      "name": "IT Optimizer 112",
+      "description": "AI agent specialized in IT processes to assist as a Optimizer.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_113",
+      "name": "Legal Forecaster 113",
+      "description": "AI agent specialized in Legal processes to assist as a Forecaster.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_114",
+      "name": "R&D Analyst 114",
+      "description": "AI agent specialized in R&D processes to assist as a Analyst.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_115",
+      "name": "Sales Optimizer 115",
+      "description": "AI agent specialized in Sales processes to assist as a Optimizer.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_116",
+      "name": "Legal Forecaster 116",
+      "description": "AI agent specialized in Legal processes to assist as a Forecaster.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_117",
+      "name": "Manufacturing Automator 117",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Automator.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_118",
+      "name": "HR Advisor 118",
+      "description": "AI agent specialized in HR processes to assist as a Advisor.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_119",
+      "name": "HR Advisor 119",
+      "description": "AI agent specialized in HR processes to assist as a Advisor.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_120",
+      "name": "R&D Advisor 120",
+      "description": "AI agent specialized in R&D processes to assist as a Advisor.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_121",
+      "name": "Manufacturing Automator 121",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Automator.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_122",
+      "name": "Finance Forecaster 122",
+      "description": "AI agent specialized in Finance processes to assist as a Forecaster.",
+      "category": "Finance",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_123",
+      "name": "Sales Forecaster 123",
+      "description": "AI agent specialized in Sales processes to assist as a Forecaster.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_124",
+      "name": "HR Automator 124",
+      "description": "AI agent specialized in HR processes to assist as a Automator.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_125",
+      "name": "Manufacturing Forecaster 125",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Forecaster.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_126",
+      "name": "Sales Assistant 126",
+      "description": "AI agent specialized in Sales processes to assist as a Assistant.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_127",
+      "name": "R&D Forecaster 127",
+      "description": "AI agent specialized in R&D processes to assist as a Forecaster.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_128",
+      "name": "Supply Chain Analyst 128",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Analyst.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_129",
+      "name": "IT Advisor 129",
+      "description": "AI agent specialized in IT processes to assist as a Advisor.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_130",
+      "name": "R&D Analyst 130",
+      "description": "AI agent specialized in R&D processes to assist as a Analyst.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_131",
+      "name": "HR Optimizer 131",
+      "description": "AI agent specialized in HR processes to assist as a Optimizer.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_132",
+      "name": "HR Analyst 132",
+      "description": "AI agent specialized in HR processes to assist as a Analyst.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_133",
+      "name": "Manufacturing Analyst 133",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Analyst.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_134",
+      "name": "Manufacturing Automator 134",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Automator.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_135",
+      "name": "HR Forecaster 135",
+      "description": "AI agent specialized in HR processes to assist as a Forecaster.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_136",
+      "name": "Supply Chain Analyst 136",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Analyst.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_137",
+      "name": "HR Optimizer 137",
+      "description": "AI agent specialized in HR processes to assist as a Optimizer.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_138",
+      "name": "Manufacturing Optimizer 138",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Optimizer.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_139",
+      "name": "R&D Optimizer 139",
+      "description": "AI agent specialized in R&D processes to assist as a Optimizer.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_140",
+      "name": "Sales Automator 140",
+      "description": "AI agent specialized in Sales processes to assist as a Automator.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_141",
+      "name": "Manufacturing Automator 141",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Automator.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_142",
+      "name": "Legal Advisor 142",
+      "description": "AI agent specialized in Legal processes to assist as a Advisor.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_143",
+      "name": "HR Analyst 143",
+      "description": "AI agent specialized in HR processes to assist as a Analyst.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_144",
+      "name": "Legal Automator 144",
+      "description": "AI agent specialized in Legal processes to assist as a Automator.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_145",
+      "name": "Sales Optimizer 145",
+      "description": "AI agent specialized in Sales processes to assist as a Optimizer.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_146",
+      "name": "Finance Assistant 146",
+      "description": "AI agent specialized in Finance processes to assist as a Assistant.",
+      "category": "Finance",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_147",
+      "name": "Legal Automator 147",
+      "description": "AI agent specialized in Legal processes to assist as a Automator.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_148",
+      "name": "HR Advisor 148",
+      "description": "AI agent specialized in HR processes to assist as a Advisor.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_149",
+      "name": "HR Assistant 149",
+      "description": "AI agent specialized in HR processes to assist as a Assistant.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_150",
+      "name": "Legal Advisor 150",
+      "description": "AI agent specialized in Legal processes to assist as a Advisor.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_151",
+      "name": "HR Optimizer 151",
+      "description": "AI agent specialized in HR processes to assist as a Optimizer.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_152",
+      "name": "Supply Chain Advisor 152",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Advisor.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_153",
+      "name": "R&D Forecaster 153",
+      "description": "AI agent specialized in R&D processes to assist as a Forecaster.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_154",
+      "name": "R&D Assistant 154",
+      "description": "AI agent specialized in R&D processes to assist as a Assistant.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_155",
+      "name": "IT Optimizer 155",
+      "description": "AI agent specialized in IT processes to assist as a Optimizer.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_156",
+      "name": "R&D Advisor 156",
+      "description": "AI agent specialized in R&D processes to assist as a Advisor.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_157",
+      "name": "R&D Forecaster 157",
+      "description": "AI agent specialized in R&D processes to assist as a Forecaster.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_158",
+      "name": "Manufacturing Assistant 158",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Assistant.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_159",
+      "name": "R&D Optimizer 159",
+      "description": "AI agent specialized in R&D processes to assist as a Optimizer.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_160",
+      "name": "Manufacturing Automator 160",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Automator.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_161",
+      "name": "Supply Chain Analyst 161",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Analyst.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_162",
+      "name": "Finance Forecaster 162",
+      "description": "AI agent specialized in Finance processes to assist as a Forecaster.",
+      "category": "Finance",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_163",
+      "name": "IT Analyst 163",
+      "description": "AI agent specialized in IT processes to assist as a Analyst.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_164",
+      "name": "Legal Forecaster 164",
+      "description": "AI agent specialized in Legal processes to assist as a Forecaster.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_165",
+      "name": "IT Assistant 165",
+      "description": "AI agent specialized in IT processes to assist as a Assistant.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_166",
+      "name": "R&D Optimizer 166",
+      "description": "AI agent specialized in R&D processes to assist as a Optimizer.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_167",
+      "name": "R&D Optimizer 167",
+      "description": "AI agent specialized in R&D processes to assist as a Optimizer.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_168",
+      "name": "Sales Advisor 168",
+      "description": "AI agent specialized in Sales processes to assist as a Advisor.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_169",
+      "name": "HR Advisor 169",
+      "description": "AI agent specialized in HR processes to assist as a Advisor.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_170",
+      "name": "Supply Chain Analyst 170",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Analyst.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_171",
+      "name": "HR Advisor 171",
+      "description": "AI agent specialized in HR processes to assist as a Advisor.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_172",
+      "name": "Legal Optimizer 172",
+      "description": "AI agent specialized in Legal processes to assist as a Optimizer.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_173",
+      "name": "IT Analyst 173",
+      "description": "AI agent specialized in IT processes to assist as a Analyst.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_174",
+      "name": "Legal Automator 174",
+      "description": "AI agent specialized in Legal processes to assist as a Automator.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_175",
+      "name": "HR Forecaster 175",
+      "description": "AI agent specialized in HR processes to assist as a Forecaster.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_176",
+      "name": "Finance Analyst 176",
+      "description": "AI agent specialized in Finance processes to assist as a Analyst.",
+      "category": "Finance",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_177",
+      "name": "Supply Chain Optimizer 177",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Optimizer.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_178",
+      "name": "Legal Automator 178",
+      "description": "AI agent specialized in Legal processes to assist as a Automator.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_179",
+      "name": "Finance Optimizer 179",
+      "description": "AI agent specialized in Finance processes to assist as a Optimizer.",
+      "category": "Finance",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_180",
+      "name": "Legal Analyst 180",
+      "description": "AI agent specialized in Legal processes to assist as a Analyst.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_181",
+      "name": "Finance Automator 181",
+      "description": "AI agent specialized in Finance processes to assist as a Automator.",
+      "category": "Finance",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_182",
+      "name": "Finance Optimizer 182",
+      "description": "AI agent specialized in Finance processes to assist as a Optimizer.",
+      "category": "Finance",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_183",
+      "name": "Manufacturing Assistant 183",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Assistant.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_184",
+      "name": "Legal Advisor 184",
+      "description": "AI agent specialized in Legal processes to assist as a Advisor.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_185",
+      "name": "HR Automator 185",
+      "description": "AI agent specialized in HR processes to assist as a Automator.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_186",
+      "name": "Supply Chain Forecaster 186",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Forecaster.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_187",
+      "name": "Manufacturing Advisor 187",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Advisor.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_188",
+      "name": "Legal Assistant 188",
+      "description": "AI agent specialized in Legal processes to assist as a Assistant.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_189",
+      "name": "Supply Chain Analyst 189",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Analyst.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_190",
+      "name": "IT Assistant 190",
+      "description": "AI agent specialized in IT processes to assist as a Assistant.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_191",
+      "name": "Legal Advisor 191",
+      "description": "AI agent specialized in Legal processes to assist as a Advisor.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_192",
+      "name": "Sales Automator 192",
+      "description": "AI agent specialized in Sales processes to assist as a Automator.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_193",
+      "name": "Manufacturing Forecaster 193",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Forecaster.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_194",
+      "name": "IT Assistant 194",
+      "description": "AI agent specialized in IT processes to assist as a Assistant.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_195",
+      "name": "IT Analyst 195",
+      "description": "AI agent specialized in IT processes to assist as a Analyst.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_196",
+      "name": "IT Forecaster 196",
+      "description": "AI agent specialized in IT processes to assist as a Forecaster.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_197",
+      "name": "Supply Chain Advisor 197",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Advisor.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_198",
+      "name": "R&D Assistant 198",
+      "description": "AI agent specialized in R&D processes to assist as a Assistant.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_199",
+      "name": "HR Advisor 199",
+      "description": "AI agent specialized in HR processes to assist as a Advisor.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_200",
+      "name": "Supply Chain Forecaster 200",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Forecaster.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_201",
+      "name": "IT Optimizer 201",
+      "description": "AI agent specialized in IT processes to assist as a Optimizer.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_202",
+      "name": "R&D Analyst 202",
+      "description": "AI agent specialized in R&D processes to assist as a Analyst.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_203",
+      "name": "HR Automator 203",
+      "description": "AI agent specialized in HR processes to assist as a Automator.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_204",
+      "name": "HR Forecaster 204",
+      "description": "AI agent specialized in HR processes to assist as a Forecaster.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_205",
+      "name": "HR Optimizer 205",
+      "description": "AI agent specialized in HR processes to assist as a Optimizer.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_206",
+      "name": "HR Optimizer 206",
+      "description": "AI agent specialized in HR processes to assist as a Optimizer.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_207",
+      "name": "Sales Assistant 207",
+      "description": "AI agent specialized in Sales processes to assist as a Assistant.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_208",
+      "name": "Supply Chain Optimizer 208",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Optimizer.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_209",
+      "name": "HR Advisor 209",
+      "description": "AI agent specialized in HR processes to assist as a Advisor.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_210",
+      "name": "Legal Optimizer 210",
+      "description": "AI agent specialized in Legal processes to assist as a Optimizer.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_211",
+      "name": "Legal Assistant 211",
+      "description": "AI agent specialized in Legal processes to assist as a Assistant.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_212",
+      "name": "Supply Chain Automator 212",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Automator.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_213",
+      "name": "Sales Forecaster 213",
+      "description": "AI agent specialized in Sales processes to assist as a Forecaster.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_214",
+      "name": "Supply Chain Forecaster 214",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Forecaster.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_215",
+      "name": "IT Analyst 215",
+      "description": "AI agent specialized in IT processes to assist as a Analyst.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_216",
+      "name": "HR Advisor 216",
+      "description": "AI agent specialized in HR processes to assist as a Advisor.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_217",
+      "name": "Manufacturing Optimizer 217",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Optimizer.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_218",
+      "name": "Finance Forecaster 218",
+      "description": "AI agent specialized in Finance processes to assist as a Forecaster.",
+      "category": "Finance",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_219",
+      "name": "Legal Forecaster 219",
+      "description": "AI agent specialized in Legal processes to assist as a Forecaster.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_220",
+      "name": "R&D Analyst 220",
+      "description": "AI agent specialized in R&D processes to assist as a Analyst.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_221",
+      "name": "Supply Chain Forecaster 221",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Forecaster.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_222",
+      "name": "Legal Assistant 222",
+      "description": "AI agent specialized in Legal processes to assist as a Assistant.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_223",
+      "name": "Legal Analyst 223",
+      "description": "AI agent specialized in Legal processes to assist as a Analyst.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_224",
+      "name": "IT Forecaster 224",
+      "description": "AI agent specialized in IT processes to assist as a Forecaster.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_225",
+      "name": "HR Automator 225",
+      "description": "AI agent specialized in HR processes to assist as a Automator.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_226",
+      "name": "Legal Advisor 226",
+      "description": "AI agent specialized in Legal processes to assist as a Advisor.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_227",
+      "name": "R&D Assistant 227",
+      "description": "AI agent specialized in R&D processes to assist as a Assistant.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_228",
+      "name": "HR Advisor 228",
+      "description": "AI agent specialized in HR processes to assist as a Advisor.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_229",
+      "name": "HR Automator 229",
+      "description": "AI agent specialized in HR processes to assist as a Automator.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_230",
+      "name": "Supply Chain Optimizer 230",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Optimizer.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_231",
+      "name": "Finance Assistant 231",
+      "description": "AI agent specialized in Finance processes to assist as a Assistant.",
+      "category": "Finance",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_232",
+      "name": "Legal Optimizer 232",
+      "description": "AI agent specialized in Legal processes to assist as a Optimizer.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_233",
+      "name": "Sales Assistant 233",
+      "description": "AI agent specialized in Sales processes to assist as a Assistant.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_234",
+      "name": "Manufacturing Optimizer 234",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Optimizer.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_235",
+      "name": "IT Optimizer 235",
+      "description": "AI agent specialized in IT processes to assist as a Optimizer.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_236",
+      "name": "Manufacturing Advisor 236",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Advisor.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_237",
+      "name": "Legal Forecaster 237",
+      "description": "AI agent specialized in Legal processes to assist as a Forecaster.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_238",
+      "name": "Legal Optimizer 238",
+      "description": "AI agent specialized in Legal processes to assist as a Optimizer.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_239",
+      "name": "Legal Automator 239",
+      "description": "AI agent specialized in Legal processes to assist as a Automator.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_240",
+      "name": "Manufacturing Forecaster 240",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Forecaster.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_241",
+      "name": "Finance Advisor 241",
+      "description": "AI agent specialized in Finance processes to assist as a Advisor.",
+      "category": "Finance",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_242",
+      "name": "R&D Optimizer 242",
+      "description": "AI agent specialized in R&D processes to assist as a Optimizer.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_243",
+      "name": "Supply Chain Assistant 243",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Assistant.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_244",
+      "name": "Sales Assistant 244",
+      "description": "AI agent specialized in Sales processes to assist as a Assistant.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_245",
+      "name": "IT Optimizer 245",
+      "description": "AI agent specialized in IT processes to assist as a Optimizer.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_246",
+      "name": "IT Automator 246",
+      "description": "AI agent specialized in IT processes to assist as a Automator.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_247",
+      "name": "Legal Advisor 247",
+      "description": "AI agent specialized in Legal processes to assist as a Advisor.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_248",
+      "name": "Supply Chain Analyst 248",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Analyst.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_249",
+      "name": "Supply Chain Analyst 249",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Analyst.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_250",
+      "name": "Legal Optimizer 250",
+      "description": "AI agent specialized in Legal processes to assist as a Optimizer.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_251",
+      "name": "IT Forecaster 251",
+      "description": "AI agent specialized in IT processes to assist as a Forecaster.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_252",
+      "name": "Legal Advisor 252",
+      "description": "AI agent specialized in Legal processes to assist as a Advisor.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_253",
+      "name": "Finance Advisor 253",
+      "description": "AI agent specialized in Finance processes to assist as a Advisor.",
+      "category": "Finance",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_254",
+      "name": "R&D Automator 254",
+      "description": "AI agent specialized in R&D processes to assist as a Automator.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_255",
+      "name": "Sales Assistant 255",
+      "description": "AI agent specialized in Sales processes to assist as a Assistant.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_256",
+      "name": "HR Automator 256",
+      "description": "AI agent specialized in HR processes to assist as a Automator.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_257",
+      "name": "HR Advisor 257",
+      "description": "AI agent specialized in HR processes to assist as a Advisor.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_258",
+      "name": "HR Advisor 258",
+      "description": "AI agent specialized in HR processes to assist as a Advisor.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_259",
+      "name": "HR Forecaster 259",
+      "description": "AI agent specialized in HR processes to assist as a Forecaster.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_260",
+      "name": "Finance Automator 260",
+      "description": "AI agent specialized in Finance processes to assist as a Automator.",
+      "category": "Finance",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_261",
+      "name": "Sales Forecaster 261",
+      "description": "AI agent specialized in Sales processes to assist as a Forecaster.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_262",
+      "name": "IT Automator 262",
+      "description": "AI agent specialized in IT processes to assist as a Automator.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_263",
+      "name": "Supply Chain Optimizer 263",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Optimizer.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_264",
+      "name": "R&D Advisor 264",
+      "description": "AI agent specialized in R&D processes to assist as a Advisor.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_265",
+      "name": "Finance Advisor 265",
+      "description": "AI agent specialized in Finance processes to assist as a Advisor.",
+      "category": "Finance",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_266",
+      "name": "Sales Forecaster 266",
+      "description": "AI agent specialized in Sales processes to assist as a Forecaster.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_267",
+      "name": "HR Assistant 267",
+      "description": "AI agent specialized in HR processes to assist as a Assistant.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_268",
+      "name": "Sales Advisor 268",
+      "description": "AI agent specialized in Sales processes to assist as a Advisor.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_269",
+      "name": "Manufacturing Optimizer 269",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Optimizer.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_270",
+      "name": "Legal Analyst 270",
+      "description": "AI agent specialized in Legal processes to assist as a Analyst.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_271",
+      "name": "Sales Forecaster 271",
+      "description": "AI agent specialized in Sales processes to assist as a Forecaster.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_272",
+      "name": "Legal Assistant 272",
+      "description": "AI agent specialized in Legal processes to assist as a Assistant.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_273",
+      "name": "Finance Assistant 273",
+      "description": "AI agent specialized in Finance processes to assist as a Assistant.",
+      "category": "Finance",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_274",
+      "name": "Legal Advisor 274",
+      "description": "AI agent specialized in Legal processes to assist as a Advisor.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_275",
+      "name": "Sales Advisor 275",
+      "description": "AI agent specialized in Sales processes to assist as a Advisor.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_276",
+      "name": "Manufacturing Analyst 276",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Analyst.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_277",
+      "name": "Sales Assistant 277",
+      "description": "AI agent specialized in Sales processes to assist as a Assistant.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_278",
+      "name": "Sales Optimizer 278",
+      "description": "AI agent specialized in Sales processes to assist as a Optimizer.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_279",
+      "name": "Sales Assistant 279",
+      "description": "AI agent specialized in Sales processes to assist as a Assistant.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_280",
+      "name": "Finance Analyst 280",
+      "description": "AI agent specialized in Finance processes to assist as a Analyst.",
+      "category": "Finance",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_281",
+      "name": "Supply Chain Advisor 281",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Advisor.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_282",
+      "name": "Legal Automator 282",
+      "description": "AI agent specialized in Legal processes to assist as a Automator.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_283",
+      "name": "Legal Analyst 283",
+      "description": "AI agent specialized in Legal processes to assist as a Analyst.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_284",
+      "name": "HR Advisor 284",
+      "description": "AI agent specialized in HR processes to assist as a Advisor.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_285",
+      "name": "R&D Analyst 285",
+      "description": "AI agent specialized in R&D processes to assist as a Analyst.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_286",
+      "name": "Legal Assistant 286",
+      "description": "AI agent specialized in Legal processes to assist as a Assistant.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_287",
+      "name": "Sales Advisor 287",
+      "description": "AI agent specialized in Sales processes to assist as a Advisor.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_288",
+      "name": "Finance Forecaster 288",
+      "description": "AI agent specialized in Finance processes to assist as a Forecaster.",
+      "category": "Finance",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_289",
+      "name": "HR Analyst 289",
+      "description": "AI agent specialized in HR processes to assist as a Analyst.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_290",
+      "name": "Sales Optimizer 290",
+      "description": "AI agent specialized in Sales processes to assist as a Optimizer.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_291",
+      "name": "Legal Optimizer 291",
+      "description": "AI agent specialized in Legal processes to assist as a Optimizer.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_292",
+      "name": "Supply Chain Assistant 292",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Assistant.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_293",
+      "name": "Sales Assistant 293",
+      "description": "AI agent specialized in Sales processes to assist as a Assistant.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_294",
+      "name": "IT Forecaster 294",
+      "description": "AI agent specialized in IT processes to assist as a Forecaster.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_295",
+      "name": "Supply Chain Advisor 295",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Advisor.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_296",
+      "name": "IT Advisor 296",
+      "description": "AI agent specialized in IT processes to assist as a Advisor.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_297",
+      "name": "IT Assistant 297",
+      "description": "AI agent specialized in IT processes to assist as a Assistant.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_298",
+      "name": "Legal Optimizer 298",
+      "description": "AI agent specialized in Legal processes to assist as a Optimizer.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_299",
+      "name": "Finance Analyst 299",
+      "description": "AI agent specialized in Finance processes to assist as a Analyst.",
+      "category": "Finance",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_300",
+      "name": "Sales Forecaster 300",
+      "description": "AI agent specialized in Sales processes to assist as a Forecaster.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_301",
+      "name": "Sales Advisor 301",
+      "description": "AI agent specialized in Sales processes to assist as a Advisor.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_302",
+      "name": "Supply Chain Optimizer 302",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Optimizer.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_303",
+      "name": "Sales Advisor 303",
+      "description": "AI agent specialized in Sales processes to assist as a Advisor.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_304",
+      "name": "Legal Analyst 304",
+      "description": "AI agent specialized in Legal processes to assist as a Analyst.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_305",
+      "name": "IT Forecaster 305",
+      "description": "AI agent specialized in IT processes to assist as a Forecaster.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_306",
+      "name": "Supply Chain Forecaster 306",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Forecaster.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_307",
+      "name": "HR Forecaster 307",
+      "description": "AI agent specialized in HR processes to assist as a Forecaster.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_308",
+      "name": "Sales Forecaster 308",
+      "description": "AI agent specialized in Sales processes to assist as a Forecaster.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_309",
+      "name": "Manufacturing Assistant 309",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Assistant.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_310",
+      "name": "Supply Chain Assistant 310",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Assistant.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_311",
+      "name": "Supply Chain Forecaster 311",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Forecaster.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_312",
+      "name": "Legal Automator 312",
+      "description": "AI agent specialized in Legal processes to assist as a Automator.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_313",
+      "name": "Finance Advisor 313",
+      "description": "AI agent specialized in Finance processes to assist as a Advisor.",
+      "category": "Finance",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_314",
+      "name": "IT Advisor 314",
+      "description": "AI agent specialized in IT processes to assist as a Advisor.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_315",
+      "name": "Manufacturing Advisor 315",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Advisor.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_316",
+      "name": "HR Forecaster 316",
+      "description": "AI agent specialized in HR processes to assist as a Forecaster.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_317",
+      "name": "Manufacturing Automator 317",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Automator.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_318",
+      "name": "IT Automator 318",
+      "description": "AI agent specialized in IT processes to assist as a Automator.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_319",
+      "name": "Legal Assistant 319",
+      "description": "AI agent specialized in Legal processes to assist as a Assistant.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_320",
+      "name": "Supply Chain Advisor 320",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Advisor.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_321",
+      "name": "Finance Automator 321",
+      "description": "AI agent specialized in Finance processes to assist as a Automator.",
+      "category": "Finance",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_322",
+      "name": "Legal Forecaster 322",
+      "description": "AI agent specialized in Legal processes to assist as a Forecaster.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_323",
+      "name": "Manufacturing Analyst 323",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Analyst.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_324",
+      "name": "Supply Chain Forecaster 324",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Forecaster.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_325",
+      "name": "R&D Automator 325",
+      "description": "AI agent specialized in R&D processes to assist as a Automator.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_326",
+      "name": "Legal Analyst 326",
+      "description": "AI agent specialized in Legal processes to assist as a Analyst.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_327",
+      "name": "Manufacturing Forecaster 327",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Forecaster.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_328",
+      "name": "Supply Chain Analyst 328",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Analyst.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_329",
+      "name": "HR Forecaster 329",
+      "description": "AI agent specialized in HR processes to assist as a Forecaster.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_330",
+      "name": "Supply Chain Analyst 330",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Analyst.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_331",
+      "name": "R&D Advisor 331",
+      "description": "AI agent specialized in R&D processes to assist as a Advisor.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_332",
+      "name": "IT Analyst 332",
+      "description": "AI agent specialized in IT processes to assist as a Analyst.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_333",
+      "name": "Legal Analyst 333",
+      "description": "AI agent specialized in Legal processes to assist as a Analyst.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_334",
+      "name": "Supply Chain Assistant 334",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Assistant.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_335",
+      "name": "HR Forecaster 335",
+      "description": "AI agent specialized in HR processes to assist as a Forecaster.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_336",
+      "name": "Legal Optimizer 336",
+      "description": "AI agent specialized in Legal processes to assist as a Optimizer.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_337",
+      "name": "HR Forecaster 337",
+      "description": "AI agent specialized in HR processes to assist as a Forecaster.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_338",
+      "name": "Finance Assistant 338",
+      "description": "AI agent specialized in Finance processes to assist as a Assistant.",
+      "category": "Finance",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_339",
+      "name": "IT Automator 339",
+      "description": "AI agent specialized in IT processes to assist as a Automator.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_340",
+      "name": "Supply Chain Automator 340",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Automator.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_341",
+      "name": "Manufacturing Advisor 341",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Advisor.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_342",
+      "name": "Sales Advisor 342",
+      "description": "AI agent specialized in Sales processes to assist as a Advisor.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_343",
+      "name": "Legal Advisor 343",
+      "description": "AI agent specialized in Legal processes to assist as a Advisor.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_344",
+      "name": "HR Advisor 344",
+      "description": "AI agent specialized in HR processes to assist as a Advisor.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_345",
+      "name": "Supply Chain Analyst 345",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Analyst.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_346",
+      "name": "Finance Optimizer 346",
+      "description": "AI agent specialized in Finance processes to assist as a Optimizer.",
+      "category": "Finance",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_347",
+      "name": "R&D Advisor 347",
+      "description": "AI agent specialized in R&D processes to assist as a Advisor.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_348",
+      "name": "Finance Advisor 348",
+      "description": "AI agent specialized in Finance processes to assist as a Advisor.",
+      "category": "Finance",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_349",
+      "name": "Supply Chain Automator 349",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Automator.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_350",
+      "name": "Finance Forecaster 350",
+      "description": "AI agent specialized in Finance processes to assist as a Forecaster.",
+      "category": "Finance",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_351",
+      "name": "Sales Assistant 351",
+      "description": "AI agent specialized in Sales processes to assist as a Assistant.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_352",
+      "name": "R&D Automator 352",
+      "description": "AI agent specialized in R&D processes to assist as a Automator.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_353",
+      "name": "Supply Chain Assistant 353",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Assistant.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_354",
+      "name": "R&D Advisor 354",
+      "description": "AI agent specialized in R&D processes to assist as a Advisor.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_355",
+      "name": "Finance Assistant 355",
+      "description": "AI agent specialized in Finance processes to assist as a Assistant.",
+      "category": "Finance",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_356",
+      "name": "Sales Automator 356",
+      "description": "AI agent specialized in Sales processes to assist as a Automator.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_357",
+      "name": "R&D Forecaster 357",
+      "description": "AI agent specialized in R&D processes to assist as a Forecaster.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_358",
+      "name": "Manufacturing Analyst 358",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Analyst.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_359",
+      "name": "Manufacturing Analyst 359",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Analyst.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_360",
+      "name": "Finance Assistant 360",
+      "description": "AI agent specialized in Finance processes to assist as a Assistant.",
+      "category": "Finance",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_361",
+      "name": "HR Forecaster 361",
+      "description": "AI agent specialized in HR processes to assist as a Forecaster.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_362",
+      "name": "Finance Optimizer 362",
+      "description": "AI agent specialized in Finance processes to assist as a Optimizer.",
+      "category": "Finance",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_363",
+      "name": "R&D Assistant 363",
+      "description": "AI agent specialized in R&D processes to assist as a Assistant.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_364",
+      "name": "R&D Assistant 364",
+      "description": "AI agent specialized in R&D processes to assist as a Assistant.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_365",
+      "name": "R&D Assistant 365",
+      "description": "AI agent specialized in R&D processes to assist as a Assistant.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_366",
+      "name": "R&D Forecaster 366",
+      "description": "AI agent specialized in R&D processes to assist as a Forecaster.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_367",
+      "name": "Manufacturing Automator 367",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Automator.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_368",
+      "name": "R&D Advisor 368",
+      "description": "AI agent specialized in R&D processes to assist as a Advisor.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_369",
+      "name": "R&D Analyst 369",
+      "description": "AI agent specialized in R&D processes to assist as a Analyst.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_370",
+      "name": "Sales Forecaster 370",
+      "description": "AI agent specialized in Sales processes to assist as a Forecaster.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_371",
+      "name": "Sales Advisor 371",
+      "description": "AI agent specialized in Sales processes to assist as a Advisor.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_372",
+      "name": "IT Assistant 372",
+      "description": "AI agent specialized in IT processes to assist as a Assistant.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_373",
+      "name": "Supply Chain Analyst 373",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Analyst.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_374",
+      "name": "Supply Chain Advisor 374",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Advisor.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_375",
+      "name": "R&D Advisor 375",
+      "description": "AI agent specialized in R&D processes to assist as a Advisor.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_376",
+      "name": "HR Assistant 376",
+      "description": "AI agent specialized in HR processes to assist as a Assistant.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_377",
+      "name": "HR Analyst 377",
+      "description": "AI agent specialized in HR processes to assist as a Analyst.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_378",
+      "name": "HR Forecaster 378",
+      "description": "AI agent specialized in HR processes to assist as a Forecaster.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_379",
+      "name": "IT Assistant 379",
+      "description": "AI agent specialized in IT processes to assist as a Assistant.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_380",
+      "name": "Finance Automator 380",
+      "description": "AI agent specialized in Finance processes to assist as a Automator.",
+      "category": "Finance",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_381",
+      "name": "Manufacturing Automator 381",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Automator.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_382",
+      "name": "IT Assistant 382",
+      "description": "AI agent specialized in IT processes to assist as a Assistant.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_383",
+      "name": "R&D Automator 383",
+      "description": "AI agent specialized in R&D processes to assist as a Automator.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_384",
+      "name": "Sales Optimizer 384",
+      "description": "AI agent specialized in Sales processes to assist as a Optimizer.",
+      "category": "Sales",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_385",
+      "name": "R&D Assistant 385",
+      "description": "AI agent specialized in R&D processes to assist as a Assistant.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_386",
+      "name": "Legal Advisor 386",
+      "description": "AI agent specialized in Legal processes to assist as a Advisor.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_387",
+      "name": "IT Forecaster 387",
+      "description": "AI agent specialized in IT processes to assist as a Forecaster.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_388",
+      "name": "Finance Automator 388",
+      "description": "AI agent specialized in Finance processes to assist as a Automator.",
+      "category": "Finance",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_389",
+      "name": "Finance Assistant 389",
+      "description": "AI agent specialized in Finance processes to assist as a Assistant.",
+      "category": "Finance",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_390",
+      "name": "Manufacturing Forecaster 390",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Forecaster.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_391",
+      "name": "Legal Optimizer 391",
+      "description": "AI agent specialized in Legal processes to assist as a Optimizer.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_392",
+      "name": "R&D Forecaster 392",
+      "description": "AI agent specialized in R&D processes to assist as a Forecaster.",
+      "category": "R&D",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_393",
+      "name": "HR Automator 393",
+      "description": "AI agent specialized in HR processes to assist as a Automator.",
+      "category": "HR",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_394",
+      "name": "Supply Chain Optimizer 394",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Optimizer.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_395",
+      "name": "IT Optimizer 395",
+      "description": "AI agent specialized in IT processes to assist as a Optimizer.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_396",
+      "name": "Legal Optimizer 396",
+      "description": "AI agent specialized in Legal processes to assist as a Optimizer.",
+      "category": "Legal",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_397",
+      "name": "Manufacturing Analyst 397",
+      "description": "AI agent specialized in Manufacturing processes to assist as a Analyst.",
+      "category": "Manufacturing",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_398",
+      "name": "Supply Chain Advisor 398",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Advisor.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_399",
+      "name": "Supply Chain Optimizer 399",
+      "description": "AI agent specialized in Supply Chain processes to assist as a Optimizer.",
+      "category": "Supply Chain",
+      "status": "mock",
+      "type": "generated"
+    },
+    {
+      "id": "agent_400",
+      "name": "IT Advisor 400",
+      "description": "AI agent specialized in IT processes to assist as a Advisor.",
+      "category": "IT",
+      "status": "mock",
+      "type": "generated"
+    }
+  ]
+}
