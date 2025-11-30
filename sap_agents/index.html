@@ -300,8 +300,10 @@
         const userInput = document.getElementById('user-input');
 
         // PUBLIC API URL (For GitHub Pages)
-        const API_BASE = 'https://lightbox-performer-revelation-funky.trycloudflare.com'; // Cloudflare Tunnel URLrInput.addEventListener('keypress', function (e) {
-        if (e.key === 'Enter') sendMessage();
+        // Cloudflare Tunnel URL
+        const API_BASE = 'https://lightbox-performer-revelation-funky.trycloudflare.com';
+        userInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') sendMessage();
         });
 
         // Initial Load
