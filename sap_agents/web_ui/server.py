@@ -39,12 +39,21 @@ class ReusableTCPServer(socketserver.TCPServer):
     allow_reuse_address = True
 
 class AgentHandler(http.server.SimpleHTTPRequestHandler):
+    def _set_headers(self, status=200):
+        self.send_response(status)
+        self.send_header('Content-type', 'application/json')
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
+        self.send_header('Access-Control-Allow-Headers', 'Content-Type')
+        self.end_headers()
+
+    def do_OPTIONS(self):
+        self._set_headers()
+
     def do_GET(self):
         # API: Get Registry
         if self.path == '/api/agents':
-            self.send_response(200)
-            self.send_header('Content-type', 'application/json')
-            self.end_headers()
+            self._set_headers(200)
             
             registry_path = os.path.join(os.path.dirname(WEB_DIR), 'src', 'config', 'registry.json')
             with open(registry_path, 'r') as f:
@@ -52,9 +61,7 @@ class AgentHandler(http.server.SimpleHTTPRequestHandler):
             self.wfile.write(json.dumps(registry_data).encode())
         
         elif self.path == '/api/health':
-            self.send_response(200)
-            self.send_header('Content-type', 'application/json')
-            self.end_headers()
+            self._set_headers(200)
             
             # Mock Health Data
             health_data = {
@@ -72,9 +79,7 @@ class AgentHandler(http.server.SimpleHTTPRequestHandler):
             self.wfile.write(json.dumps(health_data).encode())
         
         elif self.path == '/api/formula':
-            self.send_response(200)
-            self.send_header('Content-type', 'application/json')
-            self.end_headers()
+            self._set_headers(200)
             
             from src.services.enterprise_formula import enterprise_formula
             
@@ -101,22 +106,16 @@ class AgentHandler(http.server.SimpleHTTPRequestHandler):
 
             user_message = request_data.get('message')
             if not user_message:
-                self.send_response(400)
-                self.send_header('Content-type', 'application/json')
-                self.end_headers()
+                self._set_headers(400)
                 self.wfile.write(json.dumps({"error": "No message provided"}).encode())
                 return
 
             try:
                 response_message = handle_request(user_message)
-                self.send_response(200)
-                self.send_header('Content-type', 'application/json')
-                self.end_headers()
+                self._set_headers(200)
                 self.wfile.write(json.dumps({"response": response_message}).encode())
             except Exception as e:
-                self.send_response(500)
-                self.send_header('Content-type', 'application/json')
-                self.end_headers()
+                self._set_headers(500)
                 self.wfile.write(json.dumps({"error": str(e)}).encode())
         else:
             self.send_response(404)

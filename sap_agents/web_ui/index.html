@@ -303,6 +303,9 @@
         const chatHistory = document.getElementById('chat-history');
         const userInput = document.getElementById('user-input');
 
+        // PUBLIC API URL (For GitHub Pages)
+        const API_BASE = 'https://outdoors-paul-this-somebody.trycloudflare.com';
+
         userInput.addEventListener('keypress', function (e) {
             if (e.key === 'Enter') sendMessage();
         });
@@ -315,7 +318,7 @@
 
         async function fetchFormulaData() {
             try {
-                const response = await fetch('/api/formula');
+                const response = await fetch(`${API_BASE}/api/formula`);
                 const data = await response.json();
 
                 const comp = data.components;
@@ -334,7 +337,7 @@
 
         async function fetchHealthData() {
             try {
-                const response = await fetch('/api/health');
+                const response = await fetch(`${API_BASE}/api/health`);
                 const data = await response.json();
 
                 // System Health
@@ -369,7 +372,7 @@
             const loadingId = appendMessage('AI', 'Thinking...', 'ai', true);
 
             try {
-                const response = await fetch('/api/chat', {
+                const response = await fetch(`${API_BASE}/api/chat`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ message: text })
