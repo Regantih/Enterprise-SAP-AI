@@ -726,5 +726,257 @@
         "step": "OUTCOME",
         "detail": "Response generated",
         "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764542944.7859707,
+        "transaction_id": "1c618b74-e6b2-4eec-9f7a-cec3731fefe1",
+        "step": "TRANSACTION",
+        "detail": "New Request: \"Create a new sales order for TechCorp for 50 Laptops\"",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764542944.7867181,
+        "transaction_id": "1c618b74-e6b2-4eec-9f7a-cec3731fefe1",
+        "step": "DECISION",
+        "detail": "Routed to SalesOrderAssistant",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764542944.7872097,
+        "transaction_id": "1c618b74-e6b2-4eec-9f7a-cec3731fefe1",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764542947.0110445,
+        "transaction_id": "1c618b74-e6b2-4eec-9f7a-cec3731fefe1",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764543056.7094407,
+        "transaction_id": "79d92332-ed0f-488d-a6fe-bd7f16748e6d",
+        "step": "TRANSACTION",
+        "detail": "New Request: Test feedback",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764543056.7101705,
+        "transaction_id": "79d92332-ed0f-488d-a6fe-bd7f16748e6d",
+        "step": "DECISION",
+        "detail": "Routed to ExperienceAgent",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764543056.7107065,
+        "transaction_id": "79d92332-ed0f-488d-a6fe-bd7f16748e6d",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764543056.7112474,
+        "transaction_id": "79d92332-ed0f-488d-a6fe-bd7f16748e6d",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764543305.3661647,
+        "transaction_id": "0bbf261d-8457-428c-b5d8-a05ff9f66800",
+        "step": "TRANSACTION",
+        "detail": "New Request: \"Create a new sales order for TechCorp for 50 Laptops\"",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764543305.3675435,
+        "transaction_id": "0bbf261d-8457-428c-b5d8-a05ff9f66800",
+        "step": "DECISION",
+        "detail": "Routed to SalesOrderAssistant",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764543305.3686707,
+        "transaction_id": "0bbf261d-8457-428c-b5d8-a05ff9f66800",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764543307.847217,
+        "transaction_id": "0bbf261d-8457-428c-b5d8-a05ff9f66800",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764543440.2921948,
+        "transaction_id": "f67402ac-b974-4de5-b9ea-005437a98512",
+        "step": "TRANSACTION",
+        "detail": "New Request: \"What is the remote work policy?\"",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764543440.2929704,
+        "transaction_id": "f67402ac-b974-4de5-b9ea-005437a98512",
+        "step": "DECISION",
+        "detail": "Routed to KnowledgeAgent",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764543440.2935135,
+        "transaction_id": "f67402ac-b974-4de5-b9ea-005437a98512",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764543440.2940824,
+        "transaction_id": "f67402ac-b974-4de5-b9ea-005437a98512",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764543590.1132627,
+        "transaction_id": "2b9abb12-6090-408a-867c-ab5099285177",
+        "step": "TRANSACTION",
+        "detail": "New Request: \"What is the remote work policy?\"",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764543590.1140869,
+        "transaction_id": "2b9abb12-6090-408a-867c-ab5099285177",
+        "step": "DECISION",
+        "detail": "Routed to KnowledgeAgent",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764543590.11465,
+        "transaction_id": "2b9abb12-6090-408a-867c-ab5099285177",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764543590.1152387,
+        "transaction_id": "2b9abb12-6090-408a-867c-ab5099285177",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764543664.1118846,
+        "transaction_id": "0bd6828d-48f7-4726-a238-e7e500146d3d",
+        "step": "TRANSACTION",
+        "detail": "New Request: \"What is the remote work policy?\"",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764543664.1127176,
+        "transaction_id": "0bd6828d-48f7-4726-a238-e7e500146d3d",
+        "step": "DECISION",
+        "detail": "Routed to KnowledgeAgent",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764543664.1132982,
+        "transaction_id": "0bd6828d-48f7-4726-a238-e7e500146d3d",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764543664.113898,
+        "transaction_id": "0bd6828d-48f7-4726-a238-e7e500146d3d",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764543760.9177763,
+        "transaction_id": "dbd8b0e4-39d1-4117-b849-345c862ab157",
+        "step": "TRANSACTION",
+        "detail": "New Request: Test feedback",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764543760.9185987,
+        "transaction_id": "dbd8b0e4-39d1-4117-b849-345c862ab157",
+        "step": "DECISION",
+        "detail": "Routed to ExperienceAgent",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764543760.919216,
+        "transaction_id": "dbd8b0e4-39d1-4117-b849-345c862ab157",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764543760.9198413,
+        "transaction_id": "dbd8b0e4-39d1-4117-b849-345c862ab157",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764543879.7250319,
+        "transaction_id": "6ee3de27-eb5b-4f96-a487-f8a1b4a13c4e",
+        "step": "TRANSACTION",
+        "detail": "New Request: \"What is the remote work policy?\"",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764543879.7258801,
+        "transaction_id": "6ee3de27-eb5b-4f96-a487-f8a1b4a13c4e",
+        "step": "DECISION",
+        "detail": "Routed to KnowledgeAgent",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764543879.7264984,
+        "transaction_id": "6ee3de27-eb5b-4f96-a487-f8a1b4a13c4e",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764543879.727137,
+        "transaction_id": "6ee3de27-eb5b-4f96-a487-f8a1b4a13c4e",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764543897.0638697,
+        "transaction_id": "3af83a8f-5df5-47b6-ada9-08a7f8dffec4",
+        "step": "TRANSACTION",
+        "detail": "New Request: \"What is the remote work policy?\"",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764543897.0655293,
+        "transaction_id": "3af83a8f-5df5-47b6-ada9-08a7f8dffec4",
+        "step": "DECISION",
+        "detail": "Routed to KnowledgeAgent",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764543897.0669055,
+        "transaction_id": "3af83a8f-5df5-47b6-ada9-08a7f8dffec4",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764543897.0682921,
+        "transaction_id": "3af83a8f-5df5-47b6-ada9-08a7f8dffec4",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
     }
 ]
