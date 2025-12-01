@@ -48,24 +48,49 @@ class MockAnalyticsLLM:
     """
     def invoke(self, input_dict):
         prompt = input_dict.get("input", "")
-        if "business doing" in prompt.lower() or "metrics" in prompt.lower():
-            return {
-                "output": """
-**Executive Summary:**
-The business is showing **strong resilience** with a **12% YoY Revenue Growth** ($15.2M). However, **Operating Margins** have compressed to 22.3% (vs 24% last Q), primarily driven by rising supplier costs in the Eurozone.
+        if "business doing" in prompt.lower() or "metrics" in prompt.lower() or "strategy" in prompt.lower():
+            # 1. Analyze Real Data from Audit Log
+            try:
+                from src.services.monitoring_service import monitoring_service
+                health = monitoring_service.get_system_health()
+                sys_stats = health['system']
+                biz_stats = health['business']
+                
+                # 2. Generate Insights
+                insights = []
+                if sys_stats['success_rate'] < 95:
+                    insights.append(f"⚠️ **Operational Risk**: System success rate is {sys_stats['success_rate']}%. Investigate recent failures in {sys_stats['error_count']} transactions.")
+                else:
+                    insights.append(f"✅ **Operational Excellence**: System is running at {sys_stats['success_rate']}% reliability.")
+                    
+                if sys_stats['active_agents_count'] > 3:
+                     insights.append(f"🚀 **High Adoption**: {sys_stats['active_agents_count']} different agents are actively being used.")
 
-**Key Metrics (Q4):**
-- 📈 **Revenue**: $15.2M (+12% YoY)
-- 📉 **EBITDA**: $3.4M (+5% YoY) - *Lagging Revenue growth*
-- ⚠️ **Churn**: 4.5% (Stable, but Engineering is at risk)
+                # 3. Strategic Advice
+                advice = """
+**Strategic Advisor Report**:
+1.  **Revenue & Growth**: Revenue is up {trend} ({rev}). Continue aggressive expansion in the APAC region.
+2.  **Customer Sentiment**: CSAT is {csat}/5. Maintain current support levels but monitor response times.
+3.  **ESG Impact**: ESG Score is {esg}. Consider 'Green Logistics' initiative to break 95.
+""".format(
+                    trend=biz_stats['revenue_trend'], 
+                    rev=biz_stats['revenue_ytd'], 
+                    csat=biz_stats['csat_score'],
+                    esg=biz_stats['esg_score']
+                )
 
-**Strategic Advice:**
-1.  **Margin Recovery**: Initiate a strategic sourcing review with top 3 suppliers (Ariba) to claw back 150bps of margin.
-2.  **Capital Allocation**: Reinvest Q4 surplus into 'Project Phoenix' to accelerate time-to-market.
-3.  **Risk**: Monitor FX exposure in EMEA as the Euro weakens.
+                return {
+                    "output": f"""
+**Executive Summary (Real-Time)**:
+{chr(10).join(['- ' + i for i in insights])}
+
+{advice}
 """
-            }
-        return {"output": "I can only analyze business performance and metrics at this time."}
+                }
+            except Exception as e:
+                return {"output": f"Error generating analytics: {str(e)}"}
+
+        return {"output": "I can analyze business performance, metrics, and strategy."}
 
 def create_analytics_agent():
     """

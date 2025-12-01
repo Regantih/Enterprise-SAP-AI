@@ -169,8 +169,11 @@ class CapabilityIndex:
         for cap in self.index:
             score = 0
             # Keyword match
+            import re
             for kw in cap['keywords']:
-                if kw in query.lower():
+                # Use regex for word boundary to avoid "rma" matching "Germany"
+                pattern = r'\b' + re.escape(kw) + r'\b'
+                if re.search(pattern, query.lower()):
                     if kw.endswith("-"):
                         score += 20 # Strong signal for ID prefixes
                     else:
