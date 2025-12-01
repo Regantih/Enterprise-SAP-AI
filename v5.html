@@ -167,39 +167,52 @@
                 <!-- SVG Graph will be injected here -->
                 <svg width="100%" height="100%" viewBox="0 0 300 400" class="absolute inset-0">
                     <!-- Central Orchestrator -->
-                    <circle cx="150" cy="200" r="20" fill="#1e293b" stroke="#3b82f6" stroke-width="2" class="node"
+                    <circle cx="150" cy="200" r="25" fill="#1e293b" stroke="#3b82f6" stroke-width="2" class="node"
                         id="node-orchestrator" />
-                    <text x="150" y="235" text-anchor="middle" fill="#94a3b8" font-size="10"
+                    <text x="150" y="240" text-anchor="middle" fill="#94a3b8" font-size="10"
                         font-family="monospace">ORCHESTRATOR</text>
 
-                    <!-- Satellites -->
-                    <!-- Procurement -->
-                    <line x1="150" y1="200" x2="80" y2="100" class="link" id="link-procurement" />
-                    <circle cx="80" cy="100" r="15" fill="#1e293b" stroke="#64748b" stroke-width="2" class="node"
+                    <!-- Node: Procurement (Top Left) -->
+                    <line x1="150" y1="200" x2="80" y2="120" class="link" id="link-procurement" />
+                    <circle cx="80" cy="120" r="18" fill="#1e293b" stroke="#64748b" stroke-width="2" class="node"
                         id="node-procurement" />
-                    <text x="80" y="80" text-anchor="middle" fill="#64748b" font-size="9"
+                    <text x="80" y="95" text-anchor="middle" fill="#64748b" font-size="9"
                         font-family="monospace">PROCUREMENT</text>
 
-                    <!-- HR -->
-                    <line x1="150" y1="200" x2="220" y2="100" class="link" id="link-hr" />
-                    <circle cx="220" cy="100" r="15" fill="#1e293b" stroke="#64748b" stroke-width="2" class="node"
+                    <!-- Node: HR (Top Right) -->
+                    <line x1="150" y1="200" x2="220" y2="120" class="link" id="link-hr" />
+                    <circle cx="220" cy="120" r="18" fill="#1e293b" stroke="#64748b" stroke-width="2" class="node"
                         id="node-hr" />
-                    <text x="220" y="80" text-anchor="middle" fill="#64748b" font-size="9"
-                        font-family="monospace">HR/KNOWLEDGE</text>
+                    <text x="220" y="95" text-anchor="middle" fill="#64748b" font-size="9" font-family="monospace">HR /
+                        TALENT</text>
 
-                    <!-- Analytics -->
-                    <line x1="150" y1="200" x2="80" y2="300" class="link" id="link-analytics" />
-                    <circle cx="80" cy="300" r="15" fill="#1e293b" stroke="#64748b" stroke-width="2" class="node"
-                        id="node-analytics" />
-                    <text x="80" y="330" text-anchor="middle" fill="#64748b" font-size="9"
-                        font-family="monospace">ANALYTICS</text>
+                    <!-- Node: Sales (Left) -->
+                    <line x1="150" y1="200" x2="50" y2="200" class="link" id="link-sales" />
+                    <circle cx="50" cy="200" r="18" fill="#1e293b" stroke="#64748b" stroke-width="2" class="node"
+                        id="node-sales" />
+                    <text x="50" y="235" text-anchor="middle" fill="#64748b" font-size="9" font-family="monospace">SALES
+                        (CRM)</text>
 
-                    <!-- Sustainability -->
-                    <line x1="150" y1="200" x2="220" y2="300" class="link" id="link-sustainability" />
-                    <circle cx="220" cy="300" r="15" fill="#1e293b" stroke="#64748b" stroke-width="2" class="node"
-                        id="node-sustainability" />
-                    <text x="220" y="330" text-anchor="middle" fill="#64748b" font-size="9"
-                        font-family="monospace">ESG</text>
+                    <!-- Node: Finance (Right) -->
+                    <line x1="150" y1="200" x2="250" y2="200" class="link" id="link-finance" />
+                    <circle cx="250" cy="200" r="18" fill="#1e293b" stroke="#64748b" stroke-width="2" class="node"
+                        id="node-finance" />
+                    <text x="250" y="235" text-anchor="middle" fill="#64748b" font-size="9"
+                        font-family="monospace">FINANCE</text>
+
+                    <!-- Node: Manufacturing (Bottom Left) -->
+                    <line x1="150" y1="200" x2="80" y2="280" class="link" id="link-manufacturing" />
+                    <circle cx="80" cy="280" r="18" fill="#1e293b" stroke="#64748b" stroke-width="2" class="node"
+                        id="node-manufacturing" />
+                    <text x="80" y="315" text-anchor="middle" fill="#64748b" font-size="9" font-family="monospace">MFG /
+                        PROD</text>
+
+                    <!-- Node: Supply Chain (Bottom Right) -->
+                    <line x1="150" y1="200" x2="220" y2="280" class="link" id="link-supply" />
+                    <circle cx="220" cy="280" r="18" fill="#1e293b" stroke="#64748b" stroke-width="2" class="node"
+                        id="node-supply" />
+                    <text x="220" y="315" text-anchor="middle" fill="#64748b" font-size="9"
+                        font-family="monospace">SUPPLY CHAIN</text>
                 </svg>
             </div>
             <!-- Active Agent Status -->
@@ -352,10 +365,15 @@
 
             // Map agent name to ID
             let nodeId = '';
-            if (agentName.includes('Procurement')) nodeId = 'procurement';
-            else if (agentName.includes('Knowledge') || agentName.includes('HR')) nodeId = 'hr';
-            else if (agentName.includes('Analytics')) nodeId = 'analytics';
-            else if (agentName.includes('Sustainability')) nodeId = 'sustainability';
+            const name = agentName.toLowerCase();
+
+            if (name.includes('procurement') || name.includes('ariba')) nodeId = 'procurement';
+            else if (name.includes('knowledge') || name.includes('hr') || name.includes('successfactors')) nodeId = 'hr';
+            else if (name.includes('sales') || name.includes('crm')) nodeId = 'sales';
+            else if (name.includes('finance') || name.includes('erp')) nodeId = 'finance';
+            else if (name.includes('manufacturing') || name.includes('production')) nodeId = 'manufacturing';
+            else if (name.includes('supply') || name.includes('logistics')) nodeId = 'supply';
+            else if (name.includes('analytics')) nodeId = 'finance'; // Analytics usually hits finance data
 
             // Activate Orchestrator + Target
             const orch = document.getElementById('node-orchestrator');
