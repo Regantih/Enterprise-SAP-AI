@@ -165,9 +165,9 @@
                         <span class="text-gray-300">Revenue (YTD)</span>
                         <span id="biz-revenue" class="font-bold text-white">--</span>
                     </div>
-                    <div class="flex justify-between text-sm mb-1">
-                        <span class="text-gray-300">Open Orders</span>
-                        <span id="biz-orders" class="font-bold text-white">--</span>
+                    <div class="mt-4 flex items-center space-x-4 text-sm text-gray-400">
+                        <span>Avg Rating: <span class="text-white" id="health-rating">--</span></span>
+                        <span>Response Time: <span class="text-white" id="health-latency">--</span></span>
                     </div>
                     <div class="flex justify-between text-sm">
                         <span class="text-gray-300">CSAT Score</span>
@@ -290,7 +290,7 @@
                 const sys = data.system;
                 document.getElementById('health-success').innerText = sys.success_rate + '%';
                 document.getElementById('health-rating').innerText = sys.avg_rating + '/5';
-                document.getElementById('health-agents').innerText = sys.active_agents_count;
+                document.getElementById('health-latency').innerText = sys.avg_response_time;
 
                 if (sys.success_rate < 90) document.getElementById('health-success').className = "font-bold text-red-400";
                 else document.getElementById('health-success').className = "font-bold text-green-400";

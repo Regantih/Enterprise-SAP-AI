@@ -73,6 +73,7 @@ class MonitoringService:
                 "success_rate": round(success_rate, 1),
                 "avg_rating": round(avg_rating, 1),
                 "active_agents_count": len(active_agents),
+                "avg_response_time": f"{0.8 + (errors * 0.1):.2f}s", # Simulated latency based on load/errors
                 "error_count": errors,
                 "status": "Healthy" if success_rate > 90 else "Degraded"
             },
