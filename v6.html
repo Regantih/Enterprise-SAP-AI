@@ -326,9 +326,12 @@
                 let response = "I'm processing your request...";
                 let nodeId = 'orchestrator';
 
-                if (p.includes('inventory')) { nodeId = 'ewm'; response = "Checking Warehouse...<br>• M-100: 450 units"; }
-                else if (p.includes('hire')) { nodeId = 'successfactors'; response = "SuccessFactors Recruiting...<br>• 12 Open Reqs"; }
-                else if (p.includes('budget')) { nodeId = 's4'; response = "S/4HANA Finance...<br>• Q4 Utilization: 78%"; }
+                if (p.includes('inventory') || p.includes('stock')) { nodeId = 'ewm'; response = "Checking Warehouse...<br>• M-100: 450 units (Low)<br>• X-99: 1,200 units (Optimal)"; }
+                else if (p.includes('hire') || p.includes('candidate')) { nodeId = 'successfactors'; response = "SuccessFactors Recruiting...<br>• 12 Open Reqs<br>• Top Candidate: Sarah J. (98% Match)"; }
+                else if (p.includes('budget') || p.includes('finance')) { nodeId = 's4'; response = "S/4HANA Finance...<br>• Q4 Utilization: 78%<br>• Cash Flow: Positive"; }
+                else if (p.includes('supplier') || p.includes('procurement')) { nodeId = 'ariba'; response = "Ariba Network...<br>• Active RFPs: 3<br>• Supplier Health: 98% (Low Risk)"; }
+                else if (p.includes('travel') || p.includes('flight')) { nodeId = 'concur'; response = "Concur Travel...<br>• Next Trip: Berlin (TechEd)<br>• Flight: LH404 (Confirmed)"; }
+                else if (p.includes('plan') || p.includes('forecast')) { nodeId = 'ibp'; response = "IBP Simulation...<br>• Demand Forecast: +15% (Q1)<br>• Supply Gap: None"; }
 
                 activateNode(nodeId);
                 setTimeout(() => appendCard('Antigravity', response), 800);
