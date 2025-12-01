@@ -326,7 +326,17 @@
                     // 4. Procurement
                     await new Promise(r => setTimeout(r, 1500));
                     activateNode('ariba');
-                    appendCard('Procurement', '<span class="text-red-400">⚠️ ERROR: Alcoa Out of Stock.</span><br><span class="text-purple-400">🔄 Rerouting to Rio Tinto (Mexico)...</span><br><span class="text-green-400">✅ Sourced. +8% Cost. Faster Delivery.</span>');
+                    appendCard('Procurement', '<span class="text-red-400">⚠️ ERROR: Alcoa Out of Stock.</span>');
+
+                    // Recommendation
+                    await new Promise(r => setTimeout(r, 1000));
+                    activateNode('orchestrator');
+                    appendCard('Antigravity', '<strong>Strategic Recommendation:</strong><br>Reroute to Secondary Supplier (Rio Tinto) to protect Q4 delivery.');
+
+                    // Execution
+                    await new Promise(r => setTimeout(r, 1500));
+                    activateNode('ariba');
+                    appendCard('Procurement', '<span class="text-purple-400">🔄 Executing Reroute...</span><br><span class="text-green-400">✅ Sourced. +8% Cost. Faster Delivery.</span>');
 
                     // 5. HR
                     await new Promise(r => setTimeout(r, 2000));
@@ -382,9 +392,14 @@
                     activateNode('ewm'); // Warehouse Reason
                     appendCard('EWM Warehouse', '• <strong>Pick Ticket #990</strong>: Only 20 picked.<br>• <span class="text-red-400">Reason: Bin A-12 Empty (Stockout).</span>');
 
+                    // Recommendation
                     await new Promise(r => setTimeout(r, 1000));
                     activateNode('orchestrator');
-                    showResult('<span class="text-green-400 font-bold">✅ RESOLVED.</span><br>Action: Created Backorder #45001-B for 30 units.<br>Priority: Expedited Shipping (Free of Charge).');
+                    appendCard('Antigravity', '<strong>Proposed Resolution:</strong><br>1. Create Backorder for 30 units.<br>2. Upgrade to Expedited Shipping (Customer Satisfaction).<br><br><em>Auto-Executing...</em>');
+
+                    await new Promise(r => setTimeout(r, 2000));
+                    activateNode('orchestrator');
+                    showResult('<span class="text-green-400 font-bold">✅ RESOLVED.</span><br>Action: Created Backorder #45001-B.<br>Status: Shipped via DHL Express.');
 
                 } else {
                     // Generic Handler
