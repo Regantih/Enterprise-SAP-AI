@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAP Antigravity v6.0</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f172a;
+            --glass: rgba(15, 23, 42, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.05);
+            --neon-blue: #3b82f6;
+            --neon-purple: #8b5cf6;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000;
+            color: #e2e8f0;
+            overflow: hidden;
+        }
+
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Ambient Background Graph */
+        #ambient-graph {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            opacity: 0.3;
+            pointer-events: none;
+            transition: opacity 1s ease;
+        }
+
+        /* Glass Cards */
+        .glass-panel {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        /* Typography */
+        h1 {
+            background: linear-gradient(to right, #60a5fa, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+            }
+
+            50% {
+                box-shadow: 0 0 40px rgba(59, 130, 246, 0.5);
+            }
+        }
+
+        .active-node {
+            fill: #3b82f6;
+            filter: drop-shadow(0 0 15px #3b82f6);
+            transition: all 0.5s ease;
+        }
+
+        .active-link {
+            stroke: #3b82f6;
+            stroke-width: 2;
+            opacity: 0.8;
+            filter: drop-shadow(0 0 5px #3b82f6);
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+        }
+    </style>
+</head>
+
+<body class="h-screen flex flex-col items-center justify-center relative">
+
+    <!-- 1. AMBIENT NEURAL GRAPH (Background) -->
+    <div id="ambient-graph">
+        <svg width="100%" height="100%" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+            <!-- Links -->
+            <g id="links" stroke="rgba(255,255,255,0.05)" stroke-width="1">
+                <line x1="400" y1="300" x2="200" y2="150" id="link-ariba" />
+                <line x1="400" y1="300" x2="600" y2="150" id="link-successfactors" />
+                <line x1="400" y1="300" x2="700" y2="300" id="link-concur" />
+                <line x1="400" y1="300" x2="600" y2="450" id="link-ibp" />
+                <line x1="400" y1="300" x2="200" y2="450" id="link-ewm" />
+                <line x1="400" y1="300" x2="100" y2="300" id="link-s4" />
+            </g>
+            <!-- Nodes -->
+            <g id="nodes">
+                <circle cx="400" cy="300" r="40" fill="#1e293b" class="node" id="node-orchestrator" />
+                <circle cx="200" cy="150" r="25" fill="#1e293b" class="node" id="node-ariba" />
+                <circle cx="600" cy="150" r="25" fill="#1e293b" class="node" id="node-successfactors" />
+                <circle cx="700" cy="300" r="20" fill="#1e293b" class="node" id="node-concur" />
+                <circle cx="600" cy="450" r="25" fill="#1e293b" class="node" id="node-ibp" />
+                <circle cx="200" cy="450" r="25" fill="#1e293b" class="node" id="node-ewm" />
+                <circle cx="100" cy="300" r="30" fill="#1e293b" class="node" id="node-s4" />
+            </g>
+            <!-- Labels -->
+            <g fill="rgba(255,255,255,0.3)" font-family="JetBrains Mono" font-size="10" text-anchor="middle">
+                <text x="400" y="360">ORCHESTRATOR</text>
+                <text x="200" y="115">ARIBA</text>
+                <text x="600" y="115">SUCCESSFACTORS</text>
+                <text x="700" y="340">CONCUR</text>
+                <text x="600" y="500">IBP</text>
+                <text x="200" y="500">EWM</text>
+                <text x="100" y="350">S/4HANA</text>
+            </g>
+        </svg>
+    </div>
+
+    <!-- 2. MAIN INTERFACE (Centered) -->
+    <main class="z-10 w-full max-w-3xl h-[80vh] flex flex-col relative">
+
+        <!-- Header -->
+        <header class="text-center mb-8 floating">
+            <h1 class="text-4xl font-bold tracking-tight mb-2">Antigravity</h1>
+            <p class="text-gray-400 text-sm font-mono">Enterprise Orchestration OS v6.0</p>
+        </header>
+
+        <!-- Chat Stream -->
+        <div id="chat-stream" class="flex-1 overflow-y-auto px-4 py-2 space-y-6 scroll-smooth">
+            <!-- Welcome Message -->
+            <div class="flex flex-col items-center text-center space-y-2 opacity-80">
+                <div
+                    class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg shadow-blue-500/20">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                </div>
+                <div class="glass-panel px-6 py-4 rounded-2xl max-w-lg">
+                    <p class="text-sm text-gray-200">System Online. I am ready to orchestrate your enterprise.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="mt-6 px-4">
+            <div
+                class="glass-panel rounded-full p-2 flex items-center relative transition-all duration-300 focus-within:ring-2 focus-within:ring-blue-500/50 focus-within:scale-[1.01]">
+                <div class="w-10 h-10 rounded-full bg-gray-800/50 flex items-center justify-center ml-1">
+                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z">
+                        </path>
+                    </svg>
+                </div>
+                <input type="text" id="user-input"
+                    class="flex-1 bg-transparent border-none focus:ring-0 text-white px-4 py-3 font-mono text-sm placeholder-gray-500"
+                    placeholder="Type a command or 'Execute Titan'..." autocomplete="off">
+                <button onclick="sendMessage()"
+                    class="p-3 rounded-full bg-blue-600 hover:bg-blue-500 text-white transition shadow-lg shadow-blue-600/20 mr-1">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Minimal Demo Button -->
+            <div class="mt-4 flex justify-center">
+                <button onclick="runTitanSequence()"
+                    class="text-xs font-mono text-gray-500 hover:text-blue-400 transition flex items-center space-x-2 group">
+                    <span class="w-2 h-2 rounded-full bg-gray-600 group-hover:bg-blue-400 transition"></span>
+                    <span>Run "Project Titan" Simulation</span>
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // --- LOGIC ---
+        const userInput = document.getElementById('user-input');
+        const chatStream = document.getElementById('chat-stream');
+
+        function appendCard(role, html, color = 'gray') {
+            const div = document.createElement('div');
+            div.className = `flex flex-col ${role === 'User' ? 'items-end' : 'items-start'} space-y-1 animate-[float_0.5s_ease-out]`;
+
+            const bubble = document.createElement('div');
+            bubble.className = role === 'User'
+                ? 'bg-blue-600 text-white px-6 py-3 rounded-2xl rounded-tr-sm max-w-lg shadow-lg'
+                : 'glass-panel px-6 py-4 rounded-2xl rounded-tl-sm max-w-lg text-gray-200 text-sm leading-relaxed shadow-lg';
+
+            bubble.innerHTML = html;
+            div.appendChild(bubble);
+
+            // Label
+            const label = document.createElement('span');
+            label.className = 'text-[10px] uppercase tracking-wider font-bold text-gray-600 ml-2';
+            label.innerText = role;
+            div.appendChild(label);
+
+            chatStream.appendChild(div);
+            chatStream.scrollTop = chatStream.scrollHeight;
+        }
+
+        function activateNode(nodeId) {
+            // Reset
+            document.querySelectorAll('.node').forEach(n => {
+                n.setAttribute('fill', '#1e293b');
+                n.classList.remove('active-node');
+            });
+            document.querySelectorAll('line').forEach(l => l.classList.remove('active-link'));
+
+            // Activate
+            const node = document.getElementById('node-' + nodeId);
+            if (node) node.classList.add('active-node');
+
+            const link = document.getElementById('link-' + nodeId);
+            if (link) link.classList.add('active-link');
+        }
+
+        // --- TITAN SCENARIO ---
+        async function runTitanSequence() {
+            // Typewriter
+            userInput.value = '';
+            userInput.focus();
+            const text = "Execute Strategic Growth Plan: Project Titan";
+            for (let i = 0; i < text.length; i++) {
+                userInput.value += text.charAt(i);
+                await new Promise(r => setTimeout(r, 40));
+            }
+            await new Promise(r => setTimeout(r, 400));
+
+            // Submit
+            handleLocalPrompt(userInput.value);
+            userInput.value = '';
+        }
+
+        async function handleLocalPrompt(prompt) {
+            appendCard('User', prompt);
+
+            const p = prompt.toLowerCase();
+
+            if (p.includes('titan') || p.includes('tesla')) {
+                // Titan Sequence
+                const loadingId = Date.now();
+                appendCard('System', `<span id="${loadingId}" class="animate-pulse text-blue-400 font-mono">Initializing Neural Orchestration...</span>`);
+
+                await new Promise(r => setTimeout(r, 1000));
+                document.getElementById(loadingId).parentElement.innerHTML = "Project Titan Protocol Initiated.";
+
+                // 1. Sales
+                activateNode('orchestrator');
+                await new Promise(r => setTimeout(r, 500));
+                appendCard('Sales Agent', '<strong>Deal Won: Tesla (50k Units)</strong><br>Revenue: $50M. Delivery: Q4.');
+
+                // 2. Mfg
+                await new Promise(r => setTimeout(r, 1500));
+                activateNode('s4');
+                appendCard('Manufacturing', '<span class="text-red-400">CRITICAL: Capacity Shortfall (10k units).</span>');
+
+                // 3. Supply
+                await new Promise(r => setTimeout(r, 1500));
+                activateNode('ibp');
+                appendCard('Supply Chain', '<span class="text-yellow-400">ALERT: Low Inventory (Aluminum). Need 50 tons.</span>');
+
+                // 4. Procurement
+                await new Promise(r => setTimeout(r, 1500));
+                activateNode('ariba');
+                appendCard('Procurement', '<span class="text-red-400">⚠️ ERROR: Alcoa Out of Stock.</span><br><span class="text-purple-400">🔄 Rerouting to Rio Tinto (Mexico)...</span><br><span class="text-green-400">✅ Sourced. +8% Cost. Faster Delivery.</span>');
+
+                // 5. HR
+                await new Promise(r => setTimeout(r, 2000));
+                activateNode('successfactors');
+                appendCard('HR', '<strong>Recruiting:</strong> Posted 50 "Assembly Tech" Reqs to meet capacity.');
+
+                // 6. Finance
+                await new Promise(r => setTimeout(r, 1500));
+                activateNode('s4');
+                appendCard('Finance', '<span class="text-green-400">ANALYSIS: Margin impact -1.5%. Net Profit $8.2M. APPROVED.</span>');
+
+                await new Promise(r => setTimeout(r, 1000));
+                activateNode('orchestrator');
+                appendCard('Antigravity', 'Execution Complete. Enterprise synchronized.');
+            } else {
+                // Generic Handler
+                let response = "I'm processing your request...";
+                let nodeId = 'orchestrator';
+
+                if (p.includes('inventory')) { nodeId = 'ewm'; response = "Checking Warehouse...<br>• M-100: 450 units"; }
+                else if (p.includes('hire')) { nodeId = 'successfactors'; response = "SuccessFactors Recruiting...<br>• 12 Open Reqs"; }
+                else if (p.includes('budget')) { nodeId = 's4'; response = "S/4HANA Finance...<br>• Q4 Utilization: 78%"; }
+
+                activateNode(nodeId);
+                setTimeout(() => appendCard('Antigravity', response), 800);
+            }
+        }
+
+        function sendMessage() {
+            const text = userInput.value.trim();
+            if (!text) return;
+            userInput.value = '';
+            handleLocalPrompt(text);
+        }
+
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendMessage();
+        });
+
+    </script>
+</body>
+
+</html>
