@@ -1846,5 +1846,68 @@
         "step": "OUTCOME",
         "detail": "Response generated",
         "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764567803.2952292,
+        "transaction_id": "1c5d0389-750c-43e4-ada3-5de92eae1291",
+        "step": "DECISION",
+        "detail": "Fallback to Heuristics",
+        "status": "WARNING"
+    },
+    {
+        "timestamp": 1764567803.2966638,
+        "transaction_id": "1c5d0389-750c-43e4-ada3-5de92eae1291",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764567803.2978888,
+        "transaction_id": "1c5d0389-750c-43e4-ada3-5de92eae1291",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764567803.2991009,
+        "transaction_id": "1c5d0389-750c-43e4-ada3-5de92eae1291",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764567803.3002987,
+        "transaction_id": "1c5d0389-750c-43e4-ada3-5de92eae1291",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764567803.3014913,
+        "transaction_id": "1c5d0389-750c-43e4-ada3-5de92eae1291",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764567804.3648112,
+        "transaction_id": "1c5d0389-750c-43e4-ada3-5de92eae1291",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764567804.3663862,
+        "transaction_id": "1c5d0389-750c-43e4-ada3-5de92eae1291",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764567805.369293,
+        "transaction_id": "1c5d0389-750c-43e4-ada3-5de92eae1291",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
     }
 ]
