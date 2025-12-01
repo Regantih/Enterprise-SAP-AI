@@ -245,47 +245,6 @@ class OrchestratorAgent:
             self._log("Execution Complete", "Success")
             return final_response
             
-        except Exception as e:
-            error_msg = f"❌ **Critical Execution Error**: {str(e)}\n\n*Please contact IT Support.*"
-            self._log("Execution Crash", str(e))
-            return error_msg
-
-    def _run_agent(self, agent, prompt):
-        """
-        Runs the specific agent logic.
-        """
-        if agent['id'] == 'analytics_strategy' or agent['category'] == 'Analytics':
-            executor = create_analytics_agent()
-            if executor:
-                try:
-                    res = executor.invoke({"input": prompt})
-                    return res['output']
-                except Exception as e:
-                    return f"Error: {str(e)}"
-            return "Error: Could not initialize Analytics Agent."
-
-        elif agent['id'] == 'xm_experience' or agent['category'] == 'Experience Management':
-            executor = create_experience_agent()
-            if executor:
-                try:
-                    res = executor.invoke({"input": prompt})
-                    return res['output']
-                except Exception as e:
-                    return f"Error: {str(e)}"
-            return "Error: Could not initialize Experience Agent."
-
-        elif agent['id'] == 'bn_network' or agent['category'] == 'Business Network':
-            executor = create_network_agent()
-            if executor:
-                try:
-                    res = executor.invoke({"input": prompt})
-                    return res['output']
-                except Exception as e:
-                    return f"Error: {str(e)}"
-            return "Error: Could not initialize Network Agent."
-
-        elif agent['id'] == 'tv_travel' or agent['category'] == 'Travel':
-            executor = create_travel_agent()
             if executor:
                 try:
                     res = executor.invoke({"input": prompt})
