@@ -370,6 +370,22 @@
                     activateNode('orchestrator');
                     showResult('<span class="text-green-400 font-bold">✅ AUDIT COMPLETE.</span><br>Report generated. Recommendation: Switch Supplier X to Green Tier.');
 
+                } else if (p.includes('ordered') || p.includes('received') || p.includes('missing') || p.includes('units')) {
+                    // SCENARIO: Order Discrepancy (CS + Logistics)
+                    appendCard('Antigravity', '<strong>Investigating Order Discrepancy...</strong><br>Cross-referencing Sales Order vs. Shipment Data.');
+
+                    await new Promise(r => setTimeout(r, 1000));
+                    activateNode('s4'); // Sales Order
+                    appendCard('S/4HANA Sales', '• <strong>Order #45001</strong>: Confirmed 50 Units (Product X100).<br>• <strong>Status</strong>: Partial Delivery (20/50).');
+
+                    await new Promise(r => setTimeout(r, 1500));
+                    activateNode('ewm'); // Warehouse Reason
+                    appendCard('EWM Warehouse', '• <strong>Pick Ticket #990</strong>: Only 20 picked.<br>• <span class="text-red-400">Reason: Bin A-12 Empty (Stockout).</span>');
+
+                    await new Promise(r => setTimeout(r, 1000));
+                    activateNode('orchestrator');
+                    showResult('<span class="text-green-400 font-bold">✅ RESOLVED.</span><br>Action: Created Backorder #45001-B for 30 units.<br>Priority: Expedited Shipping (Free of Charge).');
+
                 } else {
                     // Generic Handler
                     let response = "I'm processing your request...";
