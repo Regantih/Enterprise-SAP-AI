@@ -321,6 +321,39 @@
                 await new Promise(r => setTimeout(r, 1000));
                 activateNode('orchestrator');
                 appendCard('Antigravity', 'Execution Complete. Enterprise synchronized.');
+
+            } else if (p.includes('launch') || p.includes('brazil')) {
+                // SCENARIO: Market Expansion (Complexity: Legal + Logistics + Finance)
+                appendCard('Antigravity', '<strong>Initiating Market Expansion Protocol (Brazil)</strong><br>Accessing GTS, TM, and S/4HANA...');
+
+                await new Promise(r => setTimeout(r, 1000));
+                activateNode('s4'); // Legal/Finance
+                appendCard('Legal & Finance', '• <strong>Tax Compliance</strong>: BR-NF-e Registered.<br>• <strong>Entity Setup</strong>: SP-01 Subsidiary Active.');
+
+                await new Promise(r => setTimeout(r, 1500));
+                activateNode('ewm'); // Logistics
+                appendCard('Logistics', '• <strong>Distribution</strong>: 3PL Partner "LogiBras" contracted.<br>• <strong>Customs</strong>: Pre-clearance approved for SKU-99.');
+
+                await new Promise(r => setTimeout(r, 1000));
+                activateNode('orchestrator');
+                appendCard('Antigravity', '<span class="text-green-400">✅ READY TO LAUNCH.</span><br>Complexity handled: 3 Systems, 14 Compliance Checks, 1 Prompt.');
+
+            } else if (p.includes('sustainability') || p.includes('carbon') || p.includes('audit')) {
+                // SCENARIO: Sustainability Audit (Complexity: Data Aggregation)
+                appendCard('Antigravity', '<strong>Running Global Sustainability Audit</strong><br>Aggregating Scope 1, 2, & 3 Emissions...');
+
+                await new Promise(r => setTimeout(r, 1000));
+                activateNode('ariba'); // Supplier Scope 3
+                appendCard('Ariba (Scope 3)', '• <strong>Supplier Emissions</strong>: 4,500 tons CO2e (Top 20 Suppliers).<br>• <span class="text-yellow-400">Alert: Supplier X exceeds threshold.</span>');
+
+                await new Promise(r => setTimeout(r, 1500));
+                activateNode('s4'); // Mfg Scope 1 & 2
+                appendCard('Manufacturing (Scope 1 & 2)', '• <strong>Plant Operations</strong>: 1,200 tons CO2e.<br>• <strong>Energy Mix</strong>: 60% Renewable.');
+
+                await new Promise(r => setTimeout(r, 1000));
+                activateNode('orchestrator');
+                appendCard('Antigravity', '<span class="text-green-400">✅ AUDIT COMPLETE.</span><br>Report generated. Recommendation: Switch Supplier X to Green Tier.');
+
             } else {
                 // Generic Handler
                 let response = "I'm processing your request...";
