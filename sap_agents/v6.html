@@ -219,6 +219,7 @@
         // --- LOGIC ---
         const userInput = document.getElementById('user-input');
         const chatStream = document.getElementById('chat-stream');
+        let conversationContext = null;
 
         function appendCard(role, html, color = 'gray') {
             const div = document.createElement('div');
@@ -381,8 +382,24 @@
                     showResult('<span class="text-green-400 font-bold">✅ AUDIT COMPLETE.</span><br>Report generated. Recommendation: Switch Supplier X to Green Tier.');
 
                 } else if (p.includes('ordered') || p.includes('received') || p.includes('missing') || p.includes('units')) {
-                    // SCENARIO: Order Discrepancy (CS + Logistics)
-                    appendCard('Antigravity', '<strong>Investigating Order Discrepancy...</strong><br>Cross-referencing Sales Order vs. Shipment Data.');
+                    // SCENARIO: Order Discrepancy - Step 1 (Ask for Context)
+                    // If we don't have the order number yet, ask for it.
+                    if (!p.includes('45001') && !p.includes('alcoa')) {
+                        conversationContext = 'awaiting_order_details';
+                        await new Promise(r => setTimeout(r, 800));
+                        showResult('I see a discrepancy report. To investigate this in S/4HANA, I need a bit more detail.<br><br>Could you please provide the <strong>Order Number</strong> or <strong>Vendor Name</strong>?');
+                        return;
+                    }
+                }
+
+                // SCENARIO: Order Discrepancy - Step 2 (Proceed with Context)
+                // Trigger if context is set OR if user provides the number directly
+                if (conversationContext === 'awaiting_order_details' || p.includes('45001') || p.includes('alcoa')) {
+                    conversationContext = null; // Reset
+
+                    document.getElementById(thinkingId).innerHTML = '<span class="text-blue-400 font-mono">Accessing Order #45001...</span>';
+
+                    appendCard('Antigravity', '<strong>Investigating Order #45001 (Vendor: Alcoa)...</strong><br>Cross-referencing Sales Order vs. Shipment Data.');
 
                     await new Promise(r => setTimeout(r, 1000));
                     activateNode('s4'); // Sales Order
