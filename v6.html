@@ -276,6 +276,58 @@
             userInput.value = '';
         }
 
+        // --- INTENT ENGINE (Simulated AI) ---
+        const INTENTS = {
+            TITAN: {
+                keywords: ['titan', 'tesla', 'strategic', 'growth', 'expansion', 'project'],
+                threshold: 1
+            },
+            MARKET_LAUNCH: {
+                keywords: ['launch', 'brazil', 'market', 'new region', 'expansion', 'go-to-market'],
+                threshold: 1
+            },
+            SUSTAINABILITY: {
+                keywords: ['carbon', 'sustainability', 'emission', 'green', 'audit', 'co2', 'scope 3', 'climate'],
+                threshold: 1
+            },
+            ORDER_ISSUE: {
+                keywords: ['ordered', 'received', 'missing', 'units', 'delivery', 'shipment', 'wrong', 'shortage', 'discrepancy', 'where is', 'track'],
+                threshold: 1
+            },
+            INVENTORY: {
+                keywords: ['stock', 'inventory', 'warehouse', 'availability', 'count', 'sku'],
+                threshold: 1
+            },
+            HR_HIRING: {
+                keywords: ['hire', 'candidate', 'recruit', 'staffing', 'developer', 'employee', 'headcount'],
+                threshold: 1
+            },
+            FINANCE: {
+                keywords: ['budget', 'finance', 'cost', 'revenue', 'profit', 'margin', 'spend', 'money'],
+                threshold: 1
+            }
+        };
+
+        function classifyIntent(text) {
+            const tokens = text.toLowerCase().split(/[\s,.?!]+/);
+            let bestIntent = 'GENERIC';
+            let maxScore = 0;
+
+            for (const [intent, data] of Object.entries(INTENTS)) {
+                let score = 0;
+                data.keywords.forEach(k => {
+                    if (text.toLowerCase().includes(k)) score += 2; // Phrase match
+                    else if (tokens.includes(k)) score += 1;      // Word match
+                });
+
+                if (score >= data.threshold && score > maxScore) {
+                    maxScore = score;
+                    bestIntent = intent;
+                }
+            }
+            return bestIntent;
+        }
+
         async function handleLocalPrompt(prompt) {
             appendCard('User', prompt);
 
@@ -290,158 +342,148 @@
                 </div>`;
             appendCard('Antigravity', thinkingHtml);
 
-            // Helper to replace thinking with result
             const showResult = (html) => {
                 const el = document.getElementById(thinkingId);
-                if (el) {
-                    // Replace the content of the thinking bubble with the result
-                    el.parentElement.innerHTML = html;
-                } else {
-                    // Fallback if element lost
-                    appendCard('Antigravity', html);
-                }
+                if (el) el.parentElement.innerHTML = html;
+                else appendCard('Antigravity', html);
             };
 
-            const p = prompt.toLowerCase();
+            // 2. Classify Intent
+            await new Promise(r => setTimeout(r, 600)); // Simulate processing
+            const intent = classifyIntent(prompt);
+            console.log(`Detected Intent: ${intent}`);
 
             try {
-                if (p.includes('titan') || p.includes('tesla')) {
-                    // Titan Sequence
-                    document.getElementById(thinkingId).innerHTML = '<span class="text-blue-400 font-mono">Initializing Project Titan Protocol...</span>';
+                switch (intent) {
+                    case 'TITAN':
+                        // Titan Sequence
+                        document.getElementById(thinkingId).innerHTML = '<span class="text-blue-400 font-mono">Initializing Project Titan Protocol...</span>';
+                        // 1. Sales
+                        activateNode('orchestrator');
+                        await new Promise(r => setTimeout(r, 1500));
+                        appendCard('Sales Agent', '<strong>Deal Won: Tesla (50k Units)</strong><br>Revenue: $50M. Delivery: Q4.');
+                        // ... (rest of Titan logic, abbreviated for brevity, assuming existing flow) ...
+                        // Note: For this patch, I'm simplifying the Titan re-insertion to avoid massive file diffs.
+                        // In a real refactor, this would be a separate function.
+                        // 2. Mfg
+                        await new Promise(r => setTimeout(r, 1500));
+                        activateNode('s4');
+                        appendCard('Manufacturing', '<span class="text-red-400">CRITICAL: Capacity Shortfall (10k units).</span>');
+                        // 3. Supply
+                        await new Promise(r => setTimeout(r, 1500));
+                        activateNode('ibp');
+                        appendCard('Supply Chain', '<span class="text-yellow-400">ALERT: Low Inventory (Aluminum). Need 50 tons.</span>');
+                        // 4. Procurement
+                        await new Promise(r => setTimeout(r, 1500));
+                        activateNode('ariba');
+                        appendCard('Procurement', '<span class="text-red-400">⚠️ ERROR: Alcoa Out of Stock.</span>');
+                        // Recommendation
+                        await new Promise(r => setTimeout(r, 1000));
+                        activateNode('orchestrator');
+                        appendCard('Antigravity', '<strong>Strategic Recommendation:</strong><br>Reroute to Secondary Supplier (Rio Tinto) to protect Q4 delivery.');
+                        // Execution
+                        await new Promise(r => setTimeout(r, 1500));
+                        activateNode('ariba');
+                        appendCard('Procurement', '<span class="text-purple-400">🔄 Executing Reroute...</span><br><span class="text-green-400">✅ Sourced. +8% Cost. Faster Delivery.</span>');
+                        // 5. HR
+                        await new Promise(r => setTimeout(r, 2000));
+                        activateNode('successfactors');
+                        appendCard('HR', '<strong>Recruiting:</strong> Posted 50 "Assembly Tech" Reqs to meet capacity.');
+                        // 6. Finance
+                        await new Promise(r => setTimeout(r, 1500));
+                        activateNode('s4');
+                        appendCard('Finance', '<span class="text-green-400">ANALYSIS: Margin impact -1.5%. Net Profit $8.2M. APPROVED.</span>');
+                        await new Promise(r => setTimeout(r, 1000));
+                        activateNode('orchestrator');
+                        showResult('<span class="text-green-400 font-bold">✅ EXECUTION COMPLETE.</span><br>Enterprise synchronized.');
+                        break;
 
-                    // 1. Sales
-                    activateNode('orchestrator');
-                    await new Promise(r => setTimeout(r, 1500));
-                    appendCard('Sales Agent', '<strong>Deal Won: Tesla (50k Units)</strong><br>Revenue: $50M. Delivery: Q4.');
+                    case 'MARKET_LAUNCH':
+                        document.getElementById(thinkingId).innerHTML = '<span class="text-blue-400 font-mono">Analyzing Market Expansion...</span>';
+                        await new Promise(r => setTimeout(r, 1500));
+                        activateNode('s4');
+                        appendCard('Legal & Finance', '• <strong>Tax Compliance</strong>: BR-NF-e Registered.<br>• <strong>Entity Setup</strong>: SP-01 Subsidiary Active.');
+                        await new Promise(r => setTimeout(r, 1500));
+                        activateNode('ewm');
+                        appendCard('Logistics', '• <strong>Distribution</strong>: 3PL Partner "LogiBras" contracted.<br>• <strong>Customs</strong>: Pre-clearance approved for SKU-99.');
+                        await new Promise(r => setTimeout(r, 1000));
+                        activateNode('orchestrator');
+                        showResult('<span class="text-green-400 font-bold">✅ READY TO LAUNCH.</span><br>Complexity handled: 3 Systems, 14 Compliance Checks.');
+                        break;
 
-                    // 2. Mfg
-                    await new Promise(r => setTimeout(r, 1500));
-                    activateNode('s4');
-                    appendCard('Manufacturing', '<span class="text-red-400">CRITICAL: Capacity Shortfall (10k units).</span>');
+                    case 'SUSTAINABILITY':
+                        document.getElementById(thinkingId).innerHTML = '<span class="text-blue-400 font-mono">Auditing Carbon Footprint...</span>';
+                        await new Promise(r => setTimeout(r, 1500));
+                        activateNode('ariba');
+                        appendCard('Ariba (Scope 3)', '• <strong>Supplier Emissions</strong>: 4,500 tons CO2e (Top 20 Suppliers).<br>• <span class="text-yellow-400">Alert: Supplier X exceeds threshold.</span>');
+                        await new Promise(r => setTimeout(r, 1500));
+                        activateNode('s4');
+                        appendCard('Manufacturing (Scope 1 & 2)', '• <strong>Plant Operations</strong>: 1,200 tons CO2e.<br>• <strong>Energy Mix</strong>: 60% Renewable.');
+                        await new Promise(r => setTimeout(r, 1000));
+                        activateNode('orchestrator');
+                        showResult('<span class="text-green-400 font-bold">✅ AUDIT COMPLETE.</span><br>Report generated. Recommendation: Switch Supplier X to Green Tier.');
+                        break;
 
-                    // 3. Supply
-                    await new Promise(r => setTimeout(r, 1500));
-                    activateNode('ibp');
-                    appendCard('Supply Chain', '<span class="text-yellow-400">ALERT: Low Inventory (Aluminum). Need 50 tons.</span>');
+                    case 'ORDER_ISSUE':
+                        // SCENARIO: Order Discrepancy (Generalized)
+                        // Check for context
+                        if (!conversationContext && !prompt.match(/\d{4,}/)) {
+                            conversationContext = 'awaiting_order_details';
+                            await new Promise(r => setTimeout(r, 800));
+                            showResult('I detected a logistics discrepancy. To investigate, I need to pinpoint the transaction.<br><br>Could you please provide the <strong>Order Number</strong> or <strong>Vendor Name</strong>?');
+                            return;
+                        }
 
-                    // 4. Procurement
-                    await new Promise(r => setTimeout(r, 1500));
-                    activateNode('ariba');
-                    appendCard('Procurement', '<span class="text-red-400">⚠️ ERROR: Alcoa Out of Stock.</span>');
+                        // Proceed
+                        conversationContext = null;
+                        const orderNum = prompt.match(/\d{4,}/) ? prompt.match(/\d{4,}/)[0] : '45001'; // Extract or default
 
-                    // Recommendation
-                    await new Promise(r => setTimeout(r, 1000));
-                    activateNode('orchestrator');
-                    appendCard('Antigravity', '<strong>Strategic Recommendation:</strong><br>Reroute to Secondary Supplier (Rio Tinto) to protect Q4 delivery.');
+                        document.getElementById(thinkingId).innerHTML = `<span class="text-blue-400 font-mono">Accessing Order #${orderNum}...</span>`;
+                        appendCard('Antigravity', `<strong>Investigating Order #${orderNum}...</strong><br>Cross-referencing Sales Order vs. Shipment Data.`);
 
-                    // Execution
-                    await new Promise(r => setTimeout(r, 1500));
-                    activateNode('ariba');
-                    appendCard('Procurement', '<span class="text-purple-400">🔄 Executing Reroute...</span><br><span class="text-green-400">✅ Sourced. +8% Cost. Faster Delivery.</span>');
+                        await new Promise(r => setTimeout(r, 1000));
+                        activateNode('s4');
+                        appendCard('S/4HANA Sales', `• <strong>Order #${orderNum}</strong>: Confirmed 50 Units.<br>• <strong>Status</strong>: Partial Delivery (20/50).`);
 
-                    // 5. HR
-                    await new Promise(r => setTimeout(r, 2000));
-                    activateNode('successfactors');
-                    appendCard('HR', '<strong>Recruiting:</strong> Posted 50 "Assembly Tech" Reqs to meet capacity.');
+                        await new Promise(r => setTimeout(r, 1500));
+                        activateNode('ewm');
+                        appendCard('EWM Warehouse', '• <strong>Pick Ticket</strong>: Only 20 picked.<br>• <span class="text-red-400">Reason: Bin A-12 Empty (Stockout).</span>');
 
-                    // 6. Finance
-                    await new Promise(r => setTimeout(r, 1500));
-                    activateNode('s4');
-                    appendCard('Finance', '<span class="text-green-400">ANALYSIS: Margin impact -1.5%. Net Profit $8.2M. APPROVED.</span>');
+                        await new Promise(r => setTimeout(r, 1000));
+                        activateNode('orchestrator');
+                        appendCard('Antigravity', `<strong>Proposed Resolution:</strong><br>1. Create Backorder for 30 units.<br>2. Upgrade to Expedited Shipping.<br><br><em>Auto-Executing...</em>`);
 
-                    await new Promise(r => setTimeout(r, 1000));
-                    activateNode('orchestrator');
-                    showResult('<span class="text-green-400 font-bold">✅ EXECUTION COMPLETE.</span><br>Enterprise synchronized.');
+                        await new Promise(r => setTimeout(r, 2000));
+                        activateNode('orchestrator');
+                        showResult(`<span class="text-green-400 font-bold">✅ RESOLVED.</span><br>Action: Created Backorder #${orderNum}-B.<br>Status: Shipped via DHL Express.`);
+                        break;
 
-                } else if (p.includes('launch') || p.includes('brazil')) {
-                    // Market Expansion
-                    await new Promise(r => setTimeout(r, 1500));
-                    activateNode('s4');
-                    appendCard('Legal & Finance', '• <strong>Tax Compliance</strong>: BR-NF-e Registered.<br>• <strong>Entity Setup</strong>: SP-01 Subsidiary Active.');
+                    case 'INVENTORY':
+                        activateNode('ewm');
+                        showResult('<strong>EWM Inventory Check:</strong><br>• Product X100: 1,200 Units (Hamburg)<br>• Product Y200: 450 Units (Singapore)<br><span class="text-green-400">All stock levels healthy.</span>');
+                        break;
 
-                    await new Promise(r => setTimeout(r, 1500));
-                    activateNode('ewm');
-                    appendCard('Logistics', '• <strong>Distribution</strong>: 3PL Partner "LogiBras" contracted.<br>• <strong>Customs</strong>: Pre-clearance approved for SKU-99.');
+                    case 'HR_HIRING':
+                        activateNode('successfactors');
+                        showResult('<strong>SuccessFactors Recruiting:</strong><br>• Open Requisitions: 12<br>• Top Candidate: Sarah J. (98% Match)<br><button class="mt-2 px-3 py-1 bg-blue-600 rounded text-xs">Schedule Interview</button>');
+                        break;
 
-                    await new Promise(r => setTimeout(r, 1000));
-                    activateNode('orchestrator');
-                    showResult('<span class="text-green-400 font-bold">✅ READY TO LAUNCH.</span><br>Complexity handled: 3 Systems, 14 Compliance Checks.');
+                    case 'FINANCE':
+                        activateNode('s4');
+                        showResult('<strong>S/4HANA Finance:</strong><br>• Q4 Budget Utilization: 78%<br>• Forecast: On Track<br>• <span class="text-green-400">Cash Flow: Positive</span>');
+                        break;
 
-                } else if (p.includes('sustainability') || p.includes('carbon') || p.includes('audit')) {
-                    // Sustainability
-                    await new Promise(r => setTimeout(r, 1500));
-                    activateNode('ariba');
-                    appendCard('Ariba (Scope 3)', '• <strong>Supplier Emissions</strong>: 4,500 tons CO2e (Top 20 Suppliers).<br>• <span class="text-yellow-400">Alert: Supplier X exceeds threshold.</span>');
-
-                    await new Promise(r => setTimeout(r, 1500));
-                    activateNode('s4');
-                    appendCard('Manufacturing (Scope 1 & 2)', '• <strong>Plant Operations</strong>: 1,200 tons CO2e.<br>• <strong>Energy Mix</strong>: 60% Renewable.');
-
-                    await new Promise(r => setTimeout(r, 1000));
-                    activateNode('orchestrator');
-                    showResult('<span class="text-green-400 font-bold">✅ AUDIT COMPLETE.</span><br>Report generated. Recommendation: Switch Supplier X to Green Tier.');
-
-                } else if (p.includes('ordered') || p.includes('received') || p.includes('missing') || p.includes('units')) {
-                    // SCENARIO: Order Discrepancy - Step 1 (Ask for Context)
-                    // If we don't have the order number yet, ask for it.
-                    if (!p.includes('45001') && !p.includes('alcoa')) {
-                        conversationContext = 'awaiting_order_details';
-                        await new Promise(r => setTimeout(r, 800));
-                        showResult('I see a discrepancy report. To investigate this in S/4HANA, I need a bit more detail.<br><br>Could you please provide the <strong>Order Number</strong> or <strong>Vendor Name</strong>?');
-                        return;
-                    }
-                }
-
-                // SCENARIO: Order Discrepancy - Step 2 (Proceed with Context)
-                // Trigger if context is set OR if user provides the number directly
-                if (conversationContext === 'awaiting_order_details' || p.includes('45001') || p.includes('alcoa')) {
-                    conversationContext = null; // Reset
-
-                    document.getElementById(thinkingId).innerHTML = '<span class="text-blue-400 font-mono">Accessing Order #45001...</span>';
-
-                    appendCard('Antigravity', '<strong>Investigating Order #45001 (Vendor: Alcoa)...</strong><br>Cross-referencing Sales Order vs. Shipment Data.');
-
-                    await new Promise(r => setTimeout(r, 1000));
-                    activateNode('s4'); // Sales Order
-                    appendCard('S/4HANA Sales', '• <strong>Order #45001</strong>: Confirmed 50 Units (Product X100).<br>• <strong>Status</strong>: Partial Delivery (20/50).');
-
-                    await new Promise(r => setTimeout(r, 1500));
-                    activateNode('ewm'); // Warehouse Reason
-                    appendCard('EWM Warehouse', '• <strong>Pick Ticket #990</strong>: Only 20 picked.<br>• <span class="text-red-400">Reason: Bin A-12 Empty (Stockout).</span>');
-
-                    // Recommendation
-                    await new Promise(r => setTimeout(r, 1000));
-                    activateNode('orchestrator');
-                    appendCard('Antigravity', '<strong>Proposed Resolution:</strong><br>1. Create Backorder for 30 units.<br>2. Upgrade to Expedited Shipping (Customer Satisfaction).<br><br><em>Auto-Executing...</em>');
-
-                    await new Promise(r => setTimeout(r, 2000));
-                    activateNode('orchestrator');
-                    showResult('<span class="text-green-400 font-bold">✅ RESOLVED.</span><br>Action: Created Backorder #45001-B.<br>Status: Shipped via DHL Express.');
-
-                } else {
-                    // Generic Handler
-                    let response = "I'm processing your request...";
-                    let nodeId = 'orchestrator';
-
-                    await new Promise(r => setTimeout(r, 1000)); // Simulate thinking time
-
-                    if (p.includes('inventory') || p.includes('stock')) { nodeId = 'ewm'; response = "Checking Warehouse...<br>• M-100: 450 units (Low)<br>• X-99: 1,200 units (Optimal)"; }
-                    else if (p.includes('hire') || p.includes('candidate')) { nodeId = 'successfactors'; response = "SuccessFactors Recruiting...<br>• 12 Open Reqs<br>• Top Candidate: Sarah J. (98% Match)"; }
-                    else if (p.includes('budget') || p.includes('finance')) { nodeId = 's4'; response = "S/4HANA Finance...<br>• Q4 Utilization: 78%<br>• Cash Flow: Positive"; }
-                    else if (p.includes('supplier') || p.includes('procurement')) { nodeId = 'ariba'; response = "Ariba Network...<br>• Active RFPs: 3<br>• Supplier Health: 98% (Low Risk)"; }
-                    else if (p.includes('travel') || p.includes('flight')) { nodeId = 'concur'; response = "Concur Travel...<br>• Next Trip: Berlin (TechEd)<br>• Flight: LH404 (Confirmed)"; }
-                    else if (p.includes('plan') || p.includes('forecast')) { nodeId = 'ibp'; response = "IBP Simulation...<br>• Demand Forecast: +15% (Q1)<br>• Supply Gap: None"; }
-                    else {
-                        // Fallback for unknown prompts
-                        response = `I understand you're asking about "<strong>${prompt}</strong>".<br>I am routing this to the General Orchestrator for analysis.`;
-                    }
-
-                    activateNode(nodeId);
-                    showResult(response);
+                    default:
+                        // GENERIC / FALLBACK
+                        // Try to route based on any single keyword, or give a smart generic response
+                        await new Promise(r => setTimeout(r, 1000));
+                        activateNode('orchestrator');
+                        showResult(`<strong>Orchestrator:</strong><br>I understand you're asking about "${prompt}".<br>I'm analyzing the relevant SAP modules...<br><br><em>(Demo: Try "Project Titan", "Check Inventory", or "Audit Carbon")</em>`);
+                        break;
                 }
             } catch (e) {
                 console.error(e);
-                showResult('<span class="text-red-400">System Error: Unable to process request.</span>');
+                showResult('<span class="text-red-400">System Error. Please refresh.</span>');
             }
         }
 
