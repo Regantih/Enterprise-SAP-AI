@@ -353,7 +353,7 @@
 
     <script>
         // --- CONFIGURATION ---
-        const API_BASE = 'https://lightbox-performer-revelation-funky.trycloudflare.com';
+        const API_BASE = 'http://localhost:8000';
 
         // --- DOM ELEMENTS ---
         const userInput = document.getElementById('user-input');
@@ -445,6 +445,106 @@
         userInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') sendMessage();
         });
+
+        // --- DEMO MODE: Project Titan (Client-Side Simulation) ---
+        async function simulateTitanDemo() {
+            const stream = document.getElementById('thought-stream');
+            const logs = document.getElementById('agent-logs');
+            const graph = document.getElementById('neural-graph');
+
+            function log(agent, message, color = 'text-green-400') {
+                const div = document.createElement('div');
+                div.className = `mb-1 ${color}`;
+                div.innerHTML = `<span class="font-bold">[${agent}]</span> ${message}`;
+                stream.appendChild(div);
+                stream.scrollTop = stream.scrollHeight;
+            }
+
+            function activate(nodeId) {
+                document.querySelectorAll('.node').forEach(n => {
+                    n.setAttribute('fill', '#1e293b');
+                    n.setAttribute('stroke', '#64748b');
+                    n.classList.remove('active');
+                    n.removeAttribute('filter'); // Remove filter for glow
+                });
+                document.querySelectorAll('.link').forEach(l => l.classList.remove('active'));
+
+                const node = document.getElementById('node-' + nodeId);
+                if (node) {
+                    node.setAttribute('fill', '#3b82f6');
+                    node.setAttribute('stroke', '#fff'); // Ensure stroke is white for active
+                    node.classList.add('active');
+                    node.setAttribute('filter', 'drop-shadow(0 0 10px #3b82f6)');
+                }
+
+                // Activate link to orchestrator
+                const link = document.getElementById('link-' + nodeId);
+                if (link) link.classList.add('active');
+
+                // Log it to agentLogs
+                const logDiv = document.createElement('div');
+                logDiv.className = 'text-blue-400';
+                logDiv.innerText = `> ACTIVATING NODE: ${nodeId.toUpperCase()}`;
+                logs.prepend(logDiv);
+            }
+
+            // Clear previous states
+            thoughtStream.innerHTML = '';
+            agentLogs.innerHTML = '';
+            document.querySelectorAll('.node').forEach(n => {
+                n.setAttribute('fill', '#1e293b');
+                n.setAttribute('stroke', '#64748b');
+                n.classList.remove('active');
+                n.removeAttribute('filter');
+            });
+            document.querySelectorAll('.link').forEach(l => l.classList.remove('active'));
+
+            // Start
+            log('SYSTEM', 'Initializing Project Titan Protocol...', 'text-blue-400');
+            appendMessage('AI', 'Initiating Project Titan simulation. Please observe the thought stream and neural graph.', 'ai');
+            await new Promise(r => setTimeout(r, 1000));
+
+            // 1. Sales
+            activate('orchestrator');
+            log('SALES', 'WON DEAL: Tesla (50,000 Units). Revenue: $50M.');
+            appendMessage('AI', 'Sales Agent reports a new strategic deal with Tesla. Initiating fulfillment chain.');
+            await new Promise(r => setTimeout(r, 1500));
+
+            // 2. Manufacturing
+            activate('s4'); // S/4HANA for Mfg
+            log('MANUFACTURING', 'CRITICAL: Capacity Shortfall (10k units). Required by Q4.', 'text-red-400');
+            await new Promise(r => setTimeout(r, 1500));
+
+            // 3. Supply Chain
+            activate('ibp');
+            log('SUPPLY_CHAIN', 'ALERT: Low Inventory (Aluminum). Need 50 tons.', 'text-yellow-400');
+            await new Promise(r => setTimeout(r, 1500));
+
+            // 4. Procurement (Failure)
+            activate('ariba');
+            log('PROCUREMENT', '⚠️ ERROR: Primary Supplier (Alcoa) OUT OF STOCK.', 'text-red-500');
+            await new Promise(r => setTimeout(r, 1000));
+
+            // 4b. Recovery
+            log('ORCHESTRATOR', '🔄 SELF-HEALING: Initiating Global Sourcing Search...', 'text-purple-400');
+            await new Promise(r => setTimeout(r, 1500));
+            log('PROCUREMENT', '✅ RECOVERY: Sourced from Rio Tinto (Mexico). +8% Cost. FASTER DELIVERY.', 'text-green-400');
+            await new Promise(r => setTimeout(r, 1500));
+
+            // 5. HR
+            activate('successfactors');
+            log('HR', 'RECRUITING: Posted 50 "Assembly Tech" Reqs to meet capacity.', 'text-blue-300');
+            await new Promise(r => setTimeout(r, 1500));
+
+            // 6. Finance
+            activate('s4');
+            log('FINANCE', 'ANALYSIS: Margin impact -1.5%. Net Profit $8.2M. APPROVED.', 'text-green-500');
+            await new Promise(r => setTimeout(r, 1000));
+
+            appendMessage('AI', 'Project Titan execution complete. Supply chain failure healed. Production scheduled. Net Profit: $8.2M.');
+            log('SYSTEM', '>> SIMULATION COMPLETE', 'text-green-400 font-bold');
+            fetchMetrics(); // Refresh metrics after simulation
+        }
 
         async function sendMessage() {
             const text = userInput.value.trim();
