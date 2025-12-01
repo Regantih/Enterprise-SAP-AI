@@ -278,96 +278,122 @@
         async function handleLocalPrompt(prompt) {
             appendCard('User', prompt);
 
+            // 1. Show Thinking Indicator
+            const thinkingId = 'thinking-' + Date.now();
+            const thinkingHtml = `
+                <div id="${thinkingId}" class="flex items-center space-x-2">
+                    <div class="w-2 h-2 bg-blue-400 rounded-full animate-bounce"></div>
+                    <div class="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+                    <div class="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style="animation-delay: 0.4s"></div>
+                    <span class="text-xs text-blue-300 font-mono ml-2 animate-pulse">NEURAL PROCESSING...</span>
+                </div>`;
+            appendCard('Antigravity', thinkingHtml);
+
+            // Helper to replace thinking with result
+            const showResult = (html) => {
+                const el = document.getElementById(thinkingId);
+                if (el) {
+                    // Replace the content of the thinking bubble with the result
+                    el.parentElement.innerHTML = html;
+                } else {
+                    // Fallback if element lost
+                    appendCard('Antigravity', html);
+                }
+            };
+
             const p = prompt.toLowerCase();
 
-            if (p.includes('titan') || p.includes('tesla')) {
-                // Titan Sequence
-                const loadingId = Date.now();
-                appendCard('System', `<span id="${loadingId}" class="animate-pulse text-blue-400 font-mono">Initializing Neural Orchestration...</span>`);
+            try {
+                if (p.includes('titan') || p.includes('tesla')) {
+                    // Titan Sequence
+                    document.getElementById(thinkingId).innerHTML = '<span class="text-blue-400 font-mono">Initializing Project Titan Protocol...</span>';
 
-                await new Promise(r => setTimeout(r, 1000));
-                document.getElementById(loadingId).parentElement.innerHTML = "Project Titan Protocol Initiated.";
+                    // 1. Sales
+                    activateNode('orchestrator');
+                    await new Promise(r => setTimeout(r, 1500));
+                    appendCard('Sales Agent', '<strong>Deal Won: Tesla (50k Units)</strong><br>Revenue: $50M. Delivery: Q4.');
 
-                // 1. Sales
-                activateNode('orchestrator');
-                await new Promise(r => setTimeout(r, 500));
-                appendCard('Sales Agent', '<strong>Deal Won: Tesla (50k Units)</strong><br>Revenue: $50M. Delivery: Q4.');
+                    // 2. Mfg
+                    await new Promise(r => setTimeout(r, 1500));
+                    activateNode('s4');
+                    appendCard('Manufacturing', '<span class="text-red-400">CRITICAL: Capacity Shortfall (10k units).</span>');
 
-                // 2. Mfg
-                await new Promise(r => setTimeout(r, 1500));
-                activateNode('s4');
-                appendCard('Manufacturing', '<span class="text-red-400">CRITICAL: Capacity Shortfall (10k units).</span>');
+                    // 3. Supply
+                    await new Promise(r => setTimeout(r, 1500));
+                    activateNode('ibp');
+                    appendCard('Supply Chain', '<span class="text-yellow-400">ALERT: Low Inventory (Aluminum). Need 50 tons.</span>');
 
-                // 3. Supply
-                await new Promise(r => setTimeout(r, 1500));
-                activateNode('ibp');
-                appendCard('Supply Chain', '<span class="text-yellow-400">ALERT: Low Inventory (Aluminum). Need 50 tons.</span>');
+                    // 4. Procurement
+                    await new Promise(r => setTimeout(r, 1500));
+                    activateNode('ariba');
+                    appendCard('Procurement', '<span class="text-red-400">⚠️ ERROR: Alcoa Out of Stock.</span><br><span class="text-purple-400">🔄 Rerouting to Rio Tinto (Mexico)...</span><br><span class="text-green-400">✅ Sourced. +8% Cost. Faster Delivery.</span>');
 
-                // 4. Procurement
-                await new Promise(r => setTimeout(r, 1500));
-                activateNode('ariba');
-                appendCard('Procurement', '<span class="text-red-400">⚠️ ERROR: Alcoa Out of Stock.</span><br><span class="text-purple-400">🔄 Rerouting to Rio Tinto (Mexico)...</span><br><span class="text-green-400">✅ Sourced. +8% Cost. Faster Delivery.</span>');
+                    // 5. HR
+                    await new Promise(r => setTimeout(r, 2000));
+                    activateNode('successfactors');
+                    appendCard('HR', '<strong>Recruiting:</strong> Posted 50 "Assembly Tech" Reqs to meet capacity.');
 
-                // 5. HR
-                await new Promise(r => setTimeout(r, 2000));
-                activateNode('successfactors');
-                appendCard('HR', '<strong>Recruiting:</strong> Posted 50 "Assembly Tech" Reqs to meet capacity.');
+                    // 6. Finance
+                    await new Promise(r => setTimeout(r, 1500));
+                    activateNode('s4');
+                    appendCard('Finance', '<span class="text-green-400">ANALYSIS: Margin impact -1.5%. Net Profit $8.2M. APPROVED.</span>');
 
-                // 6. Finance
-                await new Promise(r => setTimeout(r, 1500));
-                activateNode('s4');
-                appendCard('Finance', '<span class="text-green-400">ANALYSIS: Margin impact -1.5%. Net Profit $8.2M. APPROVED.</span>');
+                    await new Promise(r => setTimeout(r, 1000));
+                    activateNode('orchestrator');
+                    showResult('<span class="text-green-400 font-bold">✅ EXECUTION COMPLETE.</span><br>Enterprise synchronized.');
 
-                await new Promise(r => setTimeout(r, 1000));
-                activateNode('orchestrator');
-                appendCard('Antigravity', 'Execution Complete. Enterprise synchronized.');
+                } else if (p.includes('launch') || p.includes('brazil')) {
+                    // Market Expansion
+                    await new Promise(r => setTimeout(r, 1500));
+                    activateNode('s4');
+                    appendCard('Legal & Finance', '• <strong>Tax Compliance</strong>: BR-NF-e Registered.<br>• <strong>Entity Setup</strong>: SP-01 Subsidiary Active.');
 
-            } else if (p.includes('launch') || p.includes('brazil')) {
-                // SCENARIO: Market Expansion (Complexity: Legal + Logistics + Finance)
-                appendCard('Antigravity', '<strong>Initiating Market Expansion Protocol (Brazil)</strong><br>Accessing GTS, TM, and S/4HANA...');
+                    await new Promise(r => setTimeout(r, 1500));
+                    activateNode('ewm');
+                    appendCard('Logistics', '• <strong>Distribution</strong>: 3PL Partner "LogiBras" contracted.<br>• <strong>Customs</strong>: Pre-clearance approved for SKU-99.');
 
-                await new Promise(r => setTimeout(r, 1000));
-                activateNode('s4'); // Legal/Finance
-                appendCard('Legal & Finance', '• <strong>Tax Compliance</strong>: BR-NF-e Registered.<br>• <strong>Entity Setup</strong>: SP-01 Subsidiary Active.');
+                    await new Promise(r => setTimeout(r, 1000));
+                    activateNode('orchestrator');
+                    showResult('<span class="text-green-400 font-bold">✅ READY TO LAUNCH.</span><br>Complexity handled: 3 Systems, 14 Compliance Checks.');
 
-                await new Promise(r => setTimeout(r, 1500));
-                activateNode('ewm'); // Logistics
-                appendCard('Logistics', '• <strong>Distribution</strong>: 3PL Partner "LogiBras" contracted.<br>• <strong>Customs</strong>: Pre-clearance approved for SKU-99.');
+                } else if (p.includes('sustainability') || p.includes('carbon') || p.includes('audit')) {
+                    // Sustainability
+                    await new Promise(r => setTimeout(r, 1500));
+                    activateNode('ariba');
+                    appendCard('Ariba (Scope 3)', '• <strong>Supplier Emissions</strong>: 4,500 tons CO2e (Top 20 Suppliers).<br>• <span class="text-yellow-400">Alert: Supplier X exceeds threshold.</span>');
 
-                await new Promise(r => setTimeout(r, 1000));
-                activateNode('orchestrator');
-                appendCard('Antigravity', '<span class="text-green-400">✅ READY TO LAUNCH.</span><br>Complexity handled: 3 Systems, 14 Compliance Checks, 1 Prompt.');
+                    await new Promise(r => setTimeout(r, 1500));
+                    activateNode('s4');
+                    appendCard('Manufacturing (Scope 1 & 2)', '• <strong>Plant Operations</strong>: 1,200 tons CO2e.<br>• <strong>Energy Mix</strong>: 60% Renewable.');
 
-            } else if (p.includes('sustainability') || p.includes('carbon') || p.includes('audit')) {
-                // SCENARIO: Sustainability Audit (Complexity: Data Aggregation)
-                appendCard('Antigravity', '<strong>Running Global Sustainability Audit</strong><br>Aggregating Scope 1, 2, & 3 Emissions...');
+                    await new Promise(r => setTimeout(r, 1000));
+                    activateNode('orchestrator');
+                    showResult('<span class="text-green-400 font-bold">✅ AUDIT COMPLETE.</span><br>Report generated. Recommendation: Switch Supplier X to Green Tier.');
 
-                await new Promise(r => setTimeout(r, 1000));
-                activateNode('ariba'); // Supplier Scope 3
-                appendCard('Ariba (Scope 3)', '• <strong>Supplier Emissions</strong>: 4,500 tons CO2e (Top 20 Suppliers).<br>• <span class="text-yellow-400">Alert: Supplier X exceeds threshold.</span>');
+                } else {
+                    // Generic Handler
+                    let response = "I'm processing your request...";
+                    let nodeId = 'orchestrator';
 
-                await new Promise(r => setTimeout(r, 1500));
-                activateNode('s4'); // Mfg Scope 1 & 2
-                appendCard('Manufacturing (Scope 1 & 2)', '• <strong>Plant Operations</strong>: 1,200 tons CO2e.<br>• <strong>Energy Mix</strong>: 60% Renewable.');
+                    await new Promise(r => setTimeout(r, 1000)); // Simulate thinking time
 
-                await new Promise(r => setTimeout(r, 1000));
-                activateNode('orchestrator');
-                appendCard('Antigravity', '<span class="text-green-400">✅ AUDIT COMPLETE.</span><br>Report generated. Recommendation: Switch Supplier X to Green Tier.');
+                    if (p.includes('inventory') || p.includes('stock')) { nodeId = 'ewm'; response = "Checking Warehouse...<br>• M-100: 450 units (Low)<br>• X-99: 1,200 units (Optimal)"; }
+                    else if (p.includes('hire') || p.includes('candidate')) { nodeId = 'successfactors'; response = "SuccessFactors Recruiting...<br>• 12 Open Reqs<br>• Top Candidate: Sarah J. (98% Match)"; }
+                    else if (p.includes('budget') || p.includes('finance')) { nodeId = 's4'; response = "S/4HANA Finance...<br>• Q4 Utilization: 78%<br>• Cash Flow: Positive"; }
+                    else if (p.includes('supplier') || p.includes('procurement')) { nodeId = 'ariba'; response = "Ariba Network...<br>• Active RFPs: 3<br>• Supplier Health: 98% (Low Risk)"; }
+                    else if (p.includes('travel') || p.includes('flight')) { nodeId = 'concur'; response = "Concur Travel...<br>• Next Trip: Berlin (TechEd)<br>• Flight: LH404 (Confirmed)"; }
+                    else if (p.includes('plan') || p.includes('forecast')) { nodeId = 'ibp'; response = "IBP Simulation...<br>• Demand Forecast: +15% (Q1)<br>• Supply Gap: None"; }
+                    else {
+                        // Fallback for unknown prompts
+                        response = `I understand you're asking about "<strong>${prompt}</strong>".<br>I am routing this to the General Orchestrator for analysis.`;
+                    }
 
-            } else {
-                // Generic Handler
-                let response = "I'm processing your request...";
-                let nodeId = 'orchestrator';
-
-                if (p.includes('inventory') || p.includes('stock')) { nodeId = 'ewm'; response = "Checking Warehouse...<br>• M-100: 450 units (Low)<br>• X-99: 1,200 units (Optimal)"; }
-                else if (p.includes('hire') || p.includes('candidate')) { nodeId = 'successfactors'; response = "SuccessFactors Recruiting...<br>• 12 Open Reqs<br>• Top Candidate: Sarah J. (98% Match)"; }
-                else if (p.includes('budget') || p.includes('finance')) { nodeId = 's4'; response = "S/4HANA Finance...<br>• Q4 Utilization: 78%<br>• Cash Flow: Positive"; }
-                else if (p.includes('supplier') || p.includes('procurement')) { nodeId = 'ariba'; response = "Ariba Network...<br>• Active RFPs: 3<br>• Supplier Health: 98% (Low Risk)"; }
-                else if (p.includes('travel') || p.includes('flight')) { nodeId = 'concur'; response = "Concur Travel...<br>• Next Trip: Berlin (TechEd)<br>• Flight: LH404 (Confirmed)"; }
-                else if (p.includes('plan') || p.includes('forecast')) { nodeId = 'ibp'; response = "IBP Simulation...<br>• Demand Forecast: +15% (Q1)<br>• Supply Gap: None"; }
-
-                activateNode(nodeId);
-                setTimeout(() => appendCard('Antigravity', response), 800);
+                    activateNode(nodeId);
+                    showResult(response);
+                }
+            } catch (e) {
+                console.error(e);
+                showResult('<span class="text-red-400">System Error: Unable to process request.</span>');
             }
         }
 
