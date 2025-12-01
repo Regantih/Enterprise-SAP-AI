@@ -17,6 +17,15 @@ class SolutionArchitect:
         """
         print(f"   [Solution Architect] 🏗️ Evaluating strategy for: '{enriched_prompt}'...")
         
+        # 0. Check for Complex Scenarios (Force Fallback/Advanced Planning)
+        if any(x in enriched_prompt.lower() for x in ["impact", "delayed", "delay", "quality", "late"]):
+            print(f"   [Solution Architect] ⚠️ Complex Scenario Detected. Deferring to Orchestrator.")
+            return {
+                "strategy": "COMPLEX_SCENARIO", # Will fall through to else/fallback in Orchestrator
+                "source": "Advanced Logic",
+                "details": "Multi-step analysis required."
+            }
+
         # 1. Check OOTB Capabilities (via Index)
         capability = capability_index.find_capability(enriched_prompt)
         if capability:

@@ -978,5 +978,810 @@
         "step": "OUTCOME",
         "detail": "Response generated",
         "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764544340.2054749,
+        "transaction_id": "97d56573-2ef8-41c8-b944-200004d246f1",
+        "step": "TRANSACTION",
+        "detail": "New Request: Hello",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764544340.2062252,
+        "transaction_id": "97d56573-2ef8-41c8-b944-200004d246f1",
+        "step": "BLOCKED",
+        "detail": "Query is too short. Please provide more details.",
+        "status": "FAIL"
+    },
+    {
+        "timestamp": 1764544340.206873,
+        "transaction_id": "97d56573-2ef8-41c8-b944-200004d246f1",
+        "step": "ACTION",
+        "detail": "Executing block",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764544340.2075222,
+        "transaction_id": "97d56573-2ef8-41c8-b944-200004d246f1",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764544391.8234096,
+        "transaction_id": "3425c5cd-b929-4043-8aea-6cbbed2852c9",
+        "step": "TRANSACTION",
+        "detail": "New Request: Show BOM for Turbine-X",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764544391.8251567,
+        "transaction_id": "3425c5cd-b929-4043-8aea-6cbbed2852c9",
+        "step": "DECISION",
+        "detail": "Routed to ManufacturingAgent",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764544391.8266966,
+        "transaction_id": "3425c5cd-b929-4043-8aea-6cbbed2852c9",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764544391.8282206,
+        "transaction_id": "3425c5cd-b929-4043-8aea-6cbbed2852c9",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764544422.661256,
+        "transaction_id": "dc8064c7-f6ac-4164-87e2-722e66f928ea",
+        "step": "TRANSACTION",
+        "detail": "New Request: How is the business doing?",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764544422.663633,
+        "transaction_id": "dc8064c7-f6ac-4164-87e2-722e66f928ea",
+        "step": "DECISION",
+        "detail": "Routed to AnalyticsAgent",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764544422.6651764,
+        "transaction_id": "dc8064c7-f6ac-4164-87e2-722e66f928ea",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764544422.6669273,
+        "transaction_id": "dc8064c7-f6ac-4164-87e2-722e66f928ea",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764545374.530631,
+        "transaction_id": "e1fa025f-01e8-4cf3-b333-7a4e3b5d989e",
+        "step": "TRANSACTION",
+        "detail": "New Request: I need to hire a remote engineer in Germany. What is the policy?",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764545374.5316217,
+        "transaction_id": "e1fa025f-01e8-4cf3-b333-7a4e3b5d989e",
+        "step": "DECISION",
+        "detail": "Routed to CustomerServiceAgent",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764545374.5323243,
+        "transaction_id": "e1fa025f-01e8-4cf3-b333-7a4e3b5d989e",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764545374.5330641,
+        "transaction_id": "e1fa025f-01e8-4cf3-b333-7a4e3b5d989e",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764545386.1316717,
+        "transaction_id": "909f7da0-e9b5-4f93-b329-6ddbf417830a",
+        "step": "TRANSACTION",
+        "detail": "New Request: I need to hire a remote engineer in Germany. What is the policy?",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764545386.1325881,
+        "transaction_id": "909f7da0-e9b5-4f93-b329-6ddbf417830a",
+        "step": "DECISION",
+        "detail": "Routed to CustomerServiceAgent",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764545386.1333027,
+        "transaction_id": "909f7da0-e9b5-4f93-b329-6ddbf417830a",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764545386.13404,
+        "transaction_id": "909f7da0-e9b5-4f93-b329-6ddbf417830a",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764545442.9687498,
+        "transaction_id": "d8d4dd32-2ee6-40ce-b8d1-6b418ca0168f",
+        "step": "TRANSACTION",
+        "detail": "New Request: I need to hire a remote engineer in Germany. What is the policy?",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764545442.9696941,
+        "transaction_id": "d8d4dd32-2ee6-40ce-b8d1-6b418ca0168f",
+        "step": "DECISION",
+        "detail": "Routed to CustomerServiceAgent",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764545442.9704432,
+        "transaction_id": "d8d4dd32-2ee6-40ce-b8d1-6b418ca0168f",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764545442.9711976,
+        "transaction_id": "d8d4dd32-2ee6-40ce-b8d1-6b418ca0168f",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764545465.9463315,
+        "transaction_id": "bd99dbaa-e057-4756-ad58-5f5f5a0b4dd3",
+        "step": "TRANSACTION",
+        "detail": "New Request: I need to hire a remote engineer in Germany. What is the policy?",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764545465.948909,
+        "transaction_id": "bd99dbaa-e057-4756-ad58-5f5f5a0b4dd3",
+        "step": "DECISION",
+        "detail": "Routed to KnowledgeAgent",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764545465.94979,
+        "transaction_id": "bd99dbaa-e057-4756-ad58-5f5f5a0b4dd3",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764545465.95059,
+        "transaction_id": "bd99dbaa-e057-4756-ad58-5f5f5a0b4dd3",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764545915.1128635,
+        "transaction_id": "e041fb6f-d723-4d8d-9377-965ae182e069",
+        "step": "TRANSACTION",
+        "detail": "New Request: I need to hire a remote engineer in Germany. What is the policy?",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764545915.1177185,
+        "transaction_id": "e041fb6f-d723-4d8d-9377-965ae182e069",
+        "step": "DECISION",
+        "detail": "Routed to KnowledgeAgent",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764545915.1194756,
+        "transaction_id": "e041fb6f-d723-4d8d-9377-965ae182e069",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764545915.121131,
+        "transaction_id": "e041fb6f-d723-4d8d-9377-965ae182e069",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764546034.6791852,
+        "transaction_id": "e869a451-a842-41d2-8781-e6cfee09ccca",
+        "step": "TRANSACTION",
+        "detail": "New Request: I need to hire a remote engineer in Germany. What is the policy?",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764546034.6804516,
+        "transaction_id": "e869a451-a842-41d2-8781-e6cfee09ccca",
+        "step": "DECISION",
+        "detail": "Routed to KnowledgeAgent",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764546034.6812327,
+        "transaction_id": "e869a451-a842-41d2-8781-e6cfee09ccca",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764546034.6820402,
+        "transaction_id": "e869a451-a842-41d2-8781-e6cfee09ccca",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764548530.7584858,
+        "transaction_id": "72964ff1-683a-4886-ab1a-373359d871f5",
+        "step": "TRANSACTION",
+        "detail": "New Request: need to hire a remote engineer in Germany. What is the policy?",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764548530.7598138,
+        "transaction_id": "72964ff1-683a-4886-ab1a-373359d871f5",
+        "step": "DECISION",
+        "detail": "Routed to KnowledgeAgent",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764548530.7606184,
+        "transaction_id": "72964ff1-683a-4886-ab1a-373359d871f5",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764548530.7614462,
+        "transaction_id": "72964ff1-683a-4886-ab1a-373359d871f5",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764548612.5882266,
+        "transaction_id": "44dccc40-e821-438d-8ad7-4b6287257b8e",
+        "step": "TRANSACTION",
+        "detail": "New Request: I need to hire a remote engineer in Germany. What is the policy?",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764548612.5908027,
+        "transaction_id": "44dccc40-e821-438d-8ad7-4b6287257b8e",
+        "step": "DECISION",
+        "detail": "Routed to KnowledgeAgent",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764548612.5917447,
+        "transaction_id": "44dccc40-e821-438d-8ad7-4b6287257b8e",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764548612.5925975,
+        "transaction_id": "44dccc40-e821-438d-8ad7-4b6287257b8e",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764548714.9000127,
+        "transaction_id": "7113ba70-bd7b-4759-8937-dae74f8e685a",
+        "step": "TRANSACTION",
+        "detail": "New Request: I need to hire a remote engineer in Germany. What is the policy?",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764548714.902769,
+        "transaction_id": "7113ba70-bd7b-4759-8937-dae74f8e685a",
+        "step": "DECISION",
+        "detail": "Routed to KnowledgeAgent",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764548714.9045687,
+        "transaction_id": "7113ba70-bd7b-4759-8937-dae74f8e685a",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764548714.9063783,
+        "transaction_id": "7113ba70-bd7b-4759-8937-dae74f8e685a",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764549089.58692,
+        "transaction_id": "e9fe1835-f371-4440-945e-125dc0d1cfaa",
+        "step": "TRANSACTION",
+        "detail": "New Request: I need to hire a remote engineer in Germany. What is the policy?",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764549089.5895483,
+        "transaction_id": "e9fe1835-f371-4440-945e-125dc0d1cfaa",
+        "step": "DECISION",
+        "detail": "Routed to KnowledgeAgent",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764549089.5913363,
+        "transaction_id": "e9fe1835-f371-4440-945e-125dc0d1cfaa",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764549089.593179,
+        "transaction_id": "e9fe1835-f371-4440-945e-125dc0d1cfaa",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764549552.4768212,
+        "transaction_id": "fdd51332-cd53-48d5-a9a2-af69bb687434",
+        "step": "TRANSACTION",
+        "detail": "New Request: I need to hire a remote engineer in Germany. What is the policy?",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764549552.478198,
+        "transaction_id": "fdd51332-cd53-48d5-a9a2-af69bb687434",
+        "step": "DECISION",
+        "detail": "Routed to KnowledgeAgent",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764549552.479066,
+        "transaction_id": "fdd51332-cd53-48d5-a9a2-af69bb687434",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764549552.479952,
+        "transaction_id": "fdd51332-cd53-48d5-a9a2-af69bb687434",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764549939.6681216,
+        "transaction_id": "1f20c625-2a1e-40b7-8db9-12d524f0e554",
+        "step": "TRANSACTION",
+        "detail": "New Request: ping",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764549939.6702187,
+        "transaction_id": "1f20c625-2a1e-40b7-8db9-12d524f0e554",
+        "step": "BLOCKED",
+        "detail": "Query is too short. Please provide more details.",
+        "status": "FAIL"
+    },
+    {
+        "timestamp": 1764549939.67214,
+        "transaction_id": "1f20c625-2a1e-40b7-8db9-12d524f0e554",
+        "step": "ACTION",
+        "detail": "Executing block",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764549939.6740475,
+        "transaction_id": "1f20c625-2a1e-40b7-8db9-12d524f0e554",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764550149.8145635,
+        "transaction_id": "a14875ce-8316-4085-8106-0545e3f91fc4",
+        "step": "TRANSACTION",
+        "detail": "New Request: I need to hire a remote engineer in Germany. What is the policy?",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764550149.8172948,
+        "transaction_id": "a14875ce-8316-4085-8106-0545e3f91fc4",
+        "step": "DECISION",
+        "detail": "Routed to KnowledgeAgent",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764550149.8192115,
+        "transaction_id": "a14875ce-8316-4085-8106-0545e3f91fc4",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764550149.8211417,
+        "transaction_id": "a14875ce-8316-4085-8106-0545e3f91fc4",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764550545.9019208,
+        "transaction_id": "bd628ab7-2418-4873-89c2-bbd4cfd9041b",
+        "step": "TRANSACTION",
+        "detail": "New Request: Create a sales order for 50 laptops for Acme Corp",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764550545.907148,
+        "transaction_id": "bd628ab7-2418-4873-89c2-bbd4cfd9041b",
+        "step": "DECISION",
+        "detail": "Routed to SalesOrderAssistant",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764550545.9091303,
+        "transaction_id": "bd628ab7-2418-4873-89c2-bbd4cfd9041b",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764550548.3376384,
+        "transaction_id": "bd628ab7-2418-4873-89c2-bbd4cfd9041b",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764551252.548161,
+        "transaction_id": "0c257556-47ba-4f36-9b19-2a70619886b2",
+        "step": "TRANSACTION",
+        "detail": "New Request: How is the business doing?",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764551252.549623,
+        "transaction_id": "0c257556-47ba-4f36-9b19-2a70619886b2",
+        "step": "DECISION",
+        "detail": "Routed to AnalyticsAgent",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764551252.5505743,
+        "transaction_id": "0c257556-47ba-4f36-9b19-2a70619886b2",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764551252.55159,
+        "transaction_id": "0c257556-47ba-4f36-9b19-2a70619886b2",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764551257.3861094,
+        "transaction_id": "c5487407-a09b-4317-90d8-e5c306940b0b",
+        "step": "TRANSACTION",
+        "detail": "New Request: I need to hire a remote engineer in Germany. What is the policy?",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764551257.387611,
+        "transaction_id": "c5487407-a09b-4317-90d8-e5c306940b0b",
+        "step": "DECISION",
+        "detail": "Routed to KnowledgeAgent",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764551257.388563,
+        "transaction_id": "c5487407-a09b-4317-90d8-e5c306940b0b",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764551257.3895385,
+        "transaction_id": "c5487407-a09b-4317-90d8-e5c306940b0b",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764551260.3660455,
+        "transaction_id": "e58f65ab-15c0-40e2-962f-a6151dc0bc92",
+        "step": "TRANSACTION",
+        "detail": "New Request: What is our carbon footprint?",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764551260.367533,
+        "transaction_id": "e58f65ab-15c0-40e2-962f-a6151dc0bc92",
+        "step": "DECISION",
+        "detail": "Routed to SustainabilityAgent",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764551260.3685393,
+        "transaction_id": "e58f65ab-15c0-40e2-962f-a6151dc0bc92",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764551260.3695457,
+        "transaction_id": "e58f65ab-15c0-40e2-962f-a6151dc0bc92",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764565873.762526,
+        "transaction_id": "57537561-44d7-4360-b501-b8dff12f4fae",
+        "step": "ERROR",
+        "detail": "'SolutionArchitect' object has no attribute 'design_solution'",
+        "status": "CRITICAL"
+    },
+    {
+        "timestamp": 1764565920.3274558,
+        "transaction_id": "5b0f4def-e526-4cf3-9e8b-75255931edcf",
+        "step": "ERROR",
+        "detail": "'SolutionArchitect' object has no attribute 'design_solution'",
+        "status": "CRITICAL"
+    },
+    {
+        "timestamp": 1764565967.4865367,
+        "transaction_id": "9eb775fa-bd24-48ee-9ce9-d9a890bdb4fa",
+        "step": "DECISION",
+        "detail": "Routed to SalesOrderAssistant",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764565967.4890273,
+        "transaction_id": "9eb775fa-bd24-48ee-9ce9-d9a890bdb4fa",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764566003.1335196,
+        "transaction_id": "0c87bfb7-726a-4e6a-a551-86b3b5dbff7d",
+        "step": "DECISION",
+        "detail": "Routed to SalesOrderAssistant",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764566003.1359246,
+        "transaction_id": "0c87bfb7-726a-4e6a-a551-86b3b5dbff7d",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764566051.066646,
+        "transaction_id": "96042949-580e-4fd2-b256-0fb91ccda0b3",
+        "step": "DECISION",
+        "detail": "Routed to SalesOrderAssistant",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764566051.0680003,
+        "transaction_id": "96042949-580e-4fd2-b256-0fb91ccda0b3",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764566094.8817654,
+        "transaction_id": "25f1eabf-3232-4fa4-8b36-eea5410b66e3",
+        "step": "DECISION",
+        "detail": "Fallback to Heuristics",
+        "status": "WARNING"
+    },
+    {
+        "timestamp": 1764566094.8830748,
+        "transaction_id": "25f1eabf-3232-4fa4-8b36-eea5410b66e3",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764566094.8841429,
+        "transaction_id": "25f1eabf-3232-4fa4-8b36-eea5410b66e3",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764566094.8851848,
+        "transaction_id": "25f1eabf-3232-4fa4-8b36-eea5410b66e3",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764566094.8862376,
+        "transaction_id": "25f1eabf-3232-4fa4-8b36-eea5410b66e3",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764566094.887283,
+        "transaction_id": "25f1eabf-3232-4fa4-8b36-eea5410b66e3",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764566094.8883305,
+        "transaction_id": "25f1eabf-3232-4fa4-8b36-eea5410b66e3",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764566094.889374,
+        "transaction_id": "25f1eabf-3232-4fa4-8b36-eea5410b66e3",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764566094.8904433,
+        "transaction_id": "25f1eabf-3232-4fa4-8b36-eea5410b66e3",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764566159.101469,
+        "transaction_id": "aa8f52bc-a58d-4614-a772-dad34d46f027",
+        "step": "DECISION",
+        "detail": "Fallback to Heuristics",
+        "status": "WARNING"
+    },
+    {
+        "timestamp": 1764566159.1040964,
+        "transaction_id": "aa8f52bc-a58d-4614-a772-dad34d46f027",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764566159.106522,
+        "transaction_id": "aa8f52bc-a58d-4614-a772-dad34d46f027",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764566159.1088958,
+        "transaction_id": "aa8f52bc-a58d-4614-a772-dad34d46f027",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764566159.111265,
+        "transaction_id": "aa8f52bc-a58d-4614-a772-dad34d46f027",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764566159.113566,
+        "transaction_id": "aa8f52bc-a58d-4614-a772-dad34d46f027",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764566160.2036,
+        "transaction_id": "aa8f52bc-a58d-4614-a772-dad34d46f027",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764566160.2049086,
+        "transaction_id": "aa8f52bc-a58d-4614-a772-dad34d46f027",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764566161.2813294,
+        "transaction_id": "aa8f52bc-a58d-4614-a772-dad34d46f027",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764566172.6503203,
+        "transaction_id": "51af2f0c-fde0-4bb3-8580-d6c08215ba7c",
+        "step": "DECISION",
+        "detail": "Fallback to Heuristics",
+        "status": "WARNING"
+    },
+    {
+        "timestamp": 1764566172.6516616,
+        "transaction_id": "51af2f0c-fde0-4bb3-8580-d6c08215ba7c",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764566172.6528223,
+        "transaction_id": "51af2f0c-fde0-4bb3-8580-d6c08215ba7c",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764566172.6539812,
+        "transaction_id": "51af2f0c-fde0-4bb3-8580-d6c08215ba7c",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764566172.6551125,
+        "transaction_id": "51af2f0c-fde0-4bb3-8580-d6c08215ba7c",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764566172.656244,
+        "transaction_id": "51af2f0c-fde0-4bb3-8580-d6c08215ba7c",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764566173.9480004,
+        "transaction_id": "51af2f0c-fde0-4bb3-8580-d6c08215ba7c",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
+    },
+    {
+        "timestamp": 1764566173.9493809,
+        "transaction_id": "51af2f0c-fde0-4bb3-8580-d6c08215ba7c",
+        "step": "ACTION",
+        "detail": "Executing delegate",
+        "status": "INFO"
+    },
+    {
+        "timestamp": 1764566174.9904563,
+        "transaction_id": "51af2f0c-fde0-4bb3-8580-d6c08215ba7c",
+        "step": "OUTCOME",
+        "detail": "Response generated",
+        "status": "SUCCESS"
     }
 ]

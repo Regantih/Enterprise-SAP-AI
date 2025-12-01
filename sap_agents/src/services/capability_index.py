@@ -19,138 +19,161 @@ class CapabilityIndex:
             {
                 "id": "sales_order_status",
                 "agent": "SalesOrderAssistant",
+                "category": "Sales",
                 "description": "Check the status, shipping details, and amount of a Sales Order.",
                 "keywords": ["order", "status", "shipping", "tracking", "so-"]
             },
             {
                 "id": "sales_create_order",
                 "agent": "SalesOrderAssistant",
+                "category": "Sales",
                 "description": "Create a new Sales Order for a customer.",
                 "keywords": ["create", "order", "buy", "purchase", "new order"]
             },
             {
                 "id": "finance_invoice_status",
                 "agent": "FinanceReconciliationAgent",
+                "category": "Finance",
                 "description": "Check the status and payment details of a Supplier Invoice.",
                 "keywords": ["invoice", "payment", "status", "due", "inv-"]
             },
             {
                 "id": "finance_gl_balance",
                 "agent": "FinanceReconciliationAgent",
+                "category": "Finance",
                 "description": "Check the balance of a General Ledger (GL) account.",
                 "keywords": ["gl", "balance", "ledger", "account", "finance"]
             },
             {
                 "id": "hr_employee_info",
                 "agent": "HREmployeeAssistant",
+                "category": "HR",
                 "description": "Get contact and job information for an employee.",
                 "keywords": ["employee", "info", "contact", "job", "role", "emp-"]
             },
             {
                 "id": "hr_leave_balance",
                 "agent": "HREmployeeAssistant",
+                "category": "HR",
                 "description": "Check remaining leave or vacation balance.",
                 "keywords": ["leave", "vacation", "balance", "time off", "holiday"]
             },
             {
                 "id": "analytics_strategy",
                 "agent": "AnalyticsAgent",
+                "category": "Analytics",
                 "description": "Provide high-level business metrics, financial health, and strategic advice.",
                 "keywords": ["business", "doing", "performance", "metrics", "strategy", "revenue", "profit", "analysis", "wall street"]
             },
             {
                 "id": "procurement_ariba",
                 "agent": "ProcurementNegotiationAssistant",
+                "category": "Procurement",
                 "description": "Manage supplier negotiations and sourcing via SAP Ariba.",
                 "keywords": ["ariba", "sourcing", "supplier", "negotiation", "procurement", "rfp"]
             },
             {
                 "id": "supply_chain_ibp",
                 "agent": "SupplyChainAgent",
+                "category": "Supply Chain",
                 "description": "Supply Chain Management (SCM) for demand planning and inventory.",
                 "keywords": ["supply chain", "scm", "demand", "forecast", "inventory", "ibp-"]
             },
             {
                 "id": "ppm_projects",
                 "agent": "ProjectSystemAgent",
+                "category": "Project Management",
                 "description": "Portfolio and Project Management (PPM) for tracking projects and budgets.",
                 "keywords": ["ppm", "project", "wbs", "budget", "portfolio", "milestone", "proj-"]
             },
             {
                 "id": "pp_manufacturing",
                 "agent": "ManufacturingAgent",
+                "category": "Manufacturing",
                 "description": "Manufacturing (PP) for production orders and shop floor control.",
                 "keywords": ["manufacturing", "production", "order", "bom", "shop floor", "po-", "work center"]
             },
             {
                 "id": "eam_assets",
                 "agent": "AssetManagementAgent",
+                "category": "Asset Management",
                 "description": "Enterprise Asset Management (EAM) for equipment and maintenance.",
                 "keywords": ["asset", "equipment", "maintenance", "work order", "repair", "eq-", "wo-"]
             },
             {
                 "id": "cs_service",
                 "agent": "CustomerServiceAgent",
+                "category": "Customer Service",
                 "description": "Customer Service (CS) for tickets and warranties.",
                 "keywords": ["service", "ticket", "warranty", "return", "rma", "tkt-", "war-"]
             },
             {
                 "id": "trm_treasury",
                 "agent": "TreasuryAgent",
+                "category": "Treasury",
                 "description": "Treasury and Risk Management (TRM) for cash and liquidity.",
                 "keywords": ["treasury", "cash", "liquidity", "bank", "position", "forecast", "trm"]
             },
             {
                 "id": "ext_integration",
                 "agent": "IntegrationAgent",
+                "category": "Integration",
                 "description": "Integration with external systems (ServiceNow, Salesforce, n8n).",
                 "keywords": ["servicenow", "salesforce", "n8n", "integration", "ticket", "opportunity", "inc-", "opp-"]
             },
             {
                 "id": "xm_experience",
                 "agent": "ExperienceAgent",
+                "category": "Experience",
                 "description": "Experience Management (XM) for sentiment and surveys.",
                 "keywords": ["sentiment", "satisfaction", "nps", "survey", "qualtrics", "experience", "feedback"]
             },
             {
                 "id": "bn_network",
                 "agent": "NetworkAgent",
+                "category": "Business Network",
                 "description": "Business Network for supplier collaboration (Ariba).",
                 "keywords": ["ariba", "network", "rfq", "bid", "supplier", "collaboration", "sourcing"]
             },
             {
                 "id": "tv_travel",
                 "agent": "TravelAgent",
+                "category": "Travel",
                 "description": "Travel and Expense Management (Concur).",
                 "keywords": ["travel", "trip", "flight", "hotel", "expense", "concur", "booking"]
             },
             {
                 "id": "pl_planning",
                 "agent": "PlanningAgent",
+                "category": "Planning",
                 "description": "Predictive Planning and Analytics (SAC).",
                 "keywords": ["plan", "forecast", "simulate", "sac", "predictive", "model", "scenario"]
             },
             {
                 "id": "bpm_process",
                 "agent": "ProcessAgent",
+                "category": "Process Management",
                 "description": "Business Process Management (Signavio).",
                 "keywords": ["process", "mining", "signavio", "efficiency", "bottleneck", "optimization", "flow"]
             },
             {
                 "id": "sus_sustainability",
                 "agent": "SustainabilityAgent",
+                "category": "Sustainability",
                 "description": "Sustainability and ESG (Green Ledger).",
                 "keywords": ["carbon", "footprint", "esg", "green", "emission", "sustainability", "ledger", "co2"]
             },
             {
                 "id": "rag_knowledge",
                 "agent": "KnowledgeAgent",
+                "category": "Knowledge Base",
                 "description": "Knowledge Base for documents (RAG).",
                 "keywords": ["policy", "handbook", "manual", "document", "pdf", "guideline", "procedure", "wiki", "remote work", "travel policy", "password", "security policy", "flight policy", "work from home"]
             },
             {
                 "id": "strat_market",
                 "agent": "MarketIntelligenceAgent",
+                "category": "Market Intelligence",
                 "description": "Market Intelligence for Competitor Analysis and Trends.",
                 "keywords": ["competitor", "market", "trend", "r&d", "patent", "tariff", "macro", "policy", "strategy", "growth", "external"]
             }

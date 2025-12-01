@@ -1,0 +1,66 @@
+[
+    {
+        "text": "Execute Strategic Growth Plan: Project Titan",
+        "expected_intent": "TITAN"
+    },
+    {
+        "text": "initiate project tesla sequence",
+        "expected_intent": "TITAN"
+    },
+    {
+        "text": "Launch product in Brazil",
+        "expected_intent": "MARKET_LAUNCH"
+    },
+    {
+        "text": "expand market to new region",
+        "expected_intent": "MARKET_LAUNCH"
+    },
+    {
+        "text": "Audit carbon footprint",
+        "expected_intent": "SUSTAINABILITY"
+    },
+    {
+        "text": "check co2 emissions for supplier X",
+        "expected_intent": "SUSTAINABILITY"
+    },
+    {
+        "text": "i ordered 50 units but received 20",
+        "expected_intent": "ORDER_ISSUE"
+    },
+    {
+        "text": "where is my shipment",
+        "expected_intent": "ORDER_ISSUE"
+    },
+    {
+        "text": "track delivery for order 45001",
+        "expected_intent": "ORDER_ISSUE"
+    },
+    {
+        "text": "check inventory for product X100",
+        "expected_intent": "INVENTORY"
+    },
+    {
+        "text": "stock availability in warehouse",
+        "expected_intent": "INVENTORY"
+    },
+    {
+        "text": "Hire a new developer",
+        "expected_intent": "HR_HIRING"
+    },
+    {
+        "text": "recruit candidate for engineering",
+        "expected_intent": "HR_HIRING"
+    },
+    {
+        "text": "Check Q4 budget",
+        "expected_intent": "FINANCE"
+    },
+    {
+        "text": "show me revenue and profit",
+        "expected_intent": "FINANCE"
+    },
+    {
+        "text": "the vendor confirmed that they ran into quality issues and their shipment is delayed by 30 days . How are my customer orders impacted",
+        "expected_intent": "SUPPLY_CHAIN_IMPACT"
+    }
+]
