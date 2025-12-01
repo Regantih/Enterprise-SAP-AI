@@ -426,20 +426,33 @@
 
                     case 'ORDER_ISSUE':
                         // SCENARIO: Order Discrepancy (Generalized)
-                        // Check for context
-                        if (!conversationContext && !prompt.match(/\d{4,}/)) {
+
+                        // 1. Check for Vendor Context
+                        const vendors = ['alcoa', 'rio tinto', 'logibras', 'tesla', 'supplier x', 'vendor'];
+                        const foundVendor = vendors.find(v => prompt.toLowerCase().includes(v));
+                        const foundOrder = prompt.match(/\d{4,}/);
+
+                        // 2. Clarification Loop
+                        // If we have NEITHER an order number NOR a vendor, ask for one.
+                        if (!conversationContext && !foundOrder && !foundVendor) {
                             conversationContext = 'awaiting_order_details';
                             await new Promise(r => setTimeout(r, 800));
                             showResult('I detected a logistics discrepancy. To investigate, I need to pinpoint the transaction.<br><br>Could you please provide the <strong>Order Number</strong> or <strong>Vendor Name</strong>?');
                             return;
                         }
 
-                        // Proceed
+                        // 3. Resolution Logic
                         conversationContext = null;
-                        const orderNum = prompt.match(/\d{4,}/) ? prompt.match(/\d{4,}/)[0] : '45001'; // Extract or default
+                        const orderNum = foundOrder ? foundOrder[0] : '45001'; // Use found or lookup latest
 
-                        document.getElementById(thinkingId).innerHTML = `<span class="text-blue-400 font-mono">Accessing Order #${orderNum}...</span>`;
-                        appendCard('Antigravity', `<strong>Investigating Order #${orderNum}...</strong><br>Cross-referencing Sales Order vs. Shipment Data.`);
+                        // Dynamic "Thinking" Message based on input
+                        if (foundVendor) {
+                            document.getElementById(thinkingId).innerHTML = `<span class="text-blue-400 font-mono">Searching Vendor: ${foundVendor.toUpperCase()}...</span>`;
+                            appendCard('Antigravity', `<strong>Analyzing active shipments from ${foundVendor.toUpperCase()}...</strong><br>Found recent discrepancy on Order #${orderNum}.`);
+                        } else {
+                            document.getElementById(thinkingId).innerHTML = `<span class="text-blue-400 font-mono">Accessing Order #${orderNum}...</span>`;
+                            appendCard('Antigravity', `<strong>Investigating Order #${orderNum}...</strong><br>Cross-referencing Sales Order vs. Shipment Data.`);
+                        }
 
                         await new Promise(r => setTimeout(r, 1000));
                         activateNode('s4');
