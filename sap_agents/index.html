@@ -83,7 +83,9 @@
                 </svg>
                 <span>Dashboard</span>
             </a>
-            <a href="#"
+        </nav>
+        <nav class="mt-8 px-4 space-y-2">
+            <a href="#" onclick="triggerAgent('How is the business doing?')"
                 class="flex items-center space-x-3 px-4 py-3 text-gray-400 hover:bg-gray-700 hover:text-white rounded-xl transition">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -92,7 +94,7 @@
                 </svg>
                 <span>Analytics</span>
             </a>
-            <a href="#"
+            <a href="#" onclick="triggerAgent('What is the remote work policy?')"
                 class="flex items-center space-x-3 px-4 py-3 text-gray-400 hover:bg-gray-700 hover:text-white rounded-xl transition">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -101,7 +103,7 @@
                 </svg>
                 <span>Documents (RAG)</span>
             </a>
-            <a href="#"
+            <a href="#" onclick="triggerAgent('What is our carbon footprint?')"
                 class="flex items-center space-x-3 px-4 py-3 text-gray-400 hover:bg-gray-700 hover:text-white rounded-xl transition">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -415,6 +417,11 @@
             chatHistory.insertAdjacentHTML('beforeend', html);
             chatHistory.scrollTop = chatHistory.scrollHeight;
             return id;
+        }
+
+        function triggerAgent(query) {
+            userInput.value = query;
+            sendMessage();
         }
 
         async function sendFeedback(score, msgId) {
