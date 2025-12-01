@@ -191,7 +191,7 @@
                         </path>
                     </svg>
                 </div>
-                <input type="text" id="user-input"
+                <input type="text" id="userInput"
                     class="flex-1 bg-transparent border-none focus:ring-0 text-white px-4 py-3 font-mono text-sm placeholder-gray-500"
                     placeholder="Type a command or 'Execute Titan'..." autocomplete="off">
                 <button onclick="sendMessage()"
@@ -217,13 +217,18 @@
 
     <script>
         // --- LOGIC ---
-        const userInput = document.getElementById('user-input');
+        const userInput = document.getElementById('userInput');
         const chatStream = document.getElementById('chat-stream');
         let conversationContext = null;
 
         function appendCard(role, html, color = 'gray') {
+            console.log(`appendCard called: ${role}`);
+            if (!chatStream) {
+                console.error("chatStream is null!");
+                return;
+            }
             const div = document.createElement('div');
-            div.className = `flex flex-col ${role === 'User' ? 'items-end' : 'items-start'} space-y-1 animate-[float_0.5s_ease-out]`;
+            div.className = `flex flex-col ${role === 'User' ? 'items-end' : 'items-start'} space-y-1`;
 
             const bubble = document.createElement('div');
             bubble.className = role === 'User'
@@ -241,6 +246,7 @@
 
             chatStream.appendChild(div);
             chatStream.scrollTop = chatStream.scrollHeight;
+            console.log("Card appended successfully");
         }
 
         function activateNode(nodeId) {
@@ -493,7 +499,7 @@
 
                         await new Promise(r => setTimeout(r, 1500));
                         activateNode('ewm');
-                        appendCard('EWM Warehouse', '• <strong>Pick Ticket</strong>: Only 20 picked.<br>• <span class="text-red-400">Reason: Bin A-12 Empty (Stockout).</span>`);
+                        appendCard('EWM Warehouse', `• <strong>Pick Ticket</strong>: Only 20 picked.<br>• <span class="text-red-400">Reason: Bin A-12 Empty (Stockout).</span>`);
 
                         await new Promise(r => setTimeout(r, 1000));
                         activateNode('orchestrator');
@@ -536,8 +542,17 @@
         }
 
         async function sendMessage() {
+            console.log("sendMessage called");
+            const userInput = document.getElementById('userInput');
+            const chatStream = document.getElementById('chat-stream');
+
             const text = userInput.value.trim();
-            if (!text) return;
+            console.log(`Text to send: "${text}"`);
+
+            if (!text) {
+                console.warn("Empty text, returning.");
+                return;
+            }
             userInput.value = '';
 
             // 1. Show User Message
