@@ -116,6 +116,13 @@
             filter: drop-shadow(0 0 8px var(--neon-blue));
         }
 
+        /* Data Flow Animation */
+        @keyframes flow {
+            to {
+                stroke-dashoffset: -20;
+            }
+        }
+
         .link {
             stroke: rgba(255, 255, 255, 0.1);
             stroke-width: 1;
@@ -125,7 +132,14 @@
         .link.active {
             stroke: var(--neon-blue);
             stroke-width: 2;
-            opacity: 0.8;
+            opacity: 1;
+            filter: drop-shadow(0 0 5px var(--neon-blue));
+        }
+
+        .link.traffic {
+            stroke-dasharray: 5 5;
+            animation: flow 1s linear infinite;
+            opacity: 0.3;
         }
     </style>
 </head>
@@ -161,7 +175,7 @@
         <section class="col-span-3 glass rounded-2xl flex flex-col relative overflow-hidden">
             <div class="p-4 border-b border-gray-700/50 flex justify-between items-center">
                 <h2 class="text-xs font-bold uppercase tracking-wider text-blue-400">Neural Network</h2>
-                <span class="text-[10px] bg-blue-500/10 text-blue-400 px-2 py-0.5 rounded">LIVE</span>
+                <span class="text-[10px] bg-blue-500/10 text-blue-400 px-2 py-0.5 rounded">LIVE TRAFFIC</span>
             </div>
             <div class="flex-1 relative" id="neural-graph">
                 <!-- SVG Graph will be injected here -->
@@ -173,42 +187,42 @@
                         font-family="monospace">ORCHESTRATOR</text>
 
                     <!-- ARIBA (Procurement) - Top Left -->
-                    <line x1="200" y1="200" x2="100" y2="100" class="link" id="link-ariba" />
+                    <line x1="200" y1="200" x2="100" y2="100" class="link traffic" id="link-ariba" />
                     <circle cx="100" cy="100" r="20" fill="#1e293b" stroke="#64748b" stroke-width="2" class="node"
                         id="node-ariba" />
                     <text x="100" y="75" text-anchor="middle" fill="#64748b" font-size="9"
                         font-family="monospace">ARIBA</text>
 
                     <!-- SUCCESSFACTORS (HR) - Top Right -->
-                    <line x1="200" y1="200" x2="300" y2="100" class="link" id="link-successfactors" />
+                    <line x1="200" y1="200" x2="300" y2="100" class="link traffic" id="link-successfactors" />
                     <circle cx="300" cy="100" r="20" fill="#1e293b" stroke="#64748b" stroke-width="2" class="node"
                         id="node-successfactors" />
                     <text x="300" y="75" text-anchor="middle" fill="#64748b" font-size="9"
                         font-family="monospace">SUCCESSFACTORS</text>
 
                     <!-- CONCUR (Travel) - Right -->
-                    <line x1="200" y1="200" x2="340" y2="200" class="link" id="link-concur" />
+                    <line x1="200" y1="200" x2="340" y2="200" class="link traffic" id="link-concur" />
                     <circle cx="340" cy="200" r="18" fill="#1e293b" stroke="#64748b" stroke-width="2" class="node"
                         id="node-concur" />
                     <text x="340" y="235" text-anchor="middle" fill="#64748b" font-size="9"
                         font-family="monospace">CONCUR</text>
 
                     <!-- IBP (Planning) - Bottom Right -->
-                    <line x1="200" y1="200" x2="300" y2="300" class="link" id="link-ibp" />
+                    <line x1="200" y1="200" x2="300" y2="300" class="link traffic" id="link-ibp" />
                     <circle cx="300" cy="300" r="20" fill="#1e293b" stroke="#64748b" stroke-width="2" class="node"
                         id="node-ibp" />
                     <text x="300" y="335" text-anchor="middle" fill="#64748b" font-size="9"
                         font-family="monospace">IBP</text>
 
                     <!-- EWM (Warehouse) - Bottom Left -->
-                    <line x1="200" y1="200" x2="100" y2="300" class="link" id="link-ewm" />
+                    <line x1="200" y1="200" x2="100" y2="300" class="link traffic" id="link-ewm" />
                     <circle cx="100" cy="300" r="20" fill="#1e293b" stroke="#64748b" stroke-width="2" class="node"
                         id="node-ewm" />
                     <text x="100" y="335" text-anchor="middle" fill="#64748b" font-size="9"
                         font-family="monospace">EWM</text>
 
                     <!-- S/4HANA (Core ERP) - Left -->
-                    <line x1="200" y1="200" x2="60" y2="200" class="link" id="link-s4" />
+                    <line x1="200" y1="200" x2="60" y2="200" class="link traffic" id="link-s4" />
                     <circle cx="60" cy="200" r="22" fill="#1e293b" stroke="#64748b" stroke-width="2" class="node"
                         id="node-s4" />
                     <text x="60" y="235" text-anchor="middle" fill="#64748b" font-size="9"
@@ -218,7 +232,8 @@
             <!-- Active Agent Status -->
             <div class="p-4 border-t border-gray-700/50 h-32 font-mono text-xs overflow-y-auto" id="agent-logs">
                 <div class="text-gray-500">> System Initialized...</div>
-                <div class="text-gray-500">> Waiting for input...</div>
+                <div class="text-gray-500">> Neural Graph Active.</div>
+                <div class="text-gray-500">> Monitoring 6 SAP Nodes...</div>
             </div>
         </section>
 
@@ -249,7 +264,7 @@
                         <div class="w-8 h-8 rounded bg-blue-600 flex items-center justify-center text-xs font-bold">AI
                         </div>
                         <div class="bg-gray-800/50 p-4 rounded-lg text-sm max-w-xl border border-gray-700">
-                            System Online. I am ready to orchestrate your Enterprise SAP Agents.
+                            System Online. I am ready to orchestrate your Extended SAP Enterprise.
                         </div>
                     </div>
                 </div>
@@ -271,15 +286,24 @@
                     <!-- Quick Actions -->
                     <div class="flex space-x-2 mt-3 overflow-x-auto pb-2">
                         <button onclick="triggerAgent('How is the business doing?')"
-                            class="px-3 py-1 bg-gray-800 hover:bg-gray-700 rounded text-xs text-gray-400 whitespace-nowrap border border-gray-700 transition">📊
-                            Analytics Check</button>
+                            class="px-3 py-1 bg-gray-800 hover:bg-gray-700 rounded text-xs text-gray-400 whitespace-nowrap border border-gray-700 transition hover:border-blue-500">📊
+                            Analytics</button>
                         <button
                             onclick="triggerAgent('I need to hire a remote engineer in Germany. What is the policy?')"
-                            class="px-3 py-1 bg-gray-800 hover:bg-gray-700 rounded text-xs text-gray-400 whitespace-nowrap border border-gray-700 transition">📄
-                            HR Policy</button>
+                            class="px-3 py-1 bg-gray-800 hover:bg-gray-700 rounded text-xs text-gray-400 whitespace-nowrap border border-gray-700 transition hover:border-blue-500">👥
+                            SuccessFactors</button>
                         <button onclick="triggerAgent('Check status of PO 4500012345')"
-                            class="px-3 py-1 bg-gray-800 hover:bg-gray-700 rounded text-xs text-gray-400 whitespace-nowrap border border-gray-700 transition">📦
-                            PO Status</button>
+                            class="px-3 py-1 bg-gray-800 hover:bg-gray-700 rounded text-xs text-gray-400 whitespace-nowrap border border-gray-700 transition hover:border-blue-500">🛒
+                            Ariba</button>
+                        <button onclick="triggerAgent('Book a flight to Walldorf for SAP TechEd')"
+                            class="px-3 py-1 bg-gray-800 hover:bg-gray-700 rounded text-xs text-gray-400 whitespace-nowrap border border-gray-700 transition hover:border-blue-500">✈️
+                            Concur</button>
+                        <button onclick="triggerAgent('Check inventory levels for Material M-100')"
+                            class="px-3 py-1 bg-gray-800 hover:bg-gray-700 rounded text-xs text-gray-400 whitespace-nowrap border border-gray-700 transition hover:border-blue-500">🏭
+                            EWM</button>
+                        <button onclick="triggerAgent('Run supply chain simulation for Q4')"
+                            class="px-3 py-1 bg-gray-800 hover:bg-gray-700 rounded text-xs text-gray-400 whitespace-nowrap border border-gray-700 transition hover:border-blue-500">📈
+                            IBP</button>
                     </div>
                 </div>
             </div>
