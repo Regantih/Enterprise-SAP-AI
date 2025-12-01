@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antigravity <!-- Updated: v3.0 Force Build 2025-11-30 -->
+        <title>Enterprise SAP AI Agents</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+        <style>
+            body {
+                font-family: 'Inter', sans-serif;
+            }
+
+            .glass {
+                background: rgba(255, 255, 255, 0.05);
+                backdrop-filter: blur(10px);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .chat-scroll::-webkit-scrollbar {
+                width: 6px;
+            }
+
+            .chat-scroll::-webkit-scrollbar-thumb {
+                background: #4B5563;
+                border-radius: 3px;
+            }
+
+            /* Markdown Styles for Chat */
+            .prose ul {
+                list-style-type: disc;
+                padding-left: 1.5em;
+                margin-top: 0.5em;
+                margin-bottom: 0.5em;
+            }
+
+            .prose ol {
+                list-style-type: decimal;
+                padding-left: 1.5em;
+                margin-top: 0.5em;
+                margin-bottom: 0.5em;
+            }
+
+            .prose strong {
+                font-weight: 700;
+                color: #fff;
+            }
+
+            .prose p {
+                margin-bottom: 0.5em;
+            }
+
+            .prose hr {
+                border-color: #4B5563;
+                margin-top: 1em;
+                margin-bottom: 1em;
+            }
+        </style>
+</head>
+
+<body class="bg-gray-900 text-white h-screen flex overflow-hidden">
+
+    <!-- Sidebar -->
+    <aside class="w-64 bg-gray-800 border-r border-gray-700 flex flex-col">
+        <div class="p-6 flex items-center space-x-3">
+            <div class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center font-bold">A</div>
+            <div>
+                <span class="text-xl font-semibold tracking-tight block">Antigravity</span>
+                <span class="text-xs text-green-400 font-mono">v3.0 (FastAPI)</span>
+            </div>
+        </div>
+
+        <nav class="flex-1 px-4 space-y-2 mt-4">
+            <a href="#"
+                class="flex items-center space-x-3 px-4 py-3 bg-blue-600 rounded-xl text-white shadow-lg shadow-blue-500/20">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z">
+                    </path>
+                </svg>
+                <span>Dashboard</span>
+            </a>
+            <a href="#"
+                class="flex items-center space-x-3 px-4 py-3 text-gray-400 hover:bg-gray-700 hover:text-white rounded-xl transition">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
+                    </path>
+                </svg>
+                <span>Analytics</span>
+            </a>
+            <a href="#"
+                class="flex items-center space-x-3 px-4 py-3 text-gray-400 hover:bg-gray-700 hover:text-white rounded-xl transition">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+                    </path>
+                </svg>
+                <span>Documents (RAG)</span>
+            </a>
+            <a href="#"
+                class="flex items-center space-x-3 px-4 py-3 text-gray-400 hover:bg-gray-700 hover:text-white rounded-xl transition">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                    </path>
+                </svg>
+                <span>Sustainability</span>
+            </a>
+        </nav>
+
+        <div class="p-4 border-t border-gray-700">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-purple-500 to-pink-500"></div>
+                <div>
+                    <p class="text-sm font-medium">Neural Spark</p>
+                    <p class="text-xs text-gray-400">Admin</p>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col relative">
+        <!-- Header -->
+        <header
+            class="h-16 border-b border-gray-700 flex items-center justify-between px-8 bg-gray-900/50 backdrop-blur-md z-10">
+            <h1 class="text-lg font-medium text-gray-200">Enterprise Overview</h1>
+            <div class="flex items-center space-x-4">
+                <span
+                    class="px-3 py-1 text-xs font-medium bg-green-500/10 text-green-400 rounded-full border border-green-500/20">System
+                    Healthy</span>
+                <button class="p-2 text-gray-400 hover:text-white">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Dashboard Widgets -->
+        <div class="p-8 grid grid-cols-1 md:grid-cols-3 gap-6 overflow-y-auto pb-32">
+            <!-- Widget 1 -->
+            <div class="glass p-6 rounded-2xl">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <p class="text-sm text-gray-400">Total Revenue</p>
+                        <h3 class="text-3xl font-bold mt-1">$4.2M</h3>
+                    </div>
+                    <span class="text-green-400 text-sm font-medium">+12.5%</span>
+                </div>
+                <div class="mt-4 h-1 bg-gray-700 rounded-full overflow-hidden">
+                    <div class="h-full bg-blue-500 w-3/4"></div>
+                </div>
+            </div>
+
+            <!-- Widget 2 -->
+            <div class="glass p-6 rounded-2xl">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <p class="text-sm text-gray-400">Active Agents</p>
+                        <h3 class="text-3xl font-bold mt-1">12</h3>
+                    </div>
+                    <span class="text-blue-400 text-sm font-medium">All Systems Go</span>
+                </div>
+                <div class="flex -space-x-2 mt-4">
+                    <div class="w-8 h-8 rounded-full bg-gray-600 border-2 border-gray-800"></div>
+                    <div class="w-8 h-8 rounded-full bg-gray-500 border-2 border-gray-800"></div>
+                    <div class="w-8 h-8 rounded-full bg-gray-400 border-2 border-gray-800"></div>
+                </div>
+            </div>
+
+            <!-- Widget 3 -->
+            <div class="glass p-6 rounded-2xl">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <p class="text-sm text-gray-400">ESG Score</p>
+                        <h3 class="text-3xl font-bold mt-1">85/100</h3>
+                    </div>
+                    <span class="text-green-400 text-sm font-medium">Leader</span>
+                </div>
+                <div class="mt-4 h-1 bg-gray-700 rounded-full overflow-hidden">
+                    <div class="h-full bg-green-500 w-5/6"></div>
+                </div>
+            </div>
+
+            <!-- Widget 4: System Health -->
+            <div class="glass p-6 rounded-2xl">
+                <h3 class="text-gray-400 text-sm font-medium uppercase">System Health</h3>
+                <div class="mt-2">
+                    <div class="flex justify-between text-sm mb-1">
+                        <span class="text-gray-300">Success Rate</span>
+                        <span id="health-success" class="font-bold text-green-400">--%</span>
+                    </div>
+                    <div class="flex justify-between text-sm mb-1">
+                        <span class="text-gray-300">User Rating</span>
+                        <span id="health-rating" class="font-bold text-yellow-400">--/5</span>
+                    </div>
+                    <div class="flex justify-between text-sm">
+                        <span class="text-gray-300">Active Agents</span>
+                        <span id="health-agents" class="font-bold text-blue-400">--</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Widget 5: Business Health -->
+            <div class="glass p-6 rounded-2xl">
+                <h3 class="text-gray-400 text-sm font-medium uppercase">Business Health</h3>
+                <div class="mt-2">
+                    <div class="flex justify-between text-sm mb-1">
+                        <span class="text-gray-300">Revenue (YTD)</span>
+                        <span id="biz-revenue" class="font-bold text-white">--</span>
+                    </div>
+                    <div class="flex justify-between text-sm mb-1">
+                        <span class="text-gray-300">Open Orders</span>
+                        <span id="biz-orders" class="font-bold text-white">--</span>
+                    </div>
+                    <div class="flex justify-between text-sm">
+                        <span class="text-gray-300">CSAT Score</span>
+                        <span id="biz-csat" class="font-bold text-purple-400">--</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Widget 6: The Enterprise Formula (New) -->
+            <div class="glass p-6 rounded-2xl col-span-1 md:col-span-2 lg:col-span-3 border border-purple-500/30">
+                <h3 class="text-purple-400 text-sm font-medium uppercase mb-2">Enterprise Health Equation (EHS)</h3>
+                <div
+                    class="flex items-center justify-center space-x-2 text-sm md:text-base font-mono bg-black/30 p-3 rounded-lg overflow-x-auto">
+                    <div class="text-center">
+                        <div class="text-gray-400 text-xs">Perf</div>
+                        <span id="formula-p" class="text-green-400 font-bold">--</span>
+                    </div>
+                    <span class="text-gray-500">+</span>
+                    <div class="text-center">
+                        <div class="text-gray-400 text-xs">Eff</div>
+                        <span id="formula-e" class="text-blue-400 font-bold">--</span>
+                    </div>
+                    <span class="text-gray-500">+</span>
+                    <div class="text-center">
+                        <div class="text-gray-400 text-xs">Inn</div>
+                        <span id="formula-i" class="text-yellow-400 font-bold">--</span>
+                    </div>
+                    <span class="text-gray-500">-</span>
+                    <div class="text-center">
+                        <div class="text-gray-400 text-xs">Risk</div>
+                        <span id="formula-r" class="text-red-400 font-bold">--</span>
+                    </div>
+                    <span class="text-gray-500">=</span>
+                    <div class="text-center">
+                        <div class="text-gray-400 text-xs">Score</div>
+                        <span id="formula-score" class="text-white font-bold text-xl">--</span>
+                    </div>
+                </div>
+                <div id="formula-text" class="text-center text-xs text-gray-500 mt-2 font-mono">Loading formula...</div>
+            </div>
+
+            <!-- Chat Area -->
+            <div class="md:col-span-3 glass rounded-2xl flex flex-col h-[500px]">
+                <div class="p-4 border-b border-gray-700 flex justify-between items-center">
+                    <h3 class="font-semibold">AI Assistant</h3>
+                    <span class="text-xs text-gray-400">Powered by Antigravity</span>
+                </div>
+
+                <div id="chat-history" class="flex-1 p-6 overflow-y-auto space-y-4 chat-scroll">
+                    <!-- Welcome Message -->
+                    <div class="flex items-start space-x-3">
+                        <div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center flex-shrink-0">AI
+                        </div>
+                        <div class="bg-gray-800 p-3 rounded-2xl rounded-tl-none max-w-2xl text-sm text-gray-300">
+                            Hello! I am your Enterprise AI. I can help with Sales, HR, Finance, Sustainability, and
+                            more. Try asking "Check carbon footprint" or "Show me the travel policy".
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-4 border-t border-gray-700">
+                    <div class="relative">
+                        <input type="text" id="user-input" placeholder="Ask anything..."
+                            class="w-full bg-gray-900 border border-gray-700 rounded-xl py-3 px-4 pr-12 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition text-sm">
+                        <button onclick="sendMessage()"
+                            class="absolute right-2 top-2 p-1.5 bg-blue-600 hover:bg-blue-500 rounded-lg transition">
+                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const chatHistory = document.getElementById('chat-history');
+        const userInput = document.getElementById('user-input');
+
+        // PUBLIC API URL (For GitHub Pages)
+        // Cloudflare Tunnel URL
+        const API_BASE = 'https://lightbox-performer-revelation-funky.trycloudflare.com';
+        userInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') sendMessage();
+        });
+
+        // Initial Load
+        fetchHealthData();
+        fetchFormulaData();
+        setInterval(fetchHealthData, 30000); // Refresh every 30s
+        setInterval(fetchFormulaData, 30000);
+
+        async function fetchFormulaData() {
+            try {
+                const response = await fetch(`${API_BASE}/api/formula`);
+                const data = await response.json();
+
+                const comp = data.components;
+                document.getElementById('formula-p').innerText = comp.performance.value;
+                document.getElementById('formula-e').innerText = comp.efficiency.value;
+                document.getElementById('formula-i').innerText = comp.innovation.value;
+                document.getElementById('formula-r').innerText = comp.risk.value;
+                document.getElementById('formula-score').innerText = data.score;
+
+                document.getElementById('formula-text').innerText = `Formula: ${data.formula}`;
+
+            } catch (error) {
+                console.error('Error fetching formula data:', error);
+            }
+        }
+
+        async function fetchHealthData() {
+            try {
+                const response = await fetch(`${API_BASE}/api/health`);
+                const data = await response.json();
+
+                // System Health
+                const sys = data.system;
+                document.getElementById('health-success').innerText = sys.success_rate + '%';
+                document.getElementById('health-rating').innerText = sys.avg_rating + '/5';
+                document.getElementById('health-agents').innerText = sys.active_agents_count;
+
+                if (sys.success_rate < 90) document.getElementById('health-success').className = "font-bold text-red-400";
+                else document.getElementById('health-success').className = "font-bold text-green-400";
+
+                // Business Health
+                const biz = data.business;
+                document.getElementById('biz-revenue').innerText = biz.revenue_ytd;
+                document.getElementById('biz-orders').innerText = biz.open_orders;
+                document.getElementById('biz-csat').innerText = biz.csat_score + '/5';
+
+            } catch (error) {
+                console.error('Error fetching health data:', error);
+            }
+        }
+
+        async function sendMessage() {
+            const text = userInput.value.trim();
+            if (!text) return;
+
+            // User Message
+            appendMessage('User', text, 'user');
+            userInput.value = '';
+
+            // Loading State
+            const loadingId = appendMessage('AI', 'Thinking...', 'ai', true);
+
+            try {
+                const response = await fetch(`${API_BASE}/api/chat`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        message: text
+                    })
+                });
+                const data = await response.json();
+
+                // Remove Loading
+                document.getElementById(loadingId).remove();
+
+                // AI Response
+                // Handle nested response object from orchestrator
+                const aiText = typeof data.response === 'object' ? data.response.response : data.response;
+                appendMessage('AI', aiText, 'ai');
+
+            } catch (error) {
+                document.getElementById(loadingId).remove();
+                appendMessage('AI', 'Error connecting to server.', 'ai');
+            }
+        }
+
+        function appendMessage(sender, text, type, isLoading = false) {
+            const id = 'msg-' + Date.now();
+            const align = type === 'user' ? 'justify-end' : 'justify-start';
+            const bg = type === 'user' ? 'bg-blue-600 text-white rounded-tr-none' : 'bg-gray-800 text-gray-300 rounded-tl-none';
+            const avatar = type === 'user' ? '' : '<div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center flex-shrink-0 mr-3">AI</div>';
+
+            // Render Markdown for AI, plain text for User
+            const content = type === 'ai' ? marked.parse(text) : text.replace(/\n/g, '<br>');
+
+            const html = `
+                <div id="${id}" class="flex items-start ${align}">
+                    ${type === 'ai' ? avatar : ''}
+                    <div class="${bg} p-3 rounded-2xl max-w-2xl text-sm ${isLoading ? 'animate-pulse' : ''} prose">
+                        ${content}
+                    </div>
+                </div>
+            `;
+
+            chatHistory.insertAdjacentHTML('beforeend', html);
+            chatHistory.scrollTop = chatHistory.scrollHeight;
+            return id;
+        }
+
+        async function sendFeedback(score, msgId) {
+            try {
+                // Call API
+                await fetch(`${API_BASE}/api/feedback`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        score: score,
+                        messageId: msgId
+                    })
+                });
+
+                // Update UI
+                const feedbackDiv = document.getElementById(`feedback-${msgId}`);
+                if (feedbackDiv) {
+                    feedbackDiv.innerHTML = `<span class="text-green-400 font-bold">Thanks for your feedback! ${score > 0 ? '👍' : '👎'}</span>`;
+                }
+
+            } catch (error) {
+                console.error('Error sending feedback:', error);
+            }
+        }
+    </script>
+</body>
+
+</html>
