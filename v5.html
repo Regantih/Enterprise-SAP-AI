@@ -546,7 +546,144 @@
             fetchMetrics(); // Refresh metrics after simulation
         }
 
+        // --- UNIVERSAL CLIENT-SIDE HANDLER ---
+        async function handleLocalPrompt(prompt) {
+            const p = prompt.toLowerCase();
+
+            // 1. Project Titan Trigger
+            if (p.includes('titan') || p.includes('tesla')) {
+                await simulateTitanDemo();
+                return;
+            }
+
+            // 2. Keyword Routing & Simulation
+            let agent = 'ORCHESTRATOR';
+            let response = "I'm processing your request...";
+            let nodeId = 'orchestrator';
+            let color = 'text-blue-400';
+
+            if (p.includes('inventory') || p.includes('stock') || p.includes('ewm') || p.includes('warehouse')) {
+                agent = 'EWM_AGENT';
+                nodeId = 'ewm';
+                response = "Checking Warehouse Levels... <br>• **Material M-100**: 450 units (Low)<br>• **Material X-99**: 1,200 units (Optimal)<br>• **Location**: Walldorf DC";
+                color = 'text-yellow-400';
+            }
+            else if (p.includes('hire') || p.includes('candidate') || p.includes('successfactors') || p.includes('hr')) {
+                agent = 'HR_AGENT';
+                nodeId = 'successfactors';
+                response = "Accessing SuccessFactors Recruiting...<br>• **Open Reqs**: 12<br>• **New Applicants**: 45 (Last 24h)<br>• **Top Candidate**: Sarah J. (98% Match for Senior Dev)";
+                color = 'text-pink-400';
+            }
+            else if (p.includes('budget') || p.includes('finance') || p.includes('cost') || p.includes('margin') || p.includes('s/4')) {
+                agent = 'FINANCE_AGENT';
+                nodeId = 's4';
+                response = "Querying S/4HANA Finance...<br>• **Q4 Budget Utilization**: 78%<br>• **Current Margin**: 22.4% (+1.2% YoY)<br>• **Cash Flow**: Positive";
+                color = 'text-green-400';
+            }
+            else if (p.includes('supplier') || p.includes('ariba') || p.includes('procurement') || p.includes('source')) {
+                agent = 'PROCUREMENT_AGENT';
+                nodeId = 'ariba';
+                response = "Scanning Ariba Network...<br>• **Active RFPs**: 3<br>• **Supplier Health**: 98% (Low Risk)<br>• **Pending Approval**: PO #4500012345 ($12,500)";
+                color = 'text-blue-300';
+            }
+            else if (p.includes('travel') || p.includes('concur') || p.includes('flight') || p.includes('expense')) {
+                agent = 'CONCUR_AGENT';
+                nodeId = 'concur';
+                response = "Checking Concur Travel...<br>• **Next Trip**: SAP TechEd (Berlin)<br>• **Flight**: LH404 (Confirmed)<br>• **Pending Expenses**: $450.00 (Needs Approval)";
+                color = 'text-teal-400';
+            }
+            else if (p.includes('plan') || p.includes('ibp') || p.includes('forecast') || p.includes('supply chain')) {
+                agent = 'IBP_AGENT';
+                nodeId = 'ibp';
+                response = "Running IBP Simulation...<br>• **Demand Forecast**: +15% (Q1 2026)<br>• **Supply Gap**: None identified.<br>• **Risk Score**: Low";
+                color = 'text-purple-400';
+            }
+            else {
+                // Fallback to generic orchestrator response
+                response = "I have received your query. Orchestrating relevant SAP agents to assist you.";
+            }
+
+            // Execute Simulation
+            appendMessage('User', prompt); // Use appendMessage for user input
+
+            // Thought Stream
+            const stream = document.getElementById('thought-stream');
+            const logs = document.getElementById('agent-logs');
+
+            // 1. Orchestrator Thinking
+            const thinkingDiv = document.createElement('div');
+            thinkingDiv.className = 'mb-1 text-gray-400 animate-pulse';
+            thinkingDiv.innerHTML = `<span class="font-bold">[ORCHESTRATOR]</span> Analyzing intent: "${prompt}"...`;
+            stream.appendChild(thinkingDiv);
+            stream.scrollTop = stream.scrollHeight;
+            await new Promise(r => setTimeout(r, 800));
+
+            // 2. Activate Node
+            activateNodeLocal(nodeId); // Use the local helper activateNode
+
+            // 3. Agent Log
+            const logDiv = document.createElement('div');
+            logDiv.className = `mb-1 ${color}`;
+            logDiv.innerHTML = `<span class="font-bold">[${agent}]</span> Executing query...`;
+            stream.appendChild(logDiv);
+            stream.scrollTop = stream.scrollHeight;
+
+            const sysLog = document.createElement('div');
+            sysLog.className = 'text-blue-400';
+            sysLog.innerText = `> AGENT ACTIVE: ${agent}`;
+            logs.prepend(sysLog);
+
+            await new Promise(r => setTimeout(r, 1000));
+
+            // 4. Response
+            stream.removeChild(thinkingDiv);
+            appendMessage('AI', response); // Use appendMessage for AI response
+        }
+
+        // Helper for node activation (reused from Demo Mode)
+        function activateNodeLocal(nodeId) { // Renamed to avoid conflict with global activateNode
+            document.querySelectorAll('.node').forEach(n => {
+                n.setAttribute('fill', '#1e293b');
+                n.setAttribute('stroke', '#64748b');
+                n.classList.remove('active');
+                n.removeAttribute('filter');
+            });
+            document.querySelectorAll('.link').forEach(l => l.classList.remove('active'));
+
+            const node = document.getElementById('node-' + nodeId);
+            if (node) {
+                node.setAttribute('fill', '#3b82f6');
+                node.setAttribute('stroke', '#fff');
+                node.classList.add('active');
+                node.setAttribute('filter', 'drop-shadow(0 0 10px #3b82f6)');
+            }
+
+            const link = document.getElementById('link-' + nodeId);
+            if (link) link.classList.add('active');
+        }
+
+        async function triggerAgent(prompt) {
+            // Use local handler for everything in this demo version
+            await handleLocalPrompt(prompt);
+        }
+
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendMessage();
+        });
+
         async function sendMessage() {
+            const text = userInput.value.trim();
+            if (!text) return;
+            userInput.value = '';
+            await handleLocalPrompt(text);
+        }
+
+        // The original sendMessage logic (API call) is now effectively bypassed by handleLocalPrompt.
+        // If you wanted to keep the API call as a fallback, you would modify handleLocalPrompt
+        // to return a boolean indicating if it handled the prompt, and then sendMessage would
+        // proceed with the API call if handleLocalPrompt returned false.
+        /*
+        async function sendMessageOriginal() { // Renamed original sendMessage for reference
             const text = userInput.value.trim();
             if (!text) return;
 
@@ -558,7 +695,7 @@
             const loadingId = appendMessage('AI', 'Analyzing request...', 'ai', true);
 
             // Activate Orchestrator Visual
-            activateNode('Orchestrator');
+            activateNode('Orchestrator'); // This uses the global activateNode
             thoughtStream.innerHTML = '<div class="animate-pulse">> Ingesting query...</div>';
 
             try {
