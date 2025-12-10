@@ -1,0 +1,17 @@
+# Render Blueprint
+# https://render.com/docs/blueprint-spec
+
+services:
+  - type: web
+    name: athena-core
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: pip install -r athena_system/requirements.txt
+    startCommand: python -m athena_system.web_ui.server
+    envVars:
+      - key: PYTHONPATH
+        value: /opt/render/project/src
+      - key: PYTHON_VERSION
+        value: 3.12.0
+    healthCheckPath: /api/sap/status
