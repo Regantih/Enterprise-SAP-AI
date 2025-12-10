@@ -1,0 +1,21 @@
+{
+    "destinations": [
+        {
+            "name": "s4hana-sandbox",
+            "type": "HTTP",
+            "url": "https://sandbox.s4hana.ondemand.com",
+            "authentication": "NoAuthentication",
+            "proxyType": "Internet",
+            "description": "Mock S/4HANA system for pilot testing"
+        },
+        {
+            "name": "business-data-cloud",
+            "type": "HTTP",
+            "url": "https://api.bdc.sap.com",
+            "authentication": "OAuth2ClientCredentials",
+            "tokenServiceURL": "https://auth.bdc.sap.com/oauth/token",
+            "clientId": "${env.BDC_CLIENT_ID}",
+            "clientSecret": "${env.BDC_CLIENT_SECRET}"
+        }
+    ]
+}

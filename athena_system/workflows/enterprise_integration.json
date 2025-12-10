@@ -1,0 +1,123 @@
+{
+    "name": "Athena Enterprise Integration",
+    "nodes": [
+        {
+            "parameters": {
+                "path": "athena-trigger",
+                "responseMode": "lastNode",
+                "options": {}
+            },
+            "name": "Webhook",
+            "type": "n8n-nodes-base.webhook",
+            "typeVersion": 1,
+            "position": [
+                250,
+                300
+            ]
+        },
+        {
+            "parameters": {
+                "conditions": {
+                    "string": [
+                        {
+                            "value1": "={{$json[\"action\"]}}",
+                            "value2": "create_ticket"
+                        }
+                    ]
+                }
+            },
+            "name": "Router",
+            "type": "n8n-nodes-base.if",
+            "typeVersion": 1,
+            "position": [
+                450,
+                300
+            ]
+        },
+        {
+            "parameters": {
+                "url": "https://instance.service-now.com/api/now/table/incident",
+                "method": "POST",
+                "authentication": "basicAuth",
+                "jsonParameters": true,
+                "options": {},
+                "bodyParametersJson": "{\"short_description\": \"{{$json[\"description\"]}}\", \"priority\": \"1\"}"
+            },
+            "name": "ServiceNow",
+            "type": "n8n-nodes-base.httpRequest",
+            "typeVersion": 1,
+            "position": [
+                700,
+                100
+            ],
+            "notes": "Creates an Incident in ServiceNow"
+        },
+        {
+            "parameters": {
+                "url": "https://na1.salesforce.com/services/data/v52.0/sobjects/Lead",
+                "method": "POST",
+                "authentication": "oAuth2",
+                "jsonParameters": true,
+                "options": {},
+                "bodyParametersJson": "{\"LastName\": \"{{$json[\"contact_name\"]}}\", \"Company\": \"{{$json[\"company\"]}}\"}"
+            },
+            "name": "Salesforce",
+            "type": "n8n-nodes-base.httpRequest",
+            "typeVersion": 1,
+            "position": [
+                700,
+                300
+            ],
+            "notes": "Creates a Lead in Salesforce"
+        },
+        {
+            "parameters": {
+                "url": "https://oracle-ai.example.com/predict",
+                "method": "POST",
+                "authentication": "headerAuth",
+                "jsonParameters": true,
+                "options": {},
+                "bodyParametersJson": "{\"data\": \"{{$json[\"financial_data\"]}}\"}"
+            },
+            "name": "Oracle AI",
+            "type": "n8n-nodes-base.httpRequest",
+            "typeVersion": 1,
+            "position": [
+                700,
+                500
+            ],
+            "notes": "Calls Oracle AI for Prediction"
+        }
+    ],
+    "connections": {
+        "Webhook": {
+            "main": [
+                [
+                    {
+                        "node": "Router",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Router": {
+            "main": [
+                [
+                    {
+                        "node": "ServiceNow",
+                        "type": "main",
+                        "index": 0
+                    }
+                ],
+                [
+                    {
+                        "node": "Salesforce",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        }
+    }
+}

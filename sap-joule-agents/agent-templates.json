@@ -1,0 +1,454 @@
+{
+    "project": "SAP Joule AI Agent System",
+    "version": "1.0.0",
+    "description": "Complete SAP Joule AI agent implementation with templates and examples",
+    "agents": [
+        {
+            "name": "ProcurementNegotiationAssistant",
+            "description": "Helps procurement managers negotiate better pricing and terms",
+            "purpose": "Analyze supplier performance, market pricing, and recommend negotiation strategies",
+            "role": "Expert procurement advisor",
+            "status": "template",
+            "complexity": "advanced",
+            "dataSources": [
+                {
+                    "type": "SAP_S4HANA",
+                    "entities": [
+                        "Suppliers",
+                        "PurchaseOrders",
+                        "Contracts"
+                    ],
+                    "accessLevel": "read-write"
+                },
+                {
+                    "type": "BUSINESS_DATA_CLOUD",
+                    "datasets": [
+                        "SupplierPerformance",
+                        "MarketPricing"
+                    ],
+                    "accessLevel": "read"
+                }
+            ],
+            "skills": [
+                {
+                    "name": "GetSupplierPerformance",
+                    "type": "deterministic",
+                    "description": "Retrieves supplier performance metrics",
+                    "inputs": [
+                        "supplierId",
+                        "timeRange"
+                    ],
+                    "outputs": [
+                        "performanceScore",
+                        "onTimeDeliveryRate",
+                        "qualityScore"
+                    ]
+                },
+                {
+                    "name": "GetMarketPricing",
+                    "type": "deterministic",
+                    "description": "Fetches current market pricing data",
+                    "inputs": [
+                        "category",
+                        "region"
+                    ],
+                    "outputs": [
+                        "avgPrice",
+                        "priceRange",
+                        "trend"
+                    ]
+                },
+                {
+                    "name": "GenerateNegotiationStrategy",
+                    "type": "ai-powered",
+                    "description": "Creates negotiation strategy based on data",
+                    "inputs": [
+                        "supplierData",
+                        "marketData",
+                        "objectives"
+                    ],
+                    "outputs": [
+                        "strategy",
+                        "talkingPoints",
+                        "leveragePoints"
+                    ]
+                }
+            ],
+            "llmConfig": {
+                "model": "gpt-4",
+                "temperature": 0.7,
+                "maxTokens": 2000
+            },
+            "instructions": "You are an expert procurement negotiation advisor. Analyze supplier performance data, research market pricing trends, identify negotiation leverage points, and recommend strategies. Never negotiate with suppliers who have overdue deliveries. Always prioritize quality over price. Escalate high-value contracts (>$1M) to human approval.",
+            "constraints": [
+                "No negotiation with suppliers having overdue deliveries",
+                "Quality prioritized over price",
+                "Compliance with procurement policies required",
+                "Escalate contracts >$1M for human approval"
+            ]
+        },
+        {
+            "name": "SupplierInformationAssistant",
+            "description": "Quick supplier information retrieval",
+            "purpose": "Help users find supplier information quickly",
+            "role": "Information retrieval assistant",
+            "status": "template",
+            "complexity": "basic",
+            "dataSources": [
+                {
+                    "type": "SAP_S4HANA",
+                    "entities": [
+                        "Suppliers"
+                    ],
+                    "accessLevel": "read"
+                }
+            ],
+            "skills": [
+                {
+                    "name": "GetSupplierDetails",
+                    "type": "deterministic",
+                    "description": "Retrieves supplier information",
+                    "inputs": [
+                        "supplierId"
+                    ],
+                    "outputs": [
+                        "supplierName",
+                        "contactEmail",
+                        "status",
+                        "address"
+                    ]
+                },
+                {
+                    "name": "SearchSuppliers",
+                    "type": "deterministic",
+                    "description": "Searches suppliers by name or criteria",
+                    "inputs": [
+                        "searchTerm",
+                        "filters"
+                    ],
+                    "outputs": [
+                        "supplierList"
+                    ]
+                }
+            ],
+            "llmConfig": {
+                "model": "gpt-3.5-turbo",
+                "temperature": 0.3,
+                "maxTokens": 500
+            },
+            "instructions": "You are a helpful assistant that provides supplier information. Be concise and accurate. If a supplier is not found, suggest similar suppliers or ask for clarification."
+        },
+        {
+            "name": "FinanceReconciliationAgent",
+            "description": "Automates financial reconciliation processes",
+            "purpose": "Reconcile accounts, identify discrepancies, suggest corrections",
+            "role": "Finance automation specialist",
+            "status": "template",
+            "complexity": "advanced",
+            "dataSources": [
+                {
+                    "type": "SAP_S4HANA",
+                    "entities": [
+                        "GLAccounts",
+                        "BankStatements",
+                        "Transactions"
+                    ],
+                    "accessLevel": "read-write"
+                }
+            ],
+            "skills": [
+                {
+                    "name": "ReconcileAccounts",
+                    "type": "deterministic",
+                    "description": "Performs account reconciliation",
+                    "inputs": [
+                        "accountId",
+                        "period"
+                    ],
+                    "outputs": [
+                        "matchedTransactions",
+                        "discrepancies",
+                        "reconciliationStatus"
+                    ]
+                },
+                {
+                    "name": "IdentifyDiscrepancies",
+                    "type": "ai-powered",
+                    "description": "Analyzes and categorizes discrepancies",
+                    "inputs": [
+                        "transactions",
+                        "rules"
+                    ],
+                    "outputs": [
+                        "discrepancyList",
+                        "rootCauses",
+                        "recommendations"
+                    ]
+                },
+                {
+                    "name": "SuggestCorrections",
+                    "type": "ai-powered",
+                    "description": "Recommends correction entries",
+                    "inputs": [
+                        "discrepancy"
+                    ],
+                    "outputs": [
+                        "correctionEntry",
+                        "justification"
+                    ]
+                }
+            ],
+            "llmConfig": {
+                "model": "gpt-4",
+                "temperature": 0.2,
+                "maxTokens": 1500
+            },
+            "instructions": "You are a finance reconciliation expert. Analyze transactions carefully, identify discrepancies with precision, and suggest appropriate corrections. Always follow accounting standards and company policies. Flag unusual patterns for human review.",
+            "constraints": [
+                "Follow GAAP/IFRS standards",
+                "Escalate discrepancies >$10,000",
+                "Require dual approval for corrections",
+                "Maintain audit trail"
+            ]
+        },
+        {
+            "name": "HROnboardingAssistant",
+            "description": "Streamlines employee onboarding process",
+            "purpose": "Guide new employees through onboarding, answer questions, automate tasks",
+            "role": "HR onboarding specialist",
+            "status": "template",
+            "complexity": "intermediate",
+            "dataSources": [
+                {
+                    "type": "SAP_SUCCESSFACTORS",
+                    "entities": [
+                        "Employees",
+                        "OnboardingTasks",
+                        "Documents"
+                    ],
+                    "accessLevel": "read-write"
+                },
+                {
+                    "type": "DOCUMENT_REPOSITORY",
+                    "datasets": [
+                        "Policies",
+                        "Handbooks",
+                        "Forms"
+                    ],
+                    "accessLevel": "read"
+                }
+            ],
+            "skills": [
+                {
+                    "name": "GetOnboardingChecklist",
+                    "type": "deterministic",
+                    "description": "Retrieves personalized onboarding checklist",
+                    "inputs": [
+                        "employeeId",
+                        "role",
+                        "department"
+                    ],
+                    "outputs": [
+                        "taskList",
+                        "deadlines",
+                        "completionStatus"
+                    ]
+                },
+                {
+                    "name": "AnswerPolicyQuestions",
+                    "type": "ai-powered",
+                    "description": "Answers questions about company policies",
+                    "inputs": [
+                        "question",
+                        "context"
+                    ],
+                    "outputs": [
+                        "answer",
+                        "policyReference"
+                    ]
+                },
+                {
+                    "name": "ScheduleTraining",
+                    "type": "deterministic",
+                    "description": "Schedules required training sessions",
+                    "inputs": [
+                        "employeeId",
+                        "trainingList"
+                    ],
+                    "outputs": [
+                        "scheduledSessions",
+                        "confirmations"
+                    ]
+                }
+            ],
+            "llmConfig": {
+                "model": "gpt-4",
+                "temperature": 0.5,
+                "maxTokens": 1000
+            },
+            "instructions": "You are a friendly HR onboarding assistant. Help new employees feel welcome and supported. Provide clear, accurate information about policies and procedures. Guide them through their onboarding tasks step by step. Escalate sensitive HR matters to human HR staff.",
+            "integrations": [
+                {
+                    "type": "email",
+                    "purpose": "Send welcome emails and reminders"
+                },
+                {
+                    "type": "calendar",
+                    "purpose": "Schedule meetings and training"
+                },
+                {
+                    "type": "slack",
+                    "purpose": "Real-time communication"
+                }
+            ]
+        }
+    ],
+    "skills": {
+        "templates": [
+            {
+                "name": "APICallSkill",
+                "type": "deterministic",
+                "description": "Template for making API calls",
+                "implementation": {
+                    "type": "API",
+                    "method": "GET|POST|PUT|DELETE",
+                    "endpoint": "/api/endpoint",
+                    "headers": {
+                        "Authorization": "Bearer ${token}",
+                        "Content-Type": "application/json"
+                    },
+                    "requestBody": {},
+                    "responseMapping": {}
+                }
+            },
+            {
+                "name": "DataAnalysisSkill",
+                "type": "ai-powered",
+                "description": "Template for AI-powered data analysis",
+                "implementation": {
+                    "type": "LLM",
+                    "prompt": "Analyze the following data and provide insights: ${data}",
+                    "outputFormat": "structured"
+                }
+            },
+            {
+                "name": "WorkflowAutomationSkill",
+                "type": "automation",
+                "description": "Template for SAP Build automation",
+                "implementation": {
+                    "type": "SAP_BUILD",
+                    "workflowId": "workflow-id",
+                    "triggerConditions": [],
+                    "steps": []
+                }
+            }
+        ]
+    },
+    "integrations": {
+        "sap": {
+            "s4hana": {
+                "apiEndpoint": "https://<tenant>.s4hana.cloud.sap",
+                "authType": "OAuth2",
+                "commonAPIs": [
+                    "/API_BUSINESS_PARTNER/A_Supplier",
+                    "/API_PURCHASEORDER_PROCESS_SRV/A_PurchaseOrder",
+                    "/API_PURCHASING_CONTRACT_SRV/A_PurchasingContract"
+                ]
+            },
+            "successfactors": {
+                "apiEndpoint": "https://api.successfactors.com",
+                "authType": "OAuth2",
+                "commonAPIs": [
+                    "/odata/v2/User",
+                    "/odata/v2/PerPerson",
+                    "/odata/v2/OnboardingProcess"
+                ]
+            }
+        },
+        "thirdParty": {
+            "salesforce": {
+                "type": "mcp-server",
+                "capabilities": [
+                    "query",
+                    "create",
+                    "update"
+                ]
+            },
+            "microsoft365": {
+                "type": "copilot-integration",
+                "bidirectional": true
+            },
+            "slack": {
+                "type": "webhook",
+                "capabilities": [
+                    "send-message",
+                    "create-channel"
+                ]
+            }
+        }
+    },
+    "deployment": {
+        "environments": [
+            {
+                "name": "development",
+                "url": "https://dev.joule.studio",
+                "purpose": "Development and testing"
+            },
+            {
+                "name": "staging",
+                "url": "https://staging.joule.studio",
+                "purpose": "Pre-production validation"
+            },
+            {
+                "name": "production",
+                "url": "https://prod.joule.studio",
+                "purpose": "Live production environment"
+            }
+        ],
+        "cicd": {
+            "enabled": true,
+            "pipeline": "azure-devops|github-actions",
+            "stages": [
+                "build",
+                "test",
+                "deploy"
+            ]
+        }
+    },
+    "monitoring": {
+        "metrics": [
+            "totalRequests",
+            "activeUsers",
+            "avgResponseTime",
+            "successRate",
+            "errorRate",
+            "tasksAutomated",
+            "timeSaved",
+            "costSavings"
+        ],
+        "alerts": [
+            {
+                "condition": "errorRate > 5%",
+                "action": "notify-admin"
+            },
+            {
+                "condition": "avgResponseTime > 10s",
+                "action": "investigate-performance"
+            }
+        ]
+    },
+    "security": {
+        "authentication": "OAuth2",
+        "authorization": "RBAC",
+        "dataEncryption": {
+            "atRest": true,
+            "inTransit": true
+        },
+        "compliance": [
+            "GDPR",
+            "CCPA",
+            "SOC2"
+        ],
+        "auditLogging": true
+    }
+}

@@ -1,0 +1,475 @@
+{
+    "name": "ProcurementNegotiationAssistant",
+    "version": "1.0.0",
+    "description": "Helps procurement managers develop strategies to negotiate better pricing and terms with suppliers",
+    "metadata": {
+        "author": "Your Organization",
+        "created": "2025-11-19",
+        "lastModified": "2025-11-19",
+        "category": "Procurement",
+        "tags": [
+            "procurement",
+            "negotiation",
+            "supplier-management"
+        ]
+    },
+    "configuration": {
+        "purpose": "Analyze supplier performance, market pricing trends, and recommend negotiation strategies to procurement managers",
+        "role": "You are an expert procurement negotiation advisor with deep knowledge of supplier management, market analysis, and negotiation tactics. You help procurement managers make data-driven decisions to achieve better pricing and terms while maintaining supplier relationships.",
+        "instructions": [
+            "Analyze supplier performance data including on-time delivery, quality scores, and historical pricing",
+            "Research current market pricing trends and competitive landscape",
+            "Identify negotiation leverage points based on data analysis",
+            "Recommend specific negotiation strategies tailored to each supplier",
+            "Draft clear, professional negotiation talking points",
+            "Consider both short-term cost savings and long-term supplier relationships"
+        ],
+        "constraints": [
+            "Never negotiate with suppliers who have overdue deliveries without escalation",
+            "Always prioritize quality and reliability over price alone",
+            "Ensure all recommendations comply with company procurement policies",
+            "Escalate contracts valued over $1,000,000 for human approval",
+            "Maintain professional and respectful tone in all communications",
+            "Protect confidential supplier and pricing information"
+        ],
+        "guardrails": {
+            "maxContractValue": 1000000,
+            "requireApprovalAbove": 1000000,
+            "minimumQualityScore": 70,
+            "excludeSuppliersWithOverdueDeliveries": true
+        }
+    },
+    "dataSources": [
+        {
+            "id": "s4hana-suppliers",
+            "type": "SAP_S4HANA",
+            "connection": "s4hana-prod",
+            "entities": [
+                {
+                    "name": "Suppliers",
+                    "api": "/API_BUSINESS_PARTNER/A_Supplier",
+                    "fields": [
+                        "SupplierID",
+                        "SupplierName",
+                        "ContactEmail",
+                        "Status",
+                        "PaymentTerms"
+                    ]
+                },
+                {
+                    "name": "PurchaseOrders",
+                    "api": "/API_PURCHASEORDER_PROCESS_SRV/A_PurchaseOrder",
+                    "fields": [
+                        "PONumber",
+                        "SupplierID",
+                        "TotalValue",
+                        "DeliveryDate",
+                        "Status"
+                    ]
+                },
+                {
+                    "name": "Contracts",
+                    "api": "/API_PURCHASING_CONTRACT_SRV/A_PurchasingContract",
+                    "fields": [
+                        "ContractID",
+                        "SupplierID",
+                        "StartDate",
+                        "EndDate",
+                        "Value",
+                        "Terms"
+                    ]
+                }
+            ],
+            "accessLevel": "read-write",
+            "refreshInterval": "1h"
+        },
+        {
+            "id": "business-data-cloud",
+            "type": "BUSINESS_DATA_CLOUD",
+            "connection": "bdc-prod",
+            "datasets": [
+                {
+                    "name": "SupplierPerformance",
+                    "fields": [
+                        "SupplierID",
+                        "PerformanceScore",
+                        "OnTimeDeliveryRate",
+                        "QualityScore",
+                        "Period"
+                    ]
+                },
+                {
+                    "name": "MarketPricing",
+                    "fields": [
+                        "Category",
+                        "Region",
+                        "AveragePrice",
+                        "PriceRange",
+                        "Trend",
+                        "LastUpdated"
+                    ]
+                }
+            ],
+            "accessLevel": "read",
+            "refreshInterval": "24h"
+        }
+    ],
+    "knowledgeGraph": {
+        "domains": [
+            "Procurement",
+            "Finance",
+            "Logistics"
+        ],
+        "entities": [
+            "Supplier",
+            "Contract",
+            "PurchaseOrder",
+            "Product",
+            "PriceHistory"
+        ],
+        "relationships": [
+            {
+                "from": "Supplier",
+                "to": "Contract",
+                "type": "has_contract",
+                "properties": [
+                    "start_date",
+                    "end_date",
+                    "value"
+                ]
+            },
+            {
+                "from": "Contract",
+                "to": "PurchaseOrder",
+                "type": "generates",
+                "properties": [
+                    "po_number",
+                    "date"
+                ]
+            },
+            {
+                "from": "Supplier",
+                "to": "Product",
+                "type": "supplies",
+                "properties": [
+                    "price",
+                    "lead_time"
+                ]
+            }
+        ]
+    },
+    "skills": [
+        {
+            "id": "get-supplier-performance",
+            "name": "GetSupplierPerformance",
+            "description": "Retrieves comprehensive supplier performance metrics",
+            "type": "deterministic",
+            "implementation": {
+                "type": "API",
+                "method": "GET",
+                "endpoint": "/api/suppliers/{supplierId}/performance",
+                "authentication": "OAuth2"
+            },
+            "inputs": [
+                {
+                    "name": "supplierId",
+                    "type": "string",
+                    "required": true,
+                    "description": "Unique supplier identifier"
+                },
+                {
+                    "name": "timeRange",
+                    "type": "string",
+                    "required": false,
+                    "default": "12months",
+                    "description": "Time period for analysis (e.g., 6months, 12months, 24months)"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "performanceScore",
+                    "type": "number",
+                    "description": "Overall performance score (0-100)"
+                },
+                {
+                    "name": "onTimeDeliveryRate",
+                    "type": "number",
+                    "description": "Percentage of on-time deliveries"
+                },
+                {
+                    "name": "qualityScore",
+                    "type": "number",
+                    "description": "Quality rating (0-100)"
+                },
+                {
+                    "name": "totalOrders",
+                    "type": "number",
+                    "description": "Total number of orders in period"
+                },
+                {
+                    "name": "totalValue",
+                    "type": "number",
+                    "description": "Total value of orders in period"
+                }
+            ]
+        },
+        {
+            "id": "get-market-pricing",
+            "name": "GetMarketPricing",
+            "description": "Fetches current market pricing data for specific categories",
+            "type": "deterministic",
+            "implementation": {
+                "type": "API",
+                "method": "GET",
+                "endpoint": "/api/market/pricing",
+                "authentication": "OAuth2"
+            },
+            "inputs": [
+                {
+                    "name": "category",
+                    "type": "string",
+                    "required": true,
+                    "description": "Product category"
+                },
+                {
+                    "name": "region",
+                    "type": "string",
+                    "required": false,
+                    "default": "global",
+                    "description": "Geographic region"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "averagePrice",
+                    "type": "number",
+                    "description": "Average market price"
+                },
+                {
+                    "name": "priceRange",
+                    "type": "object",
+                    "description": "Min and max price range"
+                },
+                {
+                    "name": "trend",
+                    "type": "string",
+                    "description": "Price trend (increasing, decreasing, stable)"
+                },
+                {
+                    "name": "lastUpdated",
+                    "type": "string",
+                    "description": "Last update timestamp"
+                }
+            ]
+        },
+        {
+            "id": "analyze-negotiation-leverage",
+            "name": "AnalyzeNegotiationLeverage",
+            "description": "AI-powered analysis to identify negotiation leverage points",
+            "type": "ai-powered",
+            "implementation": {
+                "type": "LLM",
+                "model": "gpt-4",
+                "temperature": 0.7,
+                "maxTokens": 1500,
+                "systemPrompt": "Analyze the provided supplier and market data to identify key negotiation leverage points. Consider performance metrics, market conditions, contract terms, and competitive alternatives."
+            },
+            "inputs": [
+                {
+                    "name": "supplierData",
+                    "type": "object",
+                    "required": true,
+                    "description": "Supplier performance and contract data"
+                },
+                {
+                    "name": "marketData",
+                    "type": "object",
+                    "required": true,
+                    "description": "Market pricing and trend data"
+                },
+                {
+                    "name": "objectives",
+                    "type": "array",
+                    "required": false,
+                    "description": "Specific negotiation objectives"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "leveragePoints",
+                    "type": "array",
+                    "description": "List of identified leverage points"
+                },
+                {
+                    "name": "strengths",
+                    "type": "array",
+                    "description": "Your negotiation strengths"
+                },
+                {
+                    "name": "weaknesses",
+                    "type": "array",
+                    "description": "Potential weaknesses to address"
+                },
+                {
+                    "name": "recommendations",
+                    "type": "array",
+                    "description": "Strategic recommendations"
+                }
+            ]
+        },
+        {
+            "id": "generate-negotiation-strategy",
+            "name": "GenerateNegotiationStrategy",
+            "description": "Creates comprehensive negotiation strategy with talking points",
+            "type": "ai-powered",
+            "implementation": {
+                "type": "LLM",
+                "model": "gpt-4",
+                "temperature": 0.7,
+                "maxTokens": 2000,
+                "systemPrompt": "Generate a detailed negotiation strategy including specific talking points, target outcomes, and fallback positions. Be professional, data-driven, and strategic."
+            },
+            "inputs": [
+                {
+                    "name": "leverageAnalysis",
+                    "type": "object",
+                    "required": true,
+                    "description": "Output from leverage analysis"
+                },
+                {
+                    "name": "targetSavings",
+                    "type": "number",
+                    "required": false,
+                    "description": "Target cost savings percentage"
+                },
+                {
+                    "name": "priorities",
+                    "type": "array",
+                    "required": false,
+                    "description": "Negotiation priorities (price, quality, terms, etc.)"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "strategy",
+                    "type": "string",
+                    "description": "Overall negotiation strategy"
+                },
+                {
+                    "name": "talkingPoints",
+                    "type": "array",
+                    "description": "Specific talking points to use"
+                },
+                {
+                    "name": "targetOutcomes",
+                    "type": "object",
+                    "description": "Desired outcomes with metrics"
+                },
+                {
+                    "name": "fallbackPositions",
+                    "type": "array",
+                    "description": "Alternative positions if primary fails"
+                }
+            ]
+        }
+    ],
+    "llmConfiguration": {
+        "primaryModel": "gpt-4",
+        "fallbackModel": "gpt-3.5-turbo",
+        "temperature": 0.7,
+        "maxTokens": 2000,
+        "topP": 0.9,
+        "frequencyPenalty": 0.0,
+        "presencePenalty": 0.0
+    },
+    "integrations": [
+        {
+            "type": "email",
+            "purpose": "Send negotiation summaries and recommendations",
+            "config": {
+                "provider": "microsoft-exchange",
+                "templates": [
+                    "negotiation-summary",
+                    "approval-request"
+                ]
+            }
+        },
+        {
+            "type": "workflow",
+            "purpose": "Trigger approval workflows for high-value contracts",
+            "config": {
+                "provider": "sap-build-process-automation",
+                "workflows": [
+                    "contract-approval",
+                    "budget-check"
+                ]
+            }
+        }
+    ],
+    "testing": {
+        "testScenarios": [
+            {
+                "name": "Basic Supplier Analysis",
+                "prompt": "Analyze supplier ABC Corp's performance over the last year",
+                "expectedBehavior": "Retrieve performance data, calculate metrics, provide summary with recommendations",
+                "passCriteria": [
+                    "Response time < 5s",
+                    "All metrics present",
+                    "Actionable recommendations"
+                ]
+            },
+            {
+                "name": "Negotiation Strategy Generation",
+                "prompt": "Help me prepare for contract renewal with XYZ Supplier worth $500,000",
+                "expectedBehavior": "Analyze supplier and market data, identify leverage, generate strategy with talking points",
+                "passCriteria": [
+                    "Comprehensive strategy",
+                    "Data-driven insights",
+                    "Specific talking points"
+                ]
+            },
+            {
+                "name": "High-Value Contract Escalation",
+                "prompt": "Prepare negotiation for $2M contract with Supplier DEF",
+                "expectedBehavior": "Provide analysis but escalate to human approval due to value threshold",
+                "passCriteria": [
+                    "Escalation triggered",
+                    "Analysis provided",
+                    "Approval workflow initiated"
+                ]
+            }
+        ]
+    },
+    "monitoring": {
+        "metrics": [
+            "total_requests",
+            "avg_response_time",
+            "success_rate",
+            "user_satisfaction",
+            "cost_savings_generated"
+        ],
+        "alerts": [
+            {
+                "condition": "error_rate > 5%",
+                "action": "notify_admin",
+                "severity": "high"
+            },
+            {
+                "condition": "avg_response_time > 10s",
+                "action": "investigate_performance",
+                "severity": "medium"
+            }
+        ]
+    },
+    "security": {
+        "dataClassification": "confidential",
+        "accessControl": "role-based",
+        "allowedRoles": [
+            "procurement-manager",
+            "procurement-analyst",
+            "finance-director"
+        ],
+        "auditLogging": true,
+        "dataRetention": "7years"
+    }
+}

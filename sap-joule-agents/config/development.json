@@ -1,0 +1,71 @@
+{
+    "environment": "development",
+    "description": "Development environment configuration for SAP Joule agents",
+    "sapBTP": {
+        "region": "us10",
+        "subaccount": "dev-subaccount",
+        "url": "https://dev.joule.studio.sap",
+        "cloudFoundry": {
+            "apiEndpoint": "https://api.cf.us10.hana.ondemand.com",
+            "org": "dev-org",
+            "space": "dev-space"
+        }
+    },
+    "authentication": {
+        "type": "OAuth2",
+        "tokenUrl": "https://dev.authentication.us10.hana.ondemand.com/oauth/token",
+        "clientIdEnvVar": "SAP_CLIENT_ID_DEV",
+        "clientSecretEnvVar": "SAP_CLIENT_SECRET_DEV"
+    },
+    "integrations": {
+        "s4hana": {
+            "enabled": true,
+            "baseUrl": "https://dev.s4hana.cloud.sap",
+            "apiVersion": "v1",
+            "timeout": 30000
+        },
+        "successFactors": {
+            "enabled": false,
+            "baseUrl": "https://dev.successfactors.com",
+            "apiVersion": "v2"
+        },
+        "businessDataCloud": {
+            "enabled": true,
+            "baseUrl": "https://dev.businessdatacloud.sap",
+            "refreshInterval": "1h"
+        }
+    },
+    "llm": {
+        "provider": "openai",
+        "defaultModel": "gpt-3.5-turbo",
+        "fallbackModel": "gpt-3.5-turbo",
+        "maxTokens": 1000,
+        "temperature": 0.7,
+        "timeout": 30000
+    },
+    "monitoring": {
+        "enabled": true,
+        "logLevel": "debug",
+        "metricsEndpoint": "https://dev.metrics.sap",
+        "alerting": {
+            "enabled": false
+        }
+    },
+    "security": {
+        "dataEncryption": true,
+        "auditLogging": true,
+        "sessionTimeout": 3600,
+        "maxLoginAttempts": 5
+    },
+    "features": {
+        "multiAgentCollaboration": true,
+        "advancedAnalytics": false,
+        "customSkills": true,
+        "thirdPartyIntegrations": true
+    },
+    "limits": {
+        "maxRequestsPerMinute": 100,
+        "maxConcurrentUsers": 50,
+        "maxAgentResponseTime": 10000
+    }
+}

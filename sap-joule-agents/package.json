@@ -1,0 +1,14 @@
+{
+    "name": "sap-joule-agents",
+    "version": "1.0.0",
+    "description": "SAP Joule AI Agent System - Procurement Negotiation Assistant",
+    "main": "index.js",
+    "scripts": {
+        "test": "node tests/test-pilot.js"
+    },
+    "dependencies": {
+        "axios": "^1.6.0"
+    },
+    "author": "Your Organization",
+    "license": "ISC"
+}
