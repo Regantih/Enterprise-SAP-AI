@@ -189,13 +189,11 @@ class InteractiveRecruiter:
                 "status": "CONTINUE"
             }
             
-        # Here we would strictly evaluate the answer. 
-        # For this 'Working Solution', we assume the candidate gives a valid attempt 
-        # if the length is sufficient, but in a full version, we'd use self.engine._score_text.
-        
-        if len(answer) < 5:
-            return {
-                "message": "INPUT INSUFFICIENT. DATA PACKET TOO SMALL. PLEASE ELABORATE.",
+        # VIDEO-FIRST LOGIC:
+        # We expect a specific signal that the video has been uploaded.
+        if answer != "VIDEO_UPLOAD_COMPLETE":
+             return {
+                "message": "PROTOCOL VIOLATION. VIDEO EVIDENCE REQUIRED.",
                 "next_stage": current_stage,
                 "status": "RETRY"
             }

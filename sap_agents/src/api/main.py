@@ -48,20 +48,50 @@ class RecruitmentStore:
     def __init__(self):
         self.engine = RecruitmentIntelligence()
         self.candidates = []
+        self.sessions = {} # Temporary storage for active interviews: {session_id: {data}}
 
-    def submit_candidate(self, name: str, role: str, video_path: str, evaluation: dict):
-        # Store Record
+    def add_segment(self, session_id: str, stage: str, video_path: str, metadata: dict):
+        if session_id not in self.sessions:
+            self.sessions[session_id] = {"segments": {}, "metadata": {}}
+        
+        self.sessions[session_id]["segments"][stage] = video_path
+        # Update metadata if provided
+        if metadata.get("name"): 
+            self.sessions[session_id]["metadata"].update(metadata)
+            
+        print(f"Session {session_id}: Saved {stage} to {video_path}")
+        return self.sessions[session_id]
+
+    def submit_final_candidate(self, session_id: str):
+        session = self.sessions.get(session_id)
+        if not session:
+            return None
+            
+        meta = session["metadata"]
+        segments = session["segments"]
+        
+        # Default responses for MVP (since we don't have text anymore)
+        # In a real system, we'd transcribe the videos.
+        evaluation = self.engine.evaluate_candidate_4pillar(
+            interest_response="Video Uploaded",
+            iq_response="Video Uploaded",
+            eq_response="Video Uploaded",
+            drive_response="Video Uploaded"
+        )
+        
         record = {
             "id": f"ID-{len(self.candidates) + 1001}",
-            "name": name,
+            "name": meta.get("name", "Unknown Candidate"),
             "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            "role": role,
-            "video_uplink": video_path,
+            "role": meta.get("role", "Applicant"),
+            "video_uplink": segments.get("protocol_04_drive", ""), # Main display video
+            "segments": segments,
             "evaluation": evaluation
         }
         
-        # Prepend to list (newest first)
         self.candidates.insert(0, record)
+        # Cleanup session
+        del self.sessions[session_id]
         return record
 
     def get_latest(self, count: int = 5):
@@ -76,39 +106,38 @@ os.makedirs(UPLOAD_DIR, exist_ok=True)
 
 # Submit Candidate Endpoint (Video Uplink)
 @app.post("/api/recruitment/upload")
-async def upload_video_uplink(
-    name: str = Form(...),
-    role: str = Form(...),
-    origin_response: str = Form(...),
-    iq_response: str = Form(...),
-    eq_response: str = Form(...),
+async def upload_video_segment(
+    session_id: str = Form(...),
+    stage: str = Form(...), # e.g., 'protocol_01_origin'
+    name: str = Form(None),
+    role: str = Form(None),
     video: UploadFile = File(...)
 ):
     """
-    Receives the FINAL Video Manifesto + Metadata.
+    Receives a video segment for a specific stage.
     """
     # 1. Save Video
-    file_location = f"{UPLOAD_DIR}/{video.filename}"
+    file_location = f"{UPLOAD_DIR}/{session_id}_{stage}.webm"
     with open(file_location, "wb+") as file_object:
         shutil.copyfileobj(video.file, file_object)
     
-    # 2. Run AI Evaluation (On Text Context for now, Video analysis is future)
-    evaluation = recruitment_system.engine.evaluate_candidate_4pillar(
-        interest_response=origin_response, 
-        iq_response=iq_response,
-        eq_response=eq_response,
-        drive_response=origin_response 
-    )
+    # 2. Add to Session
+    metadata = {}
+    if name: metadata["name"] = name
+    if role: metadata["role"] = role
     
-    # 3. Submit to Store
-    result = recruitment_system.submit_candidate(name, role, file_location, evaluation)
+    recruitment_system.add_segment(session_id, stage, file_location, metadata)
     
-    return {"status": "success", "data": result}
-
-# Recruitment Live Feed (For the Ops Dashboard)
+    # 3. If Last Stage, Finalize
+    result = None
+    if stage == "protocol_04_drive":
+         result = recruitment_system.submit_final_candidate(session_id)
+    
+    return {"status": "success", "stage": stage, "final_result": result}
+    
 @app.get("/api/recruitment/live")
 async def get_recruitment_feed(count: int = 5):
-    """Returns the REAL candidate list (no longer simulated)."""
+    """Returns the REAL candidate list."""
     return {
         "status": "success",
         "timestamp": "LIVE",
