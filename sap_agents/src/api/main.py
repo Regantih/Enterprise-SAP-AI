@@ -1,7 +1,9 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, File, UploadFile, Form
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 import os
+import shutil
+from datetime import datetime
 from pydantic import BaseModel
 
 from src.api.routes import feedback, health
@@ -47,21 +49,14 @@ class RecruitmentStore:
         self.engine = RecruitmentIntelligence()
         self.candidates = []
 
-    def submit_candidate(self, sub: RecruitmentSubmission):
-        # 1. Run AI Evaluation
-        evaluation = self.engine.evaluate_candidate_4pillar(
-            interest_response=sub.origin_response, 
-            iq_response=sub.iq_response,
-            eq_response=sub.eq_response,
-            drive_response=sub.origin_response # Using Origin for Drive too as per Protocol 1
-        )
-        
-        # 2. Store Record
+    def submit_candidate(self, name: str, role: str, video_path: str, evaluation: dict):
+        # Store Record
         record = {
             "id": f"ID-{len(self.candidates) + 1001}",
-            "name": sub.name,
-            "timestamp": "Just Now",
-            "role": sub.role,
+            "name": name,
+            "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "role": role,
+            "video_uplink": video_path,
             "evaluation": evaluation
         }
         
@@ -75,11 +70,39 @@ class RecruitmentStore:
 # Global Store Instance
 recruitment_system = RecruitmentStore()
 
-# Submit Candidate Endpoint (Real Data Ingest)
-@app.post("/api/recruitment/submit")
-async def submit_application(submission: RecruitmentSubmission):
-    """Receives real candidate data from the frontend form."""
-    result = recruitment_system.submit_candidate(submission)
+# Ensure Uploads Directory Exists
+UPLOAD_DIR = "data/uploads"
+os.makedirs(UPLOAD_DIR, exist_ok=True)
+
+# Submit Candidate Endpoint (Video Uplink)
+@app.post("/api/recruitment/upload")
+async def upload_video_uplink(
+    name: str = Form(...),
+    role: str = Form(...),
+    origin_response: str = Form(...),
+    iq_response: str = Form(...),
+    eq_response: str = Form(...),
+    video: UploadFile = File(...)
+):
+    """
+    Receives the FINAL Video Manifesto + Metadata.
+    """
+    # 1. Save Video
+    file_location = f"{UPLOAD_DIR}/{video.filename}"
+    with open(file_location, "wb+") as file_object:
+        shutil.copyfileobj(video.file, file_object)
+    
+    # 2. Run AI Evaluation (On Text Context for now, Video analysis is future)
+    evaluation = recruitment_system.engine.evaluate_candidate_4pillar(
+        interest_response=origin_response, 
+        iq_response=iq_response,
+        eq_response=eq_response,
+        drive_response=origin_response 
+    )
+    
+    # 3. Submit to Store
+    result = recruitment_system.submit_candidate(name, role, file_location, evaluation)
+    
     return {"status": "success", "data": result}
 
 # Recruitment Live Feed (For the Ops Dashboard)
