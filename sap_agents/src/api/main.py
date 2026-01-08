@@ -82,6 +82,7 @@ class RecruitmentStore:
         record = {
             "id": f"ID-{len(self.candidates) + 1001}",
             "name": meta.get("name", "Unknown Candidate"),
+            "email": meta.get("email", "Not Provided"),
             "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             "role": meta.get("role", "Applicant"),
             "video_uplink": segments.get("protocol_04_drive", ""), # Main display video
@@ -111,6 +112,7 @@ async def upload_video_segment(
     stage: str = Form(...), # e.g., 'protocol_01_origin'
     name: str = Form(None),
     role: str = Form(None),
+    email: str = Form(None),
     video: UploadFile = File(...)
 ):
     """
@@ -125,6 +127,7 @@ async def upload_video_segment(
     metadata = {}
     if name: metadata["name"] = name
     if role: metadata["role"] = role
+    if email: metadata["email"] = email
     
     recruitment_system.add_segment(session_id, stage, file_location, metadata)
     
