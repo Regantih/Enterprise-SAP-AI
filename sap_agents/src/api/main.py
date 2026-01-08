@@ -6,9 +6,8 @@ from pydantic import BaseModel
 
 from src.api.routes import feedback, health
 from src.core.engine import engine
+from src.core.recruitment_engine import RecruitmentIntelligence
 
-class ChatRequest(BaseModel):
-    message: str
 
 app = FastAPI(
     title="Enterprise AI Platform API",
@@ -28,6 +27,91 @@ app.add_middleware(
 # Include Routers (Feedback & Health only)
 app.include_router(feedback.router, prefix="/api", tags=["Feedback"])
 app.include_router(health.router, prefix="/api", tags=["Health"])
+
+class ChatRequest(BaseModel):
+    message: str
+
+class RecruitmentSubmission(BaseModel):
+    name: str # Candidate Name (Destination ID)
+    role: str # Target Role
+    origin_response: str # Answer to Protocol 1 (Interest/Drive)
+    iq_response: str # Answer to Protocol 2 (IQ)
+    eq_response: str # Answer to Protocol 3 (EQ)
+
+class RecruitmentStore:
+    """
+    In-Memory Database for Live Recruitment.
+    Stores real candidates submitted via the frontend.
+    """
+    def __init__(self):
+        self.engine = RecruitmentIntelligence()
+        self.candidates = []
+
+    def submit_candidate(self, sub: RecruitmentSubmission):
+        # 1. Run AI Evaluation
+        evaluation = self.engine.evaluate_candidate_4pillar(
+            interest_response=sub.origin_response, 
+            iq_response=sub.iq_response,
+            eq_response=sub.eq_response,
+            drive_response=sub.origin_response # Using Origin for Drive too as per Protocol 1
+        )
+        
+        # 2. Store Record
+        record = {
+            "id": f"ID-{len(self.candidates) + 1001}",
+            "name": sub.name,
+            "timestamp": "Just Now",
+            "role": sub.role,
+            "evaluation": evaluation
+        }
+        
+        # Prepend to list (newest first)
+        self.candidates.insert(0, record)
+        return record
+
+    def get_latest(self, count: int = 5):
+        return self.candidates[:count]
+
+# Global Store Instance
+recruitment_system = RecruitmentStore()
+
+# Submit Candidate Endpoint (Real Data Ingest)
+@app.post("/api/recruitment/submit")
+async def submit_application(submission: RecruitmentSubmission):
+    """Receives real candidate data from the frontend form."""
+    result = recruitment_system.submit_candidate(submission)
+    return {"status": "success", "data": result}
+
+# Recruitment Live Feed (For the Ops Dashboard)
+@app.get("/api/recruitment/live")
+async def get_recruitment_feed(count: int = 5):
+    """Returns the REAL candidate list (no longer simulated)."""
+    return {
+        "status": "success",
+        "timestamp": "LIVE",
+        "data": recruitment_system.get_latest(count)
+    }
+
+
+
+
+
+class InterviewInteraction(BaseModel):
+    session_id: str
+    current_stage: str # "start", "protocol_01...", etc.
+    message: str # Candidate's answer
+
+# Global Recruiter Instance
+from src.core.recruitment_engine import InteractiveRecruiter
+interrogator = InteractiveRecruiter()
+
+@app.post("/api/interview/interact")
+async def interact_with_recruiter(interaction: InterviewInteraction):
+    """
+    Handles the chat turn. Use 'start' as current_stage for the initial greeting.
+    """
+    response = interrogator.interact(interaction.current_stage, interaction.message)
+    return response
 
 # Chat Endpoint (Using Reasoning Engine)
 @app.post("/api/chat")
@@ -89,6 +173,8 @@ async def get_demo_data():
         "sample_vendor": sample_vendor.get("name", "Acme Corp"),
         "sample_plant": "Berlin"
     }
+
+
 
 # Mount Static Files (Serve v7.html)
 static_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))

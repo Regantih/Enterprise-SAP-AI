@@ -1,0 +1,21 @@
+# Aperture Platform Requirements
+# ===============================
+
+# Core dependencies
+numpy>=1.24.0
+scipy>=1.10.0
+
+# Optional GPU acceleration (uncomment if using GPU)
+# cupy-cuda12x>=12.0.0
+# torch>=2.0.0
+
+# Image processing
+# rasterio>=1.3.0  # For geospatial data (requires GDAL)
+
+# Web server (using stdlib http.server, no extra deps needed)
+
+# Testing
+pytest>=7.0.0
+
+# Development
+# jupyter>=1.0.0
